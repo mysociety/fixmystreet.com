@@ -1,0 +1,32 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+use CSS::Sass;
+use Path::Tiny;
+use Try::Tiny;
+
+my $sass = CSS::Sass->new(output_style => SASS_STYLE_COMPRESSED);
+
+my $file = shift;
+my $output_file = shift;
+my ($css, $stats) = $sass->compile_file($file);
+my $written = write_if_different($output_file, $css);
+
+# Write a file, only if it has changed.
+sub write_if_different {
+    my ($fn, $data) = @_;
+    $fn = path($fn);
+    my $current = try {
+        $fn->slurp_utf8;
+    } catch {
+        return if $_->{err} eq 'No such file or directory';
+        die $_;
+    };
+    if (!$current || $current ne $data) {
+        $fn->spew_utf8($data);
+        return 1;
+    }
+    return 0;
+}

@@ -1,0 +1,33 @@
+use File::Find::Rule;
+use File::Basename;
+use feature 'say';
+
+my $ROOT = '.';
+
+my @dirs = File::Find::Rule->directory->maxdepth(1)->in("$ROOT/web/cobrands/");
+
+my @files = File::Find::Rule
+	->file()
+	->name('*.js')
+	->not_name('*.min.*')
+	->maxdepth(1)
+	->in(
+		"$ROOT/web/js",
+		@dirs,
+	);
+
+push @files, "$ROOT/web/vendor/OpenLayers.Projection.OrdnanceSurvey.js";
+
+foreach (@files) {
+	# (my $filename = $_) =~ s/\Q$ROOT\E//;
+
+	(my $compiled = $_) =~ s/\.js$/.auto.min.js/;
+	my $mtime_file = (stat($_))[9];
+	my $mtime_compiled = (stat($compiled))[9] || 0;
+	if ($mtime_file > $mtime_compiled) {
+		#say "Compiling $filename...";
+		say "Compiling $_...";
+		`java -jar ../fixmystreet.com/closure-compiler-v20170910.jar --rewrite_polyfills false --js $_ > $compiled.new`;
+		rename("$compiled.new", $compiled) if -s "$compiled.new";
+	}
+}

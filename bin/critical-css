@@ -1,0 +1,16 @@
+# The new timestamped deploy directory
+NEWHOME=$(pwd)
+
+# Where the .com code is
+CODEDIR=../fixmystreet.com
+
+echo "Compiling critical CSS"
+TMP=$(mktemp -d)
+../node/bin/node $CODEDIR/critical.js > $TMP/critical.auto.css
+
+echo "Compressing critical CSS"
+bin/cron-wrapper perl $CODEDIR/bin/make_css $TMP/critical.auto.css $TMP/critical.auto.min.css
+
+echo "Copying to live site location"
+mv $TMP/critical.auto.min.css $NEWHOME/templates/web/fixmystreet.com/header/
+rm -rf $TMP
