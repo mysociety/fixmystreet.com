@@ -26,7 +26,7 @@ foreach (@files) {
     if (-l "../fixmystreet" && -e "../fixmystreet/$compiled") {
         my $diff = system("diff -q ../fixmystreet/$_ $_");
         unless ($diff >> 8) {
-            `cp -p ../fixmystreet/$compiled $compiled`;
+            `cp ../fixmystreet/$compiled $compiled`;
             say "Copying across previous $_, source same";
             next;
         }
