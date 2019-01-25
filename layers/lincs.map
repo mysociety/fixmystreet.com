@@ -1,0 +1,194 @@
+MAP
+  NAME "FMS_WFS_server"
+  STATUS ON
+  SIZE 400 300
+  #SYMBOLSET "../etc/symbols.txt"
+  EXTENT -180 -90 180 90
+  UNITS DD
+  SHAPEPATH "../../layers"
+  IMAGECOLOR 255 255 255
+  #FONTSET "../etc/fonts.txt"
+
+  OUTPUTFORMAT
+    NAME "geojson"
+    DRIVER "OGR/GEOJSON"
+    MIMETYPE "application/json; subtype=geojson"
+    FORMATOPTION "STORAGE=stream"
+    FORMATOPTION "FORM=SIMPLE"
+  END
+
+
+  #
+  # Start of web interface definition
+  #
+  WEB
+    IMAGEPATH "/ms4w/tmp/ms_tmp/"
+    IMAGEURL "/ms_tmp/"
+    METADATA
+      "wfs_title"          "WFS Demo Server for MapServer" ## REQUIRED
+      # "wfs_onlineresource" "https://confirmdev.eu.ngrok.io/localmaps/?" ## Recommended
+      "wfs_srs"            "EPSG:3857 EPSG:27700" ## Recommended
+      #"wfs_abstract"       "This text describes my WFS service." ## Recommended
+      "wfs_enable_request" "* !GetCapabilities"  # necessary
+      "wfs_getfeature_formatlist" "geojson"
+    END
+  END
+
+  #
+  # Start of layer definitions
+  #
+
+  LAYER
+    NAME "SL_Bollards"
+    METADATA
+      "wfs_title"         "Bollards" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "Confirm_CA,Asset_Id,Maintained,Type" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "* !GetCapabilities"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'lincs/SL_Bollards'
+    PROJECTION
+      "init=epsg:3857"
+    END
+  END #layer
+
+  LAYER
+    NAME "SL_Street_Light_Units"
+    METADATA
+      "wfs_title"         "Street Light Units" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "Confirm_CA,Asset_Id,Maintained,Type" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "* !GetCapabilities"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'lincs/SL_Street_Light_Units'
+    PROJECTION
+      "init=epsg:3857"
+    END
+  END #layer
+
+  LAYER
+    NAME "LCC_Drainage-GulliesOffletsManholes"
+    METADATA
+      "wfs_title"         "Gullies/Offlets/Manholes" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "Confirm_CA,Asset_Id,Maintained,Type" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "* !GetCapabilities"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'lincs/LCC_Drainage-GulliesOffletsManholes'
+    PROJECTION
+      "init=epsg:3857"
+    END
+  END #layer
+
+  LAYER
+    NAME "SL_Lit_Signs"
+    METADATA
+      "wfs_title"         "Signs (lit)" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "Confirm_CA,Asset_Id,Maintained,Type" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "* !GetCapabilities"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'lincs/SL_Lit_Signs'
+    PROJECTION
+      "init=epsg:3857"
+    END
+  END #layer
+
+  LAYER
+    NAME "ST_All_Structures"
+    METADATA
+      "wfs_title"         "Structures" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "Confirm_CA,Asset_Id,Maintained,Type" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "* !GetCapabilities"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'lincs/ST_All_Structures'
+    PROJECTION
+      "init=epsg:3857"
+    END
+  END #layer
+
+  LAYER
+    NAME "Safety_Barriers"
+    METADATA
+      "wfs_title"         "Safety Barriers" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "Confirm_CA,Asset_Id,Maintained,Type" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "* !GetCapabilities"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'lincs/Safety_Barriers'
+    PROJECTION
+      "init=epsg:3857"
+    END
+  END #layer
+
+  LAYER
+    NAME "NSG"
+    METADATA
+      "wfs_title"         "NSG" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "Site_Code" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "* !GetCapabilities"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'lincs/NSG'
+    PROJECTION
+      "init=epsg:3857"
+    END
+  END #layer
+
+  LAYER
+    NAME "Carriageway"
+    METADATA
+      "wfs_title"         "Carriageway" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "Confirm_CA,Asset_Id" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "* !GetCapabilities"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'lincs/Carriageway'
+    PROJECTION
+      "init=epsg:3857"
+    END
+  END #layer
+
+  LAYER
+    NAME "LLPG"
+    METADATA
+      "wfs_title"         "LLPG" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "uprn,label" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "ogc_fid" ## REQUIRED
+      "wfs_enable_request" "* !GetCapabilities"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'lincs/LLPG'
+    PROJECTION
+      "init=epsg:3857"
+    END
+  END #layer
+
+END #mapfile

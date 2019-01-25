@@ -1,0 +1,335 @@
+MAP
+  NAME "FMS_WFS_server"
+  STATUS ON
+  SIZE 400 300
+  #SYMBOLSET "../etc/symbols.txt"
+  EXTENT -180 -90 180 90
+  UNITS DD
+  SHAPEPATH "../../layers"
+  IMAGECOLOR 255 255 255
+  #FONTSET "../etc/fonts.txt"
+
+  OUTPUTFORMAT
+    NAME "geojson"
+    DRIVER "OGR/GEOJSON"
+    MIMETYPE "application/json; subtype=geojson"
+    FORMATOPTION "STORAGE=stream"
+    FORMATOPTION "FORM=SIMPLE"
+  END
+
+
+  #
+  # Start of web interface definition
+  #
+  WEB
+    IMAGEPATH "/ms4w/tmp/ms_tmp/"
+    IMAGEURL "/ms_tmp/"
+    METADATA
+      "wfs_title"          "WFS Demo Server for MapServer" ## REQUIRED
+      # "wfs_onlineresource" "https://confirmdev.eu.ngrok.io/localmaps/?" ## Recommended
+      "wfs_srs"            "EPSG:3857 EPSG:27700" ## Recommended
+      #"wfs_abstract"       "This text describes my WFS service." ## Recommended
+      "wfs_enable_request" "*"  # necessary
+      "wfs_getfeature_formatlist" "geojson"
+    END
+  END
+
+  #
+  # Start of layer definitions
+  #
+
+  LAYER
+    NAME "Gullies"
+    METADATA
+      "wfs_title"         "Gullies" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "site_code,central_as" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bucks/Gullies'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Crossings"
+    METADATA
+      "wfs_title"         "Crossings" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_no,site_code,central_as" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bucks/Crossings'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Beacon_Column"
+    METADATA
+      "wfs_title"         "Beacon_Column" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "Feature_id,site_code,central_as" ## Optional (serves all attributes for layer)
+      "gml_cntrl_ass_alias" "central_as"
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bucks/SL_BeaconandColumn'
+    PROJECTION
+      "init=epsg:3857"
+    END
+  END #layer
+
+  LAYER
+    NAME "Beacons"
+    METADATA
+      "wfs_title"         "Beacons" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "Feature_id,site_code,central_as" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bucks/SL_Beacon'
+    PROJECTION
+      "init=epsg:3857"
+    END
+  END #layer
+
+  LAYER
+    NAME "Grit_Bins"
+    METADATA
+      "wfs_title"         "Grit Bins" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "site_code,central_as" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bucks/Grit_Bins'
+    PROJECTION
+      "init=epsg:3857"
+    END
+  END #layer
+
+  LAYER
+    NAME "IlluminatedBollards"
+    METADATA
+      "wfs_title"         "IlluminatedBollards" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "feature_id,site_code,central_as" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bucks/Illuminated_Bollards'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Bollards"
+    METADATA
+      "wfs_title"         "Bollards" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "feature_id,site_code,central_as" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bucks/SL_Bollard'
+    PROJECTION
+      "init=epsg:3857"
+    END
+  END #layer
+
+  LAYER
+    NAME "StreetLights_Merged"
+    METADATA
+      "wfs_title"         "Street Lighting" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "Feature_id,Site_code,central_as" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bucks/StreetLights_Merged'
+    PROJECTION
+      "init=epsg:3857"
+    END
+  END #layer
+
+LAYER
+  NAME "StreetLights_Union"
+    METADATA
+      "wfs_title"         "Street Lighting" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "feature_id,site_code,central_as" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "feature_id" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+  TYPE POINT
+  STATUS ON
+  PROCESSING "ITEMS=feature_id,site_code,central_as"
+  CONNECTIONTYPE UNION
+  CONNECTION "StreetLights,WallBrackets,PoleBrackets"
+    PROJECTION
+      "init=epsg:3857"
+    END
+END
+
+  LAYER
+    NAME "StreetLights"
+    METADATA
+      "wfs_title"         "Street Lighting" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "Feature_id,Site_code,central_as" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "Feature_id" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bucks/SL-Street_lamp'
+    PROJECTION
+      "init=epsg:3857"
+    END
+  END #layer
+
+  LAYER
+    NAME "WallBrackets"
+    METADATA
+      "wfs_title"         "Street Lighting" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "Feature_id,Site_code,central_as" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "Feature_id" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bucks/SL_Wall_Bracket'
+    PROJECTION
+      "init=epsg:3857"
+    END
+  END #layer
+
+  LAYER
+    NAME "PoleBrackets"
+    METADATA
+      "wfs_title"         "Street Lighting" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "Feature_id,Site_code,central_as" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "Feature_id" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bucks/SL_Pole_Bracket'
+    PROJECTION
+      "init=epsg:3857"
+    END
+  END #layer
+
+    LAYER
+      NAME "Signs_Union"
+        METADATA
+          "wfs_title"         "Signs" ##REQUIRED
+          "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+          "gml_include_items" "feature_id,site_code,central_as" ## Optional (serves all attributes for layer)
+          "gml_featureid"     "feature_id" ## REQUIRED
+          "wfs_enable_request" "*"
+        END
+      TYPE POINT
+      STATUS ON
+      PROCESSING "ITEMS=feature_id,site_code,central_as"
+      CONNECTIONTYPE UNION
+      CONNECTION "School_Flashing_Signs,Illuminated_Signs"
+        PROJECTION
+          "init=epsg:27700"
+        END
+    END
+
+  LAYER
+    NAME "School_Flashing_Signs"
+    METADATA
+      "wfs_title"         "School Flashing Signs" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "Feature_id,Site_code,central_as" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "Feature_id" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bucks/School_Flashing_Signs'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Illuminated_Signs"
+    METADATA
+      "wfs_title"         "Illuminated Signs" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "Feature_id,Site_code,central_as" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "Feature_id" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bucks/Illuminated_Signs'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Whole_Street"
+    METADATA
+      "wfs_title"         "Whole Street" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "all" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bucks/Whole_Street_Asset'
+    PROJECTION
+      "init=epsg:3857"
+    END
+  END #layer
+
+  LAYER
+    NAME "WinterRoutes"
+    METADATA
+      "wfs_title"         "Winter Routes" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE LINE
+    STATUS ON
+    DATA 'bucks/WinterRoutes'
+    PROJECTION
+      "init=epsg:3857"
+    END
+  END #layer
+
+END #mapfile
