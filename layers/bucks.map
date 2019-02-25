@@ -61,7 +61,8 @@ MAP
       "wfs_title"         "Crossings" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "asset_no,site_code,central_as" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "fid" ## REQUIRED
+      "gml_Central_as_alias" "central_as"
+      "gml_featureid"     "Central_as" ## REQUIRED
       "wfs_enable_request" "*"
     END
     TYPE POINT
@@ -77,9 +78,9 @@ MAP
     METADATA
       "wfs_title"         "Beacon_Column" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "Feature_id,site_code,central_as" ## Optional (serves all attributes for layer)
-      "gml_cntrl_ass_alias" "central_as"
-      "gml_featureid"     "fid" ## REQUIRED
+      "gml_include_items" "Feature_id,site_code,centrl_ass" ## Optional (serves all attributes for layer)
+      "gml_centrl_ass_alias" "central_as"
+      "gml_featureid"     "centrl_ass" ## REQUIRED
       "wfs_enable_request" "*"
     END
     TYPE POINT
@@ -96,7 +97,8 @@ MAP
       "wfs_title"         "Beacons" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "Feature_id,site_code,central_as" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "fid" ## REQUIRED
+      "gml_Central_as_alias" "central_as"
+      "gml_featureid"     "Central_as" ## REQUIRED
       "wfs_enable_request" "*"
     END
     TYPE POINT
