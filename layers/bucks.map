@@ -56,9 +56,27 @@ MAP
   END #layer
 
   LAYER
-    NAME "Crossings"
+    NAME "Traffic_Signal_Sets"
     METADATA
-      "wfs_title"         "Crossings" ##REQUIRED
+      "wfs_title"         "Traffic_Signal_Sets" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_no,site_code,central_as" ## Optional (serves all attributes for layer)
+      "gml_Central_as_alias" "central_as"
+      "gml_featureid"     "Central_as" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bucks/Traffic_Signal_Sets'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "CrossingsSHP"
+    METADATA
+      "wfs_title"         "CrossingsSHP" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "asset_no,site_code,central_as" ## Optional (serves all attributes for layer)
       "gml_Central_as_alias" "central_as"
@@ -72,6 +90,26 @@ MAP
       "init=epsg:27700"
     END
   END #layer
+
+  LAYER
+    NAME "Crossings"
+    METADATA
+      "wfs_title"         "Crossings" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_no,site_code,central_as" ## Optional (serves all attributes for layer)
+      "gml_Central_as_alias" "central_as"
+      "gml_featureid"     "Central_as" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    PROCESSING "ITEMS=asset_no,site_code,central_as"
+    CONNECTIONTYPE UNION
+    CONNECTION "CrossingsSHP,Traffic_Signal_Sets"
+    PROJECTION
+      "init=epsg:27700"
+    END
+END
 
   LAYER
     NAME "Beacon_Column"
