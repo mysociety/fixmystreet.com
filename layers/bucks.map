@@ -343,15 +343,17 @@ END
     METADATA
       "wfs_title"         "Whole Street" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "all" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "fid" ## REQUIRED
+      "gml_include_items" "site_code,feature_type_code" ## Optional (serves all attributes for layer)
+      "gml_feature_type_code_alias" "feature_ty"
+      "gml_featureid"     "central_asset_id" ## REQUIRED
       "wfs_enable_request" "*"
     END
-    TYPE POINT
+    TYPE LINE
     STATUS ON
-    DATA 'bucks/Whole_Street_Asset'
+    CONNECTIONTYPE OGR
+    CONNECTION "bucks/WholeStreetAsset.TAB"
     PROJECTION
-      "init=epsg:3857"
+      "init=epsg:27700"
     END
   END #layer
 
