@@ -16,7 +16,7 @@ MAP
     NAME "Streets"
     METADATA
       "wfs_title"         "Streets" ##REQUIRED
-      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "NSG_REF"
       "gml_featureid"     "NSG_REF" ## REQUIRED
       "wfs_enable_request" "*"
