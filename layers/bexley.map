@@ -20,6 +20,7 @@ MAP
       "gml_include_items" "NSG_REF"
       "gml_featureid"     "NSG_REF" ## REQUIRED
       "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
     END
     TYPE LINE
     STATUS ON
