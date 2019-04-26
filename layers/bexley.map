@@ -30,4 +30,41 @@ MAP
     END
   END #layer
 
+  LAYER
+    NAME "Bollards"
+    METADATA
+      "wfs_title"         "Bollards" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "Unit_ID"
+      "gml_featureid"     "Unit_ID" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bexley/Bollards'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Lighting"
+    METADATA
+      "wfs_title"         "Lighting" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "SYMLINK"
+      "gml_featureid"     "SYMLINK" ## REQUIRED
+      "gml_SYMLINK_alias" "Unit_ID"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bexley/Lighting'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
 END #mapfile
