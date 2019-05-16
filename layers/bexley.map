@@ -35,7 +35,7 @@ MAP
     METADATA
       "wfs_title"         "Bollards" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "Unit_ID"
+      "gml_include_items" "Unit_ID,Unit_No"
       "gml_featureid"     "Unit_ID" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
@@ -53,9 +53,10 @@ MAP
     METADATA
       "wfs_title"         "Lighting" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "SYMLINK"
+      "gml_include_items" "SYMLINK,UNITNO"
       "gml_featureid"     "SYMLINK" ## REQUIRED
       "gml_SYMLINK_alias" "Unit_ID"
+      "gml_UNITNO_alias" "Unit_No"
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
     END
