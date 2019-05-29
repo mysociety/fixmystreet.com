@@ -68,4 +68,22 @@ MAP
     END
   END #layer
 
+  LAYER
+    NAME "Toilets"
+    METADATA
+      "wfs_title"         "Toilets" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "Address"
+      "gml_featureid"     "Address" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bexley/Public Conveniences'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
 END #mapfile
