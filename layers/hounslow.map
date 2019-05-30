@@ -1,0 +1,109 @@
+MAP
+  NAME "Hounslow"
+  STATUS ON
+  EXTENT -180 -90 180 90
+
+  OUTPUTFORMAT
+    NAME "geojson"
+    DRIVER "OGR/GEOJSON"
+    MIMETYPE "application/json; subtype=geojson"
+    FORMATOPTION "STORAGE=stream"
+    FORMATOPTION "FORM=SIMPLE"
+  END
+
+  LAYER
+    NAME "bins"
+    METADATA
+      "wfs_title"         "bins" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "FeatureId,CentralAssetId" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "* !GetCapabilities"  # necessary
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION '../../layers/hounslow/bins.gpkg'
+    DATA 'bins'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "lighting"
+    METADATA
+      "wfs_title"         "lighting" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "FeatureId,CentralAssetId" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "* !GetCapabilities"  # necessary
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION '../../layers/hounslow/lighting.gpkg'
+    DATA 'lighting'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "signs"
+    METADATA
+      "wfs_title"         "signs" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "FeatureId,CentralAssetId" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "* !GetCapabilities"  # necessary
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION '../../layers/hounslow/signs.gpkg'
+    DATA 'signs'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "trees"
+    METADATA
+      "wfs_title"         "trees" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "FeatureId,CentralAssetId" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "* !GetCapabilities"  # necessary
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION '../../layers/hounslow/trees.gpkg'
+    DATA 'trees'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "streets"
+    METADATA
+      "wfs_title"         "streets" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "SITE_CODE" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "* !GetCapabilities"  # necessary
+    END
+    TYPE LINE
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION '../../layers/hounslow/streets.gpkg'
+    DATA 'streets'
+    PROJECTION
+      "init=epsg:3857"
+    END
+  END #layer
+
+END #mapfile
