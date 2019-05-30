@@ -95,6 +95,7 @@ MAP
       "gml_include_items" "SITE_CODE" ## Optional (serves all attributes for layer)
       "gml_featureid"     "fid" ## REQUIRED
       "wfs_enable_request" "* !GetCapabilities"  # necessary
+      "wfs_getfeature_formatlist" "geojson" # so FMS.com cobrand lookup_site_code works
     END
     TYPE LINE
     STATUS ON
