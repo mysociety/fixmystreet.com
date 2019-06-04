@@ -73,7 +73,7 @@ MAP
     METADATA
       "wfs_title"         "trees" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "FeatureId,CentralAssetId" ## Optional (serves all attributes for layer)
+      "gml_include_items" "asset_Id,central_asset_id" ## Optional (serves all attributes for layer)
       "gml_featureid"     "fid" ## REQUIRED
       "wfs_enable_request" "* !GetCapabilities"  # necessary
     END
