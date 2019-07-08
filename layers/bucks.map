@@ -98,6 +98,7 @@ MAP
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "asset_no,site_code,central_as" ## Optional (serves all attributes for layer)
       "gml_Central_as_alias" "central_as"
+      "gml_asset_no_alias" "feature_id"
       "gml_featureid"     "Central_as" ## REQUIRED
       "wfs_enable_request" "*"
     END
