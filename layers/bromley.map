@@ -1,0 +1,137 @@
+MAP
+  NAME "Bromley"
+  STATUS ON
+  EXTENT -180 -90 180 90
+  SHAPEPATH "../../layers"
+
+  OUTPUTFORMAT
+    NAME "geojson"
+    DRIVER "OGR/GEOJSON"
+    MIMETYPE "application/json; subtype=geojson"
+    FORMATOPTION "STORAGE=stream"
+    FORMATOPTION "FORM=SIMPLE"
+  END
+
+  LAYER
+    NAME "Streetlights"
+    METADATA
+      "wfs_title"         "Street Lights" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "feature_id" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "feature_id" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bromley/Lamp_columns_fms_march18'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Bins"
+    TYPE POINT
+    STATUS ON
+    METADATA
+      "wfs_title"         "Park Bins" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "site_code,central_as" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    CONNECTIONTYPE UNION
+    CONNECTION "Litter_Bins,Dog_Bins"
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Litter_Bins"
+    METADATA
+      "wfs_title"         "Litter Bins" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "site_code,central_as" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bromley/litter_empty_bins_fms_march18'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Dog_Bins"
+    METADATA
+      "wfs_title"         "Dog Bins" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "site_code,central_as" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bromley/DogBin_fms_march18'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Street_Trees"
+    METADATA
+      "wfs_title"         "Street Trees" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "site_code,central_as" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bromley/street_trees_fms_march18'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "TFL_Red_Route"
+    METADATA
+      "wfs_title"         "TFL Red Route" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "site_code,central_as" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bromley/TFL_LBB_Boundary_fms_march18'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "PROW"
+    METADATA
+      "wfs_title"         "Public Rights of Way" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "PROW_REFER" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bromley/PROW_fms_march18'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+END #mapfile
