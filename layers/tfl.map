@@ -1,0 +1,31 @@
+MAP
+  NAME "TfL"
+  STATUS ON
+  EXTENT -180 -90 180 90
+  SHAPEPATH "../../layers"
+
+  OUTPUTFORMAT
+    NAME "geojson"
+    DRIVER "OGR/GEOJSON"
+    MIMETYPE "application/json; subtype=geojson"
+    FORMATOPTION "STORAGE=stream"
+    FORMATOPTION "FORM=SIMPLE"
+  END
+
+  LAYER
+    NAME "RedRoutes"
+    METADATA
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POLYGON
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'tfl.geojson'
+    PROJECTION
+      AUTO
+    END
+  END #layer
+
+END #mapfile
