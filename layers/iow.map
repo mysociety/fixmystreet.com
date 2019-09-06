@@ -1,0 +1,1753 @@
+MAP
+  NAME "IsleOfWight"
+  STATUS ON
+  EXTENT -180 -90 180 90
+  SHAPEPATH "../../layers"
+
+  OUTPUTFORMAT
+    NAME "geojson"
+    DRIVER "OGR/GEOJSON"
+    MIMETYPE "application/json; subtype=geojson"
+    FORMATOPTION "STORAGE=stream"
+    FORMATOPTION "FORM=SIMPLE"
+  END
+
+  LAYER
+    NAME "streets"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Streets.TAB"
+    METADATA
+      "wfs_title"         "Streets" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "site_code"
+      "gml_featureid"     "site_code" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE LINE
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Anti-Skid"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Anti-Skid.tab"
+    METADATA
+      "wfs_title"         "Anti-Skid" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Bollards"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Bollards.tab"
+    METADATA
+      "wfs_title"         "Bollards" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Car_Park_Tariff_Boards"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Car_Park_Tariff_Boards.tab"
+    METADATA
+      "wfs_title"         "Car_Park_Tariff_Boards" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Car_Parks"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Car_Parks.tab"
+    METADATA
+      "wfs_title"         "Car_Parks" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE LINE
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Carriageways"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Carriageways.tab"
+    METADATA
+      "wfs_title"         "Carriageways" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE LINE
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Central_Reservation"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Central_Reservation.tab"
+    METADATA
+      "wfs_title"         "Central_Reservation" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE LINE
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Channels"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Channels.tab"
+    METADATA
+      "wfs_title"         "Channels" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE LINE
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Cuttings_and_Embankments"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Cuttings_and_Embankments.tab"
+    METADATA
+      "wfs_title"         "Cuttings_and_Embankments" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Detector_Loop"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Detector_Loop.tab"
+    METADATA
+      "wfs_title"         "Detector_Loop" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Drain-Culverts"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Drain-Culverts.tab"
+    METADATA
+      "wfs_title"         "Drain-Culverts" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Drain-Ditches"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Drain-Ditches.tab"
+    METADATA
+      "wfs_title"         "Drain-Ditches" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE LINE
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Drain-Grips"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Drain-Grips.tab"
+    METADATA
+      "wfs_title"         "Drain-Grips" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Drain-Gullys"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Drain-Gullys.tab"
+    METADATA
+      "wfs_title"         "Drain-Gullys" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Drain-Manholes"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Drain-Manholes.tab"
+    METADATA
+      "wfs_title"         "Drain-Manholes" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "FWay_Verge-Footpath_to_Bridges"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/FWay_Verge-Footpath_to_Bridges.tab"
+    METADATA
+      "wfs_title"         "FWay_Verge-Footpath_to_Bridges" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE LINE
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Fence_Gate_Wall_Barrier_Rail"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Fence_Gate_Wall_Barrier_Rail.tab"
+    METADATA
+      "wfs_title"         "Fence_Gate_Wall_Barrier_Rail" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Footpaths_Bridleways"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Footpaths_&_Bridleways.tab"
+    METADATA
+      "wfs_title"         "Footpaths_Bridleways" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE LINE
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Footways"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Footways.tab"
+    METADATA
+      "wfs_title"         "Footways" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE LINE
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Fords"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Fords.tab"
+    METADATA
+      "wfs_title"         "Fords" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Furn-Bins"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Furn-Bins.tab"
+    METADATA
+      "wfs_title"         "Furn-Bins" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Furn-Boxes_and_Planters"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Furn-Boxes_and_Planters.tab"
+    METADATA
+      "wfs_title"         "Furn-Boxes_and_Planters" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Furn-Cycle_Stands"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Furn-Cycle_Stands.tab"
+    METADATA
+      "wfs_title"         "Furn-Cycle_Stands" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Furn-Cycleway_Gates"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Furn-Cycleway_Gates.tab"
+    METADATA
+      "wfs_title"         "Furn-Cycleway_Gates" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Furn-Grid_and_Stones"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Furn-Grid_and_Stones.tab"
+    METADATA
+      "wfs_title"         "Furn-Grid_and_Stones" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Furn-Parking_Meters"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Furn-Parking_Meters.tab"
+    METADATA
+      "wfs_title"         "Furn-Parking_Meters" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Furn-Seats_and_Benches"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Furn-Seats_and_Benches.tab"
+    METADATA
+      "wfs_title"         "Furn-Seats_and_Benches" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Furn-Shelters"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Furn-Shelters.tab"
+    METADATA
+      "wfs_title"         "Furn-Shelters" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Kerbs-Edging"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Kerbs-Edging.tab"
+    METADATA
+      "wfs_title"         "Kerbs-Edging" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE LINE
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Kerbs-Kassel"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Kerbs-Kassel.tab"
+    METADATA
+      "wfs_title"         "Kerbs-Kassel" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE LINE
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Kerbs"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Kerbs.tab"
+    METADATA
+      "wfs_title"         "Kerbs" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE LINE
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Pedestrian_Barriers"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Pedestrian_Barriers.tab"
+    METADATA
+      "wfs_title"         "Pedestrian_Barriers" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Road_Studs"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Road_Studs.tab"
+    METADATA
+      "wfs_title"         "Road_Studs" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Pelican_X"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/SL-_Pelican_X.tab"
+    METADATA
+      "wfs_title"         "Pelican_X" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Advisory_20mph"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/SL_-_Advisory_20mph.tab"
+    METADATA
+      "wfs_title"         "Advisory_20mph" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Bus_Shelter"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/SL_-_Bus_Shelter.tab"
+    METADATA
+      "wfs_title"         "Bus_Shelter" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Diagrams"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/SL_-_Diagrams.tab"
+    METADATA
+      "wfs_title"         "Diagrams" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Festoon"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/SL_-_Festoon.tab"
+    METADATA
+      "wfs_title"         "Festoon" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Floodlight"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/SL_-_Floodlight.tab"
+    METADATA
+      "wfs_title"         "Floodlight" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Lantern"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/SL_-_Lantern.tab"
+    METADATA
+      "wfs_title"         "Lantern" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Meter_Point"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/SL_-_Meter_Point.tab"
+    METADATA
+      "wfs_title"         "Meter_Point" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Pillar"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/SL_-_Pillar.tab"
+    METADATA
+      "wfs_title"         "Pillar" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Refuge"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/SL_-_Refuge.tab"
+    METADATA
+      "wfs_title"         "Refuge" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "School"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/SL_-_School.tab"
+    METADATA
+      "wfs_title"         "School" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Speed_Indicator__Sid-Sr"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/SL_-_Speed_Indicator_(Sid-Sr).tab"
+    METADATA
+      "wfs_title"         "Speed_Indicator__Sid-Sr" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Street_Light"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/SL_-_Street_Light.tab"
+    METADATA
+      "wfs_title"         "Street_Light" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Subway"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/SL_-_Subway.tab"
+    METADATA
+      "wfs_title"         "Subway" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Tr_Sign_E"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/SL_-_Tr_Sign(E).tab"
+    METADATA
+      "wfs_title"         "Tr_Sign_E" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Tr_Sign_I"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/SL_-_Tr_Sign(I).tab"
+    METADATA
+      "wfs_title"         "Tr_Sign_I" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Tr_Signal"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/SL_-_Tr_Signal.tab"
+    METADATA
+      "wfs_title"         "Tr_Signal" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Uplighter"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/SL_-_Uplighter.tab"
+    METADATA
+      "wfs_title"         "Uplighter" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Wig_Wag_Light"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/SL_-_Wig_Wag_Light.tab"
+    METADATA
+      "wfs_title"         "Wig_Wag_Light" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Zebra_X"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/SL_-_Zebra_X.tab"
+    METADATA
+      "wfs_title"         "Zebra_X" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Safety_Fences"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Safety_Fences.tab"
+    METADATA
+      "wfs_title"         "Safety_Fences" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Sign_Posts"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Sign_Posts.tab"
+    METADATA
+      "wfs_title"         "Sign_Posts" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Signs"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Signs.tab"
+    METADATA
+      "wfs_title"         "Signs" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Sleepers"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Sleepers.tab"
+    METADATA
+      "wfs_title"         "Sleepers" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Steps"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Steps.tab"
+    METADATA
+      "wfs_title"         "Steps" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE LINE
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Street_Nameplates"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Street_Nameplates.tab"
+    METADATA
+      "wfs_title"         "Street_Nameplates" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Structures-Bridges"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Structures-Bridges.tab"
+    METADATA
+      "wfs_title"         "Structures-Bridges" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Structures-Retaining_Walls"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Structures-Retaining_Walls.tab"
+    METADATA
+      "wfs_title"         "Structures-Retaining_Walls" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Traffic_Light_Poles"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Traffic_Light_Poles.tab"
+    METADATA
+      "wfs_title"         "Traffic_Light_Poles" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Trees"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Trees.tab"
+    METADATA
+      "wfs_title"         "Trees" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Vegetation-Hedges"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Vegetation-Hedges.tab"
+    METADATA
+      "wfs_title"         "Vegetation-Hedges" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Verges-Natural"
+    CONNECTIONTYPE OGR
+    CONNECTION "iow/Verges-Natural.tab"
+    METADATA
+      "wfs_title"         "Verges-Natural" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location"
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE LINE
+    STATUS ON
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Street_Lighting"
+    TYPE POINT
+    STATUS ON
+    METADATA
+      "wfs_title"         "Street_Lighting" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "site_code" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    CONNECTIONTYPE UNION
+    CONNECTION "Advisory_20mph,Diagrams,Festoon,Floodlight,Lantern,Meter_Point,Pelican_X,Pillar,Refuge,School,Speed_Indicator__Sid-Sr,Street_Light,Subway,Tr_Sign_E,Tr_Sign_I,Uplighter,Zebra_X"
+    PROCESSING "ITEMS=asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Grass_Verges_Weeds"
+    TYPE POINT
+    STATUS ON
+    METADATA
+      "wfs_title"         "Grass_Verges_Weeds" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "site_code" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    CONNECTIONTYPE UNION
+    CONNECTION "Cuttings_and_Embankments,Vegetation-Hedges"
+    PROCESSING "ITEMS=asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Street_Furniture"
+    TYPE POINT
+    STATUS ON
+    METADATA
+      "wfs_title"         "Street_Furniture" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "site_code" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    CONNECTIONTYPE UNION
+    CONNECTION "Bollards,Fence_Gate_Wall_Barrier_Rail,Furn-Bins,Furn-Boxes_and_Planters,Furn-Cycle_Stands,Furn-Cycleway_Gates,Furn-Grid_and_Stones,Furn-Parking_Meters,Furn-Seats_and_Benches,Furn-Shelters,Pedestrian_Barriers,Safety_Fences,Sleepers"
+    PROCESSING "ITEMS=asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Drainage_spot"
+    TYPE POINT
+    STATUS ON
+    METADATA
+      "wfs_title"         "Drainage_spot" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "site_code" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    CONNECTIONTYPE UNION
+    CONNECTION "Drain-Culverts,Drain-Grips,Drain-Gullys,Drain-Manholes"
+    PROCESSING "ITEMS=asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Drainage_line"
+    TYPE LINE
+    STATUS ON
+    METADATA
+      "wfs_title"         "Drainage_line" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "site_code" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    CONNECTIONTYPE UNION
+    CONNECTION "Channels,Drain-Ditches"
+    PROCESSING "ITEMS=asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Car_Parking"
+    TYPE POINT
+    STATUS ON
+    METADATA
+      "wfs_title"         "Car_Parking" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "site_code" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    CONNECTIONTYPE UNION
+    CONNECTION "Car_Park_Tariff_Boards,Furn-Parking_Meters"
+    PROCESSING "ITEMS=asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME ""
+    TYPE POINT
+    STATUS ON
+    METADATA
+      "wfs_title"         "" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "site_code" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    CONNECTIONTYPE UNION
+    CONNECTION ""
+    PROCESSING "ITEMS=asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Pavements_footpaths"
+    TYPE LINE
+    STATUS ON
+    METADATA
+      "wfs_title"         "Pavements_footpaths" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "site_code" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    CONNECTIONTYPE UNION
+    CONNECTION "Carriageways,Footpaths_Bridleways,Footways,FWay_Verge-Footpath_to_Bridges,Kerbs,Steps"
+    PROCESSING "ITEMS=asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Road_Traffic_Signs_Markings"
+    TYPE POINT
+    STATUS ON
+    METADATA
+      "wfs_title"         "Road_Traffic_Signs_Markings" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "site_code" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    CONNECTIONTYPE UNION
+    CONNECTION "Anti-Skid,Road_Studs,Sign_Posts,Signs"
+    PROCESSING "ITEMS=asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Abandoned_Vehicles"
+    TYPE LINE
+    STATUS ON
+    METADATA
+      "wfs_title"         "Abandoned_Vehicles" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "site_code" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    CONNECTIONTYPE UNION
+    CONNECTION "Car_Parks,Carriageways"
+    PROCESSING "ITEMS=asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Potholes"
+    TYPE LINE
+    STATUS ON
+    METADATA
+      "wfs_title"         "Potholes" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "site_code" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    CONNECTIONTYPE UNION
+    CONNECTION "Car_Parks,Carriageways,Footpaths_Bridleways,Footways"
+    PROCESSING "ITEMS=asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Bridges_Walls"
+    TYPE POINT
+    STATUS ON
+    METADATA
+      "wfs_title"         "Bridges_Walls" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "site_code" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    CONNECTIONTYPE UNION
+    CONNECTION "Structures-Bridges,Structures-Retaining_Walls"
+    PROCESSING "ITEMS=asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Roads_Highways"
+    TYPE LINE
+    STATUS ON
+    METADATA
+      "wfs_title"         "Roads_Highways" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "site_code" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    CONNECTIONTYPE UNION
+    CONNECTION "Carriageways,Central_Reservation,Channels,Footways,Kerbs,Kerbs-Edging,Kerbs-Kassel"
+    PROCESSING "ITEMS=asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Street_Cleaning"
+    TYPE POINT
+    STATUS ON
+    METADATA
+      "wfs_title"         "Street_Cleaning" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "site_code" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    CONNECTIONTYPE UNION
+    CONNECTION "Car_Parks,Carriageways,Footpaths_Bridleways,Footways,Furn-Bins,Verges-Natural"
+    PROCESSING "ITEMS=asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Flytipping"
+    TYPE LINE
+    STATUS ON
+    METADATA
+      "wfs_title"         "Flytipping" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "site_code" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    CONNECTIONTYPE UNION
+    CONNECTION "Car_Parks,Carriageways,Footpaths_Bridleways,Footways,Verges-Natural"
+    PROCESSING "ITEMS=asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Dog_Fouling"
+    TYPE LINE
+    STATUS ON
+    METADATA
+      "wfs_title"         "Dog_Fouling" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "site_code" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    CONNECTIONTYPE UNION
+    CONNECTION "Carriageways,Footways"
+    PROCESSING "ITEMS=asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Bus_Stops"
+    TYPE POINT
+    STATUS ON
+    METADATA
+      "wfs_title"         "Bus_Stops" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "site_code" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    CONNECTIONTYPE UNION
+    CONNECTION "Furn-Seats_and_Benches,Furn-Shelters,Bus_Shelter"
+    PROCESSING "ITEMS=asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Graffiti"
+    TYPE POINT
+    STATUS ON
+    METADATA
+      "wfs_title"         "Graffiti" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "site_code" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    CONNECTIONTYPE UNION
+    CONNECTION "Whole_Street_Sections"
+    PROCESSING "ITEMS=asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Traffic_Lights"
+    TYPE POINT
+    STATUS ON
+    METADATA
+      "wfs_title"         "Traffic_Lights" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "site_code" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    CONNECTIONTYPE UNION
+    CONNECTION "Detector_Loop,Pelican_X,Tr_Signal,Wig_Wag_Light,Zebra_X,Traffic_Light_Poles"
+    PROCESSING "ITEMS=asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Manholes"
+    TYPE POINT
+    STATUS ON
+    METADATA
+      "wfs_title"         "Manholes" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "site_code" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    CONNECTIONTYPE UNION
+    CONNECTION "Drain-Gullys,Drain-Manholes"
+    PROCESSING "ITEMS=asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Trees_Hedges"
+    TYPE POINT
+    STATUS ON
+    METADATA
+      "wfs_title"         "Trees_Hedges" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "site_code" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    CONNECTIONTYPE UNION
+    CONNECTION "Cuttings_and_Embankments,Trees"
+    PROCESSING "ITEMS=asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
+    NAME "Flyposting"
+    TYPE POINT
+    STATUS ON
+    METADATA
+      "wfs_title"         "Flyposting" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "site_code" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    CONNECTIONTYPE UNION
+    CONNECTION "Whole_Street_Sections"
+    PROCESSING "ITEMS=asset_id,central_asset_id,site_code,feature_type_name,site_name,feature_location" ## Optional (serves all attributes for layer)
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+END
