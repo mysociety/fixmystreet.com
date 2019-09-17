@@ -1,0 +1,149 @@
+MAP
+  SYMBOL
+    NAME "hatchsymbol"
+    TYPE HATCH
+  END
+
+  NAME "BexleyMM"
+  STATUS ON
+  EXTENT 0 0 700000 1300000
+  FONTSET "fontset.txt"
+  SIZE 256 256
+  UNITS METERS
+  IMAGECOLOR 255 255 255
+  IMAGETYPE png
+  PROJECTION
+    "init=epsg:27700"
+  END
+
+  OUTPUTFORMAT
+    NAME "png"
+    DRIVER AGG/PNG
+    MIMETYPE "image/png"
+    IMAGEMODE RGB
+    EXTENSION "png"
+    FORMATOPTION "QUANTIZE_FORCE=on"
+    FORMATOPTION "QUANTIZE_COLORS=256"
+  END
+
+  WEB
+    METADATA
+      "wms_title" "WMS Server"
+      "wms_srs" "EPSG:4326 EPSG:3857 EPSG:27700"
+      "ows_enable_request" "*"
+    END
+  END
+
+  LAYER
+    METADATA
+       WMS_TITLE "TopoArea"
+    END
+    NAME TopoArea
+    TYPE POLYGON
+    STATUS DEFAULT
+    INCLUDE "pg_connection.inc"
+    PROCESSING "CLOSE_CONNECTION=DEFER"
+    DATA "wkb_geometry FROM (SELECT wkb_geometry, style_code, ogc_fid FROM topographicarea) AS FOO USING UNIQUE ogc_fid  USING SRID=27700"
+    CLASSITEM "style_code"
+    INCLUDE "area-sld.inc"
+  END
+
+  LAYER
+    METADATA
+      WMS_TITLE "TopoLine"
+    END
+    NAME TopoLine
+    TYPE LINE
+    STATUS DEFAULT
+    INCLUDE "pg_connection.inc"
+    DATA "wkb_geometry FROM (SELECT style_code, wkb_geometry, ogc_fid FROM topographicline) AS FOO USING UNIQUE ogc_fid  USING SRID=27700"
+    PROCESSING "CLOSE_CONNECTION=DEFER"
+    CLASSITEM "style_code"
+    INCLUDE "line-sld.inc"
+  END
+
+  LAYER
+    METADATA
+      WMS_TITLE "CartoText"
+    END
+    NAME CartoText
+    TYPE POINT
+    STATUS DEFAULT
+    INCLUDE "pg_connection.inc"
+    DATA "wkb_geometry FROM (SELECT height*1.6 as height, CASE font_code WHEN 3 THEN 'Times' ELSE 'Arial' END as font, colour_code, wkb_geometry, textstring, ogc_fid, orientation/10 as orientdeg, CASE anchorposition WHEN 2 THEN 'lr' WHEN 5 THEN 'lc' WHEN 8 THEN 'll' WHEN 1 THEN 'cr' WHEN 4 THEN 'cc' WHEN 7 THEN 'cl' WHEN 0 THEN 'ur' WHEN 3 THEN 'uc' WHEN 6 THEN 'ul' END as position FROM cartographictext) AS foo USING UNIQUE ogc_fid  USING SRID=27700"
+    LABELITEM "textstring"
+    CLASSITEM "colour_code"
+    MAXSCALEDENOM 4000
+    SYMBOLSCALEDENOM 4000
+    INCLUDE "text-sld.inc"
+  END
+
+END
+
+SYMBOL
+  NAME "osmmsymbols/fillMixedWoodland.svg"
+  TYPE svg
+  IMAGE "osmmsymbols/fillMixedWoodland.svg"
+  FILLED true
+END
+SYMBOL
+  NAME "osmmsymbols/fillNonconiferousTrees.svg"
+  TYPE svg
+  IMAGE "osmmsymbols/fillNonconiferousTrees.svg"
+  FILLED true
+END
+SYMBOL
+  NAME "osmmsymbols/fillConiferousTrees.svg"
+  TYPE svg
+  IMAGE "osmmsymbols/fillConiferousTrees.svg"
+  FILLED true
+END
+SYMBOL
+  NAME "osmmsymbols/fillOrchard.svg"
+  TYPE svg
+  IMAGE "osmmsymbols/fillOrchard.svg"
+  FILLED true
+END
+SYMBOL
+  NAME "osmmsymbols/fillCoppiceOrOsiers.svg"
+  TYPE svg
+  IMAGE "osmmsymbols/fillCoppiceOrOsiers.svg"
+  FILLED true
+END
+SYMBOL
+  NAME "osmmsymbols/fillScrub.svg"
+  TYPE svg
+  IMAGE "osmmsymbols/fillScrub.svg"
+  FILLED true
+END
+SYMBOL
+  NAME "osmmsymbols/fillBoulders.svg"
+  TYPE svg
+  IMAGE "osmmsymbols/fillBoulders.svg"
+  FILLED true
+END
+SYMBOL
+  NAME "osmmsymbols/fillRock.svg"
+  TYPE svg
+  IMAGE "osmmsymbols/fillRock.svg"
+  FILLED true
+END
+SYMBOL
+  NAME "osmmsymbols/fillScree.svg"
+  TYPE svg
+  IMAGE "osmmsymbols/fillScree.svg"
+  FILLED true
+END
+SYMBOL
+  NAME "osmmsymbols/fillRoughGrassland.svg"
+  TYPE svg
+  IMAGE "osmmsymbols/fillRoughGrassland.svg"
+  FILLED true
+END
+SYMBOL
+  NAME "osmmsymbols/fillMarsh.svg"
+  TYPE svg
+  IMAGE "osmmsymbols/fillMarsh.svg"
+  FILLED true
+END
+

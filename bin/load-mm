@@ -1,0 +1,50 @@
+#!/bin/bash
+
+set -e
+
+if [ "x$PGDATABASE" = "x" ]; then echo "Provide PGDATABASE envvar"; exit 1; fi
+if [ "x$PGUSER" = "x" ]; then echo "Provide PGUSER envvar"; exit 1; fi
+if [ "x$PGHOST" = "x" ]; then echo "Provide PGHOST envvar"; exit 1; fi
+if [ "x$PGPASSWORD" = "x" ]; then echo "Provide PGPASSWORD envvar"; exit 1; fi
+if [ "x$DATADIR" = "x" ]; then echo "Provide DATADIR envvar, directory of gz files"; exit 1; fi
+if [ "x$OUTDIR" = "x" ]; then echo "Provide OUTDIR envvar, directory to contain .map file and related"; exit 1; fi
+
+# Import MasterMap files
+curl -o "$OUTDIR/osmm.gfs" 'https://raw.githubusercontent.com/lutraconsulting/ostranslator-ii/master/OSTranslatorII/gfs/OS%20Mastermap%20Topography%20(v9).gfs'
+for f in "$DATADIR"/*.gz; do
+    ogr2ogr -f PostgreSQL --config PG_USE_COPY YES --config GML_GFS_TEMPLATE "$OUTDIR/osmm.gfs" "PG:dbname=$PGDATABASE" /vsigzip/$f;
+done
+
+# Add style columns
+REPO=OSMM-Topography-Layer-stylesheets
+git clone https://github.com/OrdnanceSurvey/$REPO "$OUTDIR/$REPO" || true # Don't care if already there
+ln -sfn $REPO/Schema\ version\ 9/Stylesheets/Geoserver\ stylesheets\ \(SLD\)/osmmsymbols "$OUTDIR/osmmsymbols"
+cat "$OUTDIR"/$REPO/Schema\ version\ 9/SQL/PostGIS/Array/*.sql | perl -pe's/osmm_topo\.//g' | psql
+
+for table in boundaryline cartographicsymbol cartographictext topographicarea topographicline topographicpoint; do
+    psql <<EOF
+    -- Rename table
+    drop table $table;
+    alter table ${table}_style rename to $table;
+    alter table $table add primary key (ogc_fid);
+    -- Remove duplicates
+    CREATE INDEX fid_hash ON $table USING hash(fid);
+    DELETE FROM $table USING $table AS dup
+    WHERE $table.fid = dup.fid AND $table.ogc_fid < dup.ogc_fid;
+    DROP INDEX fid_hash;
+    -- Create spatial index
+    CREATE INDEX ${table}_geom_idx ON $table USING GIST (wkb_geometry);
+EOF
+done
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+cp "$DIR"/../layers/bexley/* "$OUTDIR"
+
+VENV_DIR="$DIR/../../.venv"
+virtualenv -p python3 "$VENV_DIR"
+"$VENV_DIR/bin/pip" install lxml
+"$VENV_DIR/bin/python" "$DIR/parse-sld.py" "$OUTDIR"/$REPO/Schema\ version\ 9/Stylesheets/Geoserver\ stylesheets\ \(SLD\)/topographicline-standard.sld > "$OUTDIR/line-sld.inc"
+"$VENV_DIR/bin/python" "$DIR/parse-sld.py" "$OUTDIR"/$REPO/Schema\ version\ 9/Stylesheets/Geoserver\ stylesheets\ \(SLD\)/topographicarea-standard.sld > "$OUTDIR/area-sld.inc"
+
+echo CONNECTIONTYPE POSTGIS > "$OUTDIR/pg_connection.inc"
+echo "CONNECTION \"host=$PGHOST dbname=$PGDATABASE user=$PGUSER password=$PGPASSWORD\"" >> "$OUTDIR/pg_connection.inc"
