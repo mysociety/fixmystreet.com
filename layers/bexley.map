@@ -1,8 +1,11 @@
 MAP
   NAME "Bexley"
   STATUS ON
-  EXTENT -180 -90 180 90
+  EXTENT 0 0 700000 1300000
   SHAPEPATH "../../layers"
+  PROJECTION
+    "init=epsg:27700"
+  END
 
   OUTPUTFORMAT
     NAME "geojson"
