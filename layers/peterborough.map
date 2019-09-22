@@ -1,0 +1,34 @@
+MAP
+  NAME "Peterborough"
+  STATUS ON
+  EXTENT -180 -90 180 90
+
+  OUTPUTFORMAT
+    NAME "geojson"
+    DRIVER "OGR/GEOJSON"
+    MIMETYPE "application/json; subtype=geojson"
+    FORMATOPTION "STORAGE=stream"
+    FORMATOPTION "FORM=SIMPLE"
+  END
+
+  LAYER
+    NAME "highways"
+    METADATA
+      "wfs_title"         "highways" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "Usrn" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "* !GetCapabilities"  # necessary
+      "wfs_getfeature_formatlist" "geojson" # so FMS.com cobrand lookup_site_code works
+    END
+    TYPE POLYGON
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION '../../layers/peterborough/highways.gpkg'
+    DATA 'highways'
+    PROJECTION
+      "init=epsg:3857"
+    END
+  END #layer
+
+END #mapfile
