@@ -91,4 +91,21 @@ MAP
     END
   END #layer
 
+  LAYER
+    NAME "Trees"
+    METADATA
+      "wfs_title"         "Trees" ##REQUIRED
+      "gml_include_items" "site_code,central_as,feature_lo"
+      "gml_featureid"     "central_as" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bexley/Trees'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
 END #mapfile
