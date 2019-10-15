@@ -1,0 +1,75 @@
+MAP
+  NAME "Cheshire East"
+  STATUS ON
+  EXTENT 0 0 700000 1300000
+  SHAPEPATH "../../layers"
+  PROJECTION
+    "init=epsg:27700"
+  END
+
+  WEB
+    METADATA
+      "wfs_srs" "EPSG:27700 EPSG:3857"
+    END
+  END
+
+  OUTPUTFORMAT
+    NAME "geojson"
+    DRIVER "OGR/GEOJSON"
+    MIMETYPE "application/json; subtype=geojson"
+    FORMATOPTION "STORAGE=stream"
+    FORMATOPTION "FORM=SIMPLE"
+  END
+
+  LAYER
+    NAME "AdoptedRoads"
+    METADATA
+      "wfs_title"         "AdoptedRoads" ##REQUIRED
+      "gml_include_items" "site_code"
+      "gml_featureid"     "site_code" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE LINE
+    STATUS ON
+    DATA 'cheshireeast/AdoptedRoads'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "UnAdoptedRoads"
+    METADATA
+      "wfs_title"         "UnAdoptedRoads" ##REQUIRED
+      "gml_include_items" "site_code,feature_ty"
+      "gml_featureid"     "site_code" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE LINE
+    STATUS ON
+    DATA 'cheshireeast/UnAdoptedRoads'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "StreetLights"
+    METADATA
+      "wfs_title"         "StreetLights" ##REQUIRED
+      "gml_include_items" "central_as,site_code,feature_id"
+      "gml_featureid"     "central_as" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'cheshireeast/StreetLights'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+END #mapfile
