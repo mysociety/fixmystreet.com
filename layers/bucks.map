@@ -43,15 +43,15 @@ MAP
     METADATA
       "wfs_title"         "Gullies" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "site_code,central_as" ## Optional (serves all attributes for layer)
-      "gml_Central_as_alias" "central_as"
-      "gml_Site_code_alias" "site_code"
-      "gml_featureid"     "Central_as" ## REQUIRED
+      "gml_include_items" "site_code,central_asset_id" ## Optional (serves all attributes for layer)
+      "gml_central_asset_id_alias" "central_as"
+      "gml_featureid"     "central_asset_id" ## REQUIRED
       "wfs_enable_request" "*"
     END
     TYPE POINT
     STATUS ON
-    DATA 'bucks/Gulley_update_Sept19'
+    CONNECTIONTYPE OGR
+    CONNECTION 'bucks/HWGullyAsset.TAB'
     PROJECTION
       "init=epsg:27700"
     END
