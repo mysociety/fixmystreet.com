@@ -43,7 +43,7 @@ MAP
     METADATA
       "wfs_title"         "Bollards" ##REQUIRED
       "wfs_srs"           "EPSG:3857" ## REQUIRED
-      "gml_include_items" "Confirm_CA,Asset_Id,Maintained,Type" ## Optional (serves all attributes for layer)
+      "gml_include_items" "Confirm_CA,Asset_Id" ## Optional (serves all attributes for layer)
       "gml_featureid"     "fid" ## REQUIRED
       "wfs_enable_request" "* !GetCapabilities"
     END
@@ -60,7 +60,7 @@ MAP
     METADATA
       "wfs_title"         "Street Light Units" ##REQUIRED
       "wfs_srs"           "EPSG:3857" ## REQUIRED
-      "gml_include_items" "Confirm_CA,Asset_Id,Maintained,Type" ## Optional (serves all attributes for layer)
+      "gml_include_items" "Confirm_CA,Asset_Id" ## Optional (serves all attributes for layer)
       "gml_featureid"     "fid" ## REQUIRED
       "wfs_enable_request" "* !GetCapabilities"
     END
@@ -77,7 +77,7 @@ MAP
     METADATA
       "wfs_title"         "Gullies/Offlets/Manholes" ##REQUIRED
       "wfs_srs"           "EPSG:3857" ## REQUIRED
-      "gml_include_items" "Confirm_CA,Asset_Id,Maintained,Type" ## Optional (serves all attributes for layer)
+      "gml_include_items" "Confirm_CA,Asset_Id" ## Optional (serves all attributes for layer)
       "gml_featureid"     "fid" ## REQUIRED
       "wfs_enable_request" "* !GetCapabilities"
     END
@@ -94,7 +94,7 @@ MAP
     METADATA
       "wfs_title"         "Signs (lit)" ##REQUIRED
       "wfs_srs"           "EPSG:3857" ## REQUIRED
-      "gml_include_items" "Confirm_CA,Asset_Id,Maintained,Type" ## Optional (serves all attributes for layer)
+      "gml_include_items" "Confirm_CA,Asset_Id" ## Optional (serves all attributes for layer)
       "gml_featureid"     "fid" ## REQUIRED
       "wfs_enable_request" "* !GetCapabilities"
     END
@@ -111,7 +111,7 @@ MAP
     METADATA
       "wfs_title"         "Structures" ##REQUIRED
       "wfs_srs"           "EPSG:3857" ## REQUIRED
-      "gml_include_items" "Confirm_CA,Asset_Id,Maintained,Type" ## Optional (serves all attributes for layer)
+      "gml_include_items" "Confirm_CA,Asset_Id" ## Optional (serves all attributes for layer)
       "gml_featureid"     "fid" ## REQUIRED
       "wfs_enable_request" "* !GetCapabilities"
     END
@@ -128,7 +128,7 @@ MAP
     METADATA
       "wfs_title"         "Safety Barriers" ##REQUIRED
       "wfs_srs"           "EPSG:3857" ## REQUIRED
-      "gml_include_items" "Confirm_CA,Asset_Id,Maintained,Type" ## Optional (serves all attributes for layer)
+      "gml_include_items" "Confirm_CA,Asset_Id" ## Optional (serves all attributes for layer)
       "gml_featureid"     "fid" ## REQUIRED
       "wfs_enable_request" "* !GetCapabilities"
     END
