@@ -4,7 +4,7 @@ MAP
     TYPE HATCH
   END
 
-  NAME "BexleyMM"
+  NAME "MasterMap"
   STATUS ON
   EXTENT 0 0 700000 1300000
   FONTSET "fontset.txt"
