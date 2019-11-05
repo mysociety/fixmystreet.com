@@ -1,6 +1,8 @@
 #!/bin/bash
 #
 # Load OS MasterMap files into Postgres for tilma to use.
+#
+# Usage: bin/load-mm path/to/some/data/*.gz path/to/other/data/*.gz
 
 set -e
 
@@ -8,12 +10,11 @@ if [ "x$PGDATABASE" = "x" ]; then echo "Provide PGDATABASE envvar"; exit 1; fi
 if [ "x$PGUSER" = "x" ]; then echo "Provide PGUSER envvar"; exit 1; fi
 if [ "x$PGHOST" = "x" ]; then echo "Provide PGHOST envvar"; exit 1; fi
 if [ "x$PGPASSWORD" = "x" ]; then echo "Provide PGPASSWORD envvar"; exit 1; fi
-if [ "x$DATADIR" = "x" ]; then echo "Provide DATADIR envvar, directory of gz files"; exit 1; fi
 if [ "x$OUTDIR" = "x" ]; then echo "Provide OUTDIR envvar, directory to contain .map file and related"; exit 1; fi
 
 # Import MasterMap files
 curl -o "$OUTDIR/osmm.gfs" 'https://raw.githubusercontent.com/lutraconsulting/ostranslator-ii/master/OSTranslatorII/gfs/OS%20Mastermap%20Topography%20(v9).gfs'
-for f in "$DATADIR"/*.gz; do
+for f in "$@"; do
     ogr2ogr -f PostgreSQL --config PG_USE_COPY YES --config GML_GFS_TEMPLATE "$OUTDIR/osmm.gfs" "PG:dbname=$PGDATABASE" /vsigzip/$f;
 done
 
