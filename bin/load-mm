@@ -1,4 +1,6 @@
 #!/bin/bash
+#
+# Load OS MasterMap files into Postgres for tilma to use.
 
 set -e
 
