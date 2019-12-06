@@ -1,0 +1,32 @@
+import json
+import sys
+from osgeo import ogr
+
+# Load a file that contains a JSON object mapping NSGRef to UPRN
+nsgref_to_uprn = json.load(open(sys.argv[1]))
+
+# Open the layer
+driver = ogr.GetDriverByName('ESRI Shapefile')
+dataSource = driver.Open("Streets.shp", 1) # 1 is read/write
+
+# Define the column
+fldDef = ogr.FieldDefn('UPRN', ogr.OFTString)
+fldDef.SetWidth(12)
+
+# Get layer, make sure it has the column
+layer = dataSource.GetLayer()
+layerDefn = layer.GetLayerDefn()
+idx_nsgref = layerDefn.GetFieldIndex('NSG_REF')
+idx = layerDefn.GetFieldIndex('UPRN')
+if idx == -1:
+    layer.CreateField(fldDef)
+
+# Loop through layers, setting new column field
+for feat in layer:
+    nsgref = feat.GetFieldAsString(idx_nsgref)
+    uprn = nsgref_to_uprn.get(nsgref, '')
+    feat.SetField('UPRN', uprn)
+    layer.SetFeature(feat)
+
+# Make sure data is saved
+dataSource = None
