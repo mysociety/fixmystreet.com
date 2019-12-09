@@ -28,4 +28,61 @@ MAP
     END
   END #layer
 
+  LAYER
+    NAME "trafficsignals"
+    METADATA
+      "wfs_title"         "trafficsignals" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "Site" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "* !GetCapabilities"  # necessary
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'tfl/TrafficSignals.gpkg'
+    DATA 'TrafficSignals'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "busstops"
+    METADATA
+      "wfs_title"         "busstops" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "STOP_CODE" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "* !GetCapabilities"  # necessary
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'tfl/Bus_Stops.gpkg'
+    DATA 'Bus_Stops'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "roadworks"
+    METADATA
+      "wfs_title"         "roadworks" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "all" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "* !GetCapabilities"  # necessary
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'tfl/roadworks.gpkg'
+    DATA 'roadworks'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
 END #mapfile
