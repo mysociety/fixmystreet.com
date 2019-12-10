@@ -15,16 +15,20 @@ MAP
   LAYER
     NAME "RedRoutes"
     METADATA
+      "wfs_title"         "RedRoutes" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "wfs_enable_request" "*"
+      "gml_include_items" "HA_ID" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "* !GetCapabilities"  # necessary
       "wfs_getfeature_formatlist" "geojson"
     END
     TYPE POLYGON
     STATUS ON
     CONNECTIONTYPE OGR
-    CONNECTION 'tfl.geojson'
+    CONNECTION 'tfl/tlrn.gpkg'
+    DATA 'tlrn-polygon'
     PROJECTION
-      AUTO
+      "init=epsg:4326"
     END
   END #layer
 
