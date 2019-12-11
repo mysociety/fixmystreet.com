@@ -1,8 +1,17 @@
 MAP
   NAME "TfL"
   STATUS ON
-  EXTENT -180 -90 180 90
+  EXTENT 0 0 700000 1300000
   SHAPEPATH "../../layers"
+  PROJECTION
+    "init=epsg:27700"
+  END
+
+  WEB
+    METADATA
+      "wfs_srs" "EPSG:3857 EPSG:27700"
+    END
+  END
 
   OUTPUTFORMAT
     NAME "geojson"
@@ -16,7 +25,6 @@ MAP
     NAME "RedRoutes"
     METADATA
       "wfs_title"         "RedRoutes" ##REQUIRED
-      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "HA_ID" ## Optional (serves all attributes for layer)
       "gml_featureid"     "fid" ## REQUIRED
       "wfs_enable_request" "* !GetCapabilities"  # necessary
@@ -36,7 +44,6 @@ MAP
     NAME "trafficsignals"
     METADATA
       "wfs_title"         "trafficsignals" ##REQUIRED
-      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "Site" ## Optional (serves all attributes for layer)
       "gml_featureid"     "fid" ## REQUIRED
       "wfs_enable_request" "* !GetCapabilities"  # necessary
@@ -55,7 +62,6 @@ MAP
     NAME "busstops"
     METADATA
       "wfs_title"         "busstops" ##REQUIRED
-      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "STOP_CODE" ## Optional (serves all attributes for layer)
       "gml_featureid"     "fid" ## REQUIRED
       "wfs_enable_request" "* !GetCapabilities"  # necessary
@@ -74,7 +80,6 @@ MAP
     NAME "roadworks"
     METADATA
       "wfs_title"         "roadworks" ##REQUIRED
-      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "all" ## Optional (serves all attributes for layer)
       "gml_featureid"     "fid" ## REQUIRED
       "wfs_enable_request" "* !GetCapabilities"  # necessary
