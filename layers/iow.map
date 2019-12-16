@@ -15,7 +15,7 @@ MAP
   LAYER
     NAME "streets"
     CONNECTIONTYPE OGR
-    CONNECTION "iow/Streets.TAB"
+    CONNECTION "iow/Streets.tab"
     METADATA
       "wfs_title"         "Streets" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
