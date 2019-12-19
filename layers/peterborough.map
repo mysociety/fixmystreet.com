@@ -33,9 +33,9 @@ MAP
   END #layer
 
   LAYER
-    NAME "trees"
+    NAME "tree_points"
     METADATA
-      "wfs_title"          "Peterborough Trees"
+      "wfs_title"          "Peterborough Tree Points"
       "wfs_srs"            "EPSG:3857 EPSG:27700"
       "gml_include_items"  "TREE_CODE"
       "gml_featureid"      "TREE_CODE"
@@ -61,6 +61,24 @@ MAP
     TYPE POLYGON
     STATUS ON
     DATA 'peterborough/tree_groups_invent'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Trees"
+    TYPE POINT
+    STATUS ON
+    METADATA
+      "wfs_title"         "Peterborough Trees"
+      "wfs_srs"           "EPSG:3857"
+      "gml_include_items" "TREE_CODE"
+      "gml_featureid"     "TREE_CODE"
+      "wfs_enable_request" "*"
+    END
+    CONNECTIONTYPE UNION
+    CONNECTION "tree_points,tree_groups"
     PROJECTION
       "init=epsg:27700"
     END
