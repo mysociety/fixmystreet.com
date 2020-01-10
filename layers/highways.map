@@ -1,13 +1,17 @@
 MAP
   NAME "Highways Agency"
   STATUS ON
-  SIZE 400 300
-  #SYMBOLSET "../etc/symbols.txt"
-  EXTENT -180 -90 180 90
-  UNITS DD
+  EXTENT 0 0 700000 1300000
   SHAPEPATH "../../layers"
-  IMAGECOLOR 255 255 255
-  #FONTSET "../etc/fonts.txt"
+  PROJECTION
+    "init=epsg:27700"
+  END
+
+  WEB
+    METADATA
+      "wfs_srs" "EPSG:3857 EPSG:27700"
+    END
+  END
 
   OUTPUTFORMAT
     NAME "geojson"
@@ -17,37 +21,16 @@ MAP
     FORMATOPTION "FORM=SIMPLE"
   END
 
-
-  #
-  # Start of web interface definition
-  #
-  WEB
-    IMAGEPATH "/ms4w/tmp/ms_tmp/"
-    IMAGEURL "/ms_tmp/"
-    METADATA
-      "wfs_title"          "WFS Demo Server for MapServer" ## REQUIRED
-      # "wfs_onlineresource" "https://confirmdev.eu.ngrok.io/localmaps/?" ## Recommended
-      #"wfs_srs"            "EPSG:27700 EPSG:4269 EPSG:3978 EPSG:3857" ## Recommended
-      #"wfs_abstract"       "This text describes my WFS service." ## Recommended
-      "wfs_enable_request" "*"  # necessary
-      "wfs_getfeature_formatlist" "geojson"
-    END
-  END
-
-  #
-  # Start of layer definitions
-  #
-
   LAYER
     NAME "Highways"
     METADATA
       "wfs_title"         "Highways" ##REQUIRED
-      "wfs_srs"           "EPSG:3857" ## REQUIRED
       "gml_include_items" "ROA_NUMBER"
-      "gml_featureid"     "fid" ## REQUIRED
+      "gml_featureid"     "SECT_LABEL" ## REQUIRED
       "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
     END
-    TYPE POINT
+    TYPE LINE
     STATUS ON
     DATA 'highways/network'
     PROJECTION
