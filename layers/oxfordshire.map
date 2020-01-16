@@ -1,0 +1,69 @@
+MAP
+  NAME "Oxfordshire"
+  STATUS ON
+  EXTENT -180 -90 180 90
+  SHAPEPATH "../../layers"
+
+  OUTPUTFORMAT
+    NAME "geojson"
+    DRIVER "OGR/GEOJSON"
+    MIMETYPE "application/json; subtype=geojson"
+    FORMATOPTION "STORAGE=stream"
+    FORMATOPTION "FORM=SIMPLE"
+  END
+
+  LAYER
+    NAME "Trees"
+    METADATA
+      "wfs_title"         "Trees" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "Ref" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "Ref" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'oxfordshire/Trees'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Traffic_Lights"
+    METADATA
+      "wfs_title"         "Traffic Lights" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "Site" ## Optional (serves all attributes for layer)
+      # "gml_featureid"     "??" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'oxfordshire/TrafficSignals.gpkg'
+    DATA 'TrafficSignals'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Street_Lights"
+    METADATA
+      "wfs_title"         "Street Lights" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "UNITID,UNITNO"
+      "gml_featureid"     "UNITID" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'oxfordshire/StreetLights'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+END #mapfile
