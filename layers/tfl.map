@@ -2,31 +2,14 @@ MAP
   NAME "TfL"
   STATUS ON
   EXTENT 0 0 700000 1300000
-  SIZE 256 256
-  IMAGECOLOR 0 255 0
-  IMAGETYPE png
   SHAPEPATH "../../layers"
   PROJECTION
     "init=epsg:27700"
   END
 
-  OUTPUTFORMAT
-    NAME "png"
-    DRIVER AGG/PNG
-    MIMETYPE "image/png"
-    IMAGEMODE RGBA
-    EXTENSION "png"
-    TRANSPARENT ON
-    FORMATOPTION "QUANTIZE_FORCE=on"
-    FORMATOPTION "QUANTIZE_COLORS=256"
-  END
-
   WEB
     METADATA
-      "wms_title" "WMS Server"
-      "wms_srs" "EPSG:4326 EPSG:3857 EPSG:27700"
-      "wfs_srs" "EPSG:4326 EPSG:3857 EPSG:27700"
-      "ows_enable_request" "*"
+      "wfs_srs" "EPSG:3857 EPSG:27700"
     END
   END
 
@@ -46,12 +29,6 @@ MAP
       "gml_featureid"     "fid" ## REQUIRED
       "wfs_enable_request" "* !GetCapabilities"  # necessary
       "wfs_getfeature_formatlist" "geojson"
-    END
-    CLASS
-      NAME "Road"
-      STYLE
-        COLOR "#FF0000AA"
-      END
     END
     TYPE POLYGON
     STATUS ON
