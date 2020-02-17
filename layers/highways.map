@@ -44,6 +44,7 @@ MAP
       "wfs_title"         "Highways" ##REQUIRED
       "gml_include_items" "ROA_NUMBER"
       "gml_featureid"     "SECT_LABEL" ## REQUIRED
+      "gml_roa_number_alias" "ROA_NUMBER"
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
     END
