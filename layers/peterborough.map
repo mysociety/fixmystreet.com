@@ -33,9 +33,9 @@ MAP
   END #layer
 
   LAYER
-    NAME "trees"
+    NAME "tree_points"
     METADATA
-      "wfs_title"          "Peterborough Trees"
+      "wfs_title"          "Peterborough Tree Points"
       "wfs_srs"            "EPSG:3857 EPSG:27700"
       "gml_include_items"  "TREE_CODE"
       "gml_featureid"      "TREE_CODE"
