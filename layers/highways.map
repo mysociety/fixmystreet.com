@@ -42,7 +42,7 @@ MAP
     NAME "Highways"
     METADATA
       "wfs_title"         "Highways" ##REQUIRED
-      "gml_include_items" "ROA_NUMBER"
+      "gml_include_items" "ROA_NUMBER,sect_label,area_name"
       "gml_featureid"     "SECT_LABEL" ## REQUIRED
       "gml_roa_number_alias" "ROA_NUMBER"
       "wfs_enable_request" "*"
