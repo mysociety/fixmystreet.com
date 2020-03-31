@@ -66,4 +66,21 @@ MAP
     END
   END #layer
 
+  LAYER
+    NAME "StreetLights"
+    METADATA
+      "wfs_title"          "Peterborough Street Lights"
+      "wfs_srs"            "EPSG:3857 EPSG:27700"
+      "gml_include_items"  "UNITID,UNITNO,FULLSTREET,LOCALITY"
+      "gml_featureid"      "UNITID"
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'peterborough/StreetLights'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
 END #mapfile
