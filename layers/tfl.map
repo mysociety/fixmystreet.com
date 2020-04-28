@@ -85,7 +85,7 @@ MAP
     NAME "busstops"
     METADATA
       "wfs_title"         "busstops" ##REQUIRED
-      "gml_include_items" "STOP_CODE" ## Optional (serves all attributes for layer)
+      "gml_include_items" "all" ## Optional (serves all attributes for layer)
       "gml_featureid"     "fid" ## REQUIRED
       "wfs_enable_request" "* !GetCapabilities"  # necessary
     END
