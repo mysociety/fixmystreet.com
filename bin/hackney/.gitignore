@@ -1,0 +1,10 @@
+venv
+credentials.json
+token.pickle
+categories.json
+
+config.yml
+layers.js
+
+Makefile
+.envrc
