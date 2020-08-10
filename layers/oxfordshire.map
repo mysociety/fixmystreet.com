@@ -30,6 +30,25 @@ MAP
   END #layer
 
   LAYER
+    NAME "OCCRoads"
+    METADATA
+      "wfs_title"         "OCC Roads" ##REQUIRED
+      "wfs_srs"           "EPSG:27700 EPSG:3857" ## REQUIRED
+      "gml_include_items" "TYPE1_2_USRN,STREET_MAINTENANCE_RESPONSIBILITY_NAME" ## Optional (serves all attributes for layer)
+      # "gml_featureid"     "??" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE LINE
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'oxfordshire/OCCRoads.gpkg'
+    DATA 'OCCRoads'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
     NAME "Traffic_Lights"
     METADATA
       "wfs_title"         "Traffic Lights" ##REQUIRED
