@@ -1,0 +1,41 @@
+MAP
+  NAME "Central Beds"
+  STATUS ON
+  EXTENT 0 0 700000 1300000
+  SHAPEPATH "../../layers"
+  PROJECTION
+    "init=epsg:27700"
+  END
+
+  WEB
+    METADATA
+      "wfs_srs" "EPSG:27700 EPSG:3857"
+    END
+  END
+
+  OUTPUTFORMAT
+    NAME "geojson"
+    DRIVER "OGR/GEOJSON"
+    MIMETYPE "application/json; subtype=geojson"
+    FORMATOPTION "STORAGE=stream"
+    FORMATOPTION "FORM=SIMPLE"
+  END
+
+  LAYER
+    NAME "Highways"
+    METADATA
+      "wfs_title"         "Highways" ##REQUIRED
+      "gml_include_items" "ogc_fid,adoption,streetref1"
+      "gml_featureid"     "ogc_fid" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE LINE
+    STATUS ON
+    DATA 'centralbeds/Highways'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+END #mapfile
