@@ -34,9 +34,10 @@ MAP
     METADATA
       "wfs_title"         "OCC Roads" ##REQUIRED
       "wfs_srs"           "EPSG:27700 EPSG:3857" ## REQUIRED
-      "gml_include_items" "TYPE1_2_USRN,STREET_MAINTENANCE_RESPONSIBILITY_NAME" ## Optional (serves all attributes for layer)
+      "gml_include_items" "all" ## Optional (serves all attributes for layer)
       # "gml_featureid"     "??" ## REQUIRED
       "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
     END
     TYPE LINE
     STATUS ON
