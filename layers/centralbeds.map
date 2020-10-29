@@ -46,7 +46,7 @@ MAP
     NAME "StreetLighting"
     METADATA
       "wfs_title"         "StreetLighting" ##REQUIRED
-      "gml_include_items" "ogc_fid,lighting_c"
+      "gml_include_items" "ogc_fid,lighting_c,eqno,asset"
       "gml_featureid"     "ogc_fid" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
@@ -54,6 +54,23 @@ MAP
     TYPE POINT
     STATUS ON
     DATA 'centralbeds/StreetLighting'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Gullies"
+    METADATA
+      "wfs_title"         "Gullies" ##REQUIRED
+      "gml_include_items" "node_id,external_i"
+      "gml_featureid"     "node_id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'centralbeds/node'
     PROJECTION
       "init=epsg:27700"
     END
