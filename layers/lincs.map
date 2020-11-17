@@ -39,6 +39,23 @@ MAP
   #
 
   LAYER
+    NAME "Public_Transport_Stops"
+    METADATA
+      "wfs_title"         "Public Transport Stops" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "Confirm_CA,Asset_Id" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "* !GetCapabilities"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'lincs/Public_Transport_Stops'
+    PROJECTION
+      "init=epsg:3857"
+    END
+  END #layer
+
+  LAYER
     NAME "SL_Bollards"
     METADATA
       "wfs_title"         "Bollards" ##REQUIRED
