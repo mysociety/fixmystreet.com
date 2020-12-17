@@ -17,7 +17,7 @@ use FixMyStreet::Script::Reports;
 use Open311::PostServiceRequestUpdates;
 
 my $reports = 10;
-my $updates = 0;
+my $updates = 10;
 
 GetOptions(
     "reports=i" => \$reports,
