@@ -1,0 +1,31 @@
+// Only output things currently used/needed
+$govuk-font-family: unquote("");
+$_spacing-directions: ('bottom');
+$govuk-text-colour: unquote("");
+$govuk-print-text-colour: unquote("");
+
+@import "govuk/base";
+
+@import "govuk/core/lists";
+@import "govuk/core/typography";
+
+@import "govuk/objects/form-group";
+@import "govuk/objects/grid";
+
+@import "govuk/components/button/index";
+@import "govuk/components/checkboxes/index";
+@import "govuk/components/date-input/index";
+@import "govuk/components/error-message/index";
+@import "govuk/components/error-summary/index";
+@import "govuk/components/fieldset/index";
+@import "govuk/components/hint/index";
+@import "govuk/components/input/index";
+@import "govuk/components/label/index";
+@import "govuk/components/panel/index";
+@import "govuk/components/radios/index";
+@import "govuk/components/select/index";
+@import "govuk/components/summary-list/index";
+@import "govuk/components/textarea/index";
+
+@import "govuk/utilities/visually-hidden";
+@import "govuk/overrides/spacing";

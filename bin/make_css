@@ -3,11 +3,18 @@
 use strict;
 use warnings;
 
+use File::Basename qw(dirname);
+use File::Spec;
 use CSS::Sass;
 use Path::Tiny;
 use Try::Tiny;
 
-my $sass = CSS::Sass->new(output_style => SASS_STYLE_COMPRESSED);
+my $root = dirname(File::Spec->rel2abs($0));
+
+my $sass = CSS::Sass->new(
+    include_paths => ["$root/../../govuk-frontend/src"],
+    output_style => SASS_STYLE_COMPRESSED
+);
 
 my $file = shift;
 my $output_file = shift;

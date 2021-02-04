@@ -1,0 +1,13 @@
+// Output the variable so that it can be set in FMS stylesheets
+$govuk-focus-colour: unquote('$govuk-focus-colour');
+
+@import "govuk/base";
+
+@mixin govuk-typography-common($font-family: $govuk-font-family) {}
+// Want to drop sizing, but need to keep line-height so things line up
+@mixin govuk-typography-responsive($size, $override-line-height: false, $important: false) {
+    line-height: 1.25;
+}
+@mixin govuk-text-colour() {}
+
+@import "govuk/components/radios/index";
