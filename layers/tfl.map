@@ -100,6 +100,42 @@ MAP
   END #layer
 
   LAYER
+    NAME "busstations"
+    METADATA
+      "wfs_title"         "busstations" ##REQUIRED
+      "gml_include_items" "all" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "* !GetCapabilities"  # necessary
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'tfl/tfl_bus_stations.gpkg'
+    DATA 'tfl_bus_stations'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "piers"
+    METADATA
+      "wfs_title"         "piers" ##REQUIRED
+      "gml_include_items" "all" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "* !GetCapabilities"  # necessary
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'tfl/tfl_river_piers.gpkg'
+    DATA 'tfl_river_piers'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
     NAME "roadworks"
     METADATA
       "wfs_title"         "roadworks" ##REQUIRED
