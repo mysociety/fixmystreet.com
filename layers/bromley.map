@@ -134,4 +134,22 @@ MAP
     END
   END #layer
 
+  LAYER
+    NAME "Parks_Open_Spaces"
+    METADATA
+      "wfs_title"         "Parks & open spaces" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "SITENAME,site_code" ## Optional (serves all attributes for layer)
+      "gml_SITENAME_alias" "site_name"
+      "gml_featureid"     "OBJECTID" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bromley/ConfirmMatchedParksOpenSpaceSites'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
 END #mapfile
