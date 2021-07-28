@@ -69,4 +69,19 @@ MAP
     END
   END #layer
 
+  LAYER
+    NAME "Highways_litter_pick"
+    METADATA
+      "wfs_title"         "Highways_litter_pick" ##REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE LINE
+    STATUS ON
+    DATA 'highways/Refuse_collection_sections'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
 END #mapfile
