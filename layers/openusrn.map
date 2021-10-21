@@ -1,5 +1,5 @@
 MAP
-  NAME "Merton"
+  NAME "OpenUSRN"
   STATUS ON
   EXTENT -180 -90 180 90
   SHAPEPATH "../../layers"
@@ -25,7 +25,7 @@ MAP
     TYPE POLYGON
     STATUS ON
     CONNECTIONTYPE OGR
-    CONNECTION 'merton/openusrn.gpkg'
+    CONNECTION 'openusrn/openusrn.gpkg'
     DATA 'usrn'
     PROJECTION
       "init=epsg:27700"
