@@ -22,11 +22,11 @@ MAP
       "wfs_enable_request" "* !GetCapabilities"  # necessary
       "wfs_getfeature_formatlist" "geojson" # so FMS.com cobrand lookup_site_code works
     END
-    TYPE POLYGON
+    TYPE LINE
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'openusrn/openusrn.gpkg'
-    DATA 'usrn'
+    DATA 'openUSRN'
     PROJECTION
       "init=epsg:27700"
     END
