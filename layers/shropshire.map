@@ -1,0 +1,172 @@
+MAP
+  NAME "FMS_WFS_server"
+  STATUS ON
+  SIZE 400 300
+  #SYMBOLSET "../etc/symbols.txt"
+  EXTENT -180 -90 180 90
+  UNITS DD
+  SHAPEPATH "../../layers"
+  IMAGECOLOR 255 255 255
+  #FONTSET "../etc/fonts.txt"
+
+  OUTPUTFORMAT
+    NAME "geojson"
+    DRIVER "OGR/GEOJSON"
+    MIMETYPE "application/json; subtype=geojson"
+    FORMATOPTION "STORAGE=stream"
+    FORMATOPTION "FORM=SIMPLE"
+  END
+
+  LAYER
+    NAME "Traffic_Signal_Areas"
+    METADATA
+      "wfs_title"         "Traffic_Signal_Areas" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "site_code,central_asset_id" ## Optional (serves all attributes for layer)
+      "gml_central_asset_id_alias" "central_as"
+      "gml_featureid"     "central_asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'shropshire/traffic_signals_areas'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Illuminated_Bollards"
+    METADATA
+      "wfs_title"         "Illuminated_Bollards" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "site_code,central_asset_id" ## Optional (serves all attributes for layer)
+      "gml_central_asset_id_alias" "central_as"
+      "gml_featureid"     "central_asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'shropshire/ILUM'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Street_Lights"
+    METADATA
+      "wfs_title"         "Street_Lights" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "site_code,central_asset_id" ## Optional (serves all attributes for layer)
+      "gml_central_asset_id_alias" "central_as"
+      "gml_featureid"     "central_asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'shropshire/LAMP'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Parish_Street_Lights"
+    METADATA
+      "wfs_title"         "Parish_Street_Lights" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "site_code,central_asset_id" ## Optional (serves all attributes for layer)
+      "gml_central_asset_id_alias" "central_as"
+      "gml_featureid"     "central_asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'shropshire/PLMP'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Bridges"
+    METADATA
+      "wfs_title"         "Bridges" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "site_code,central_asset_id" ## Optional (serves all attributes for layer)
+      "gml_central_asset_id_alias" "central_as"
+      "gml_featureid"     "central_asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'shropshire/BRID'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Cattle_Grids"
+    METADATA
+      "wfs_title"         "Cattle_Grids" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "site_code,central_asset_id" ## Optional (serves all attributes for layer)
+      "gml_central_asset_id_alias" "central_as"
+      "gml_featureid"     "central_asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'shropshire/CTGR'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Traffic_Signal"
+    METADATA
+      "wfs_title"         "Traffic_Signal" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "site_code,central_asset_id" ## Optional (serves all attributes for layer)
+      "gml_central_asset_id_alias" "central_as"
+      "gml_featureid"     "central_asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'shropshire/TSIG'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Grit_Bins"
+    METADATA
+      "wfs_title"         "Grit_Bins" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "site_code,central_asset_id" ## Optional (serves all attributes for layer)
+      "gml_central_asset_id_alias" "central_as"
+      "gml_featureid"     "central_asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'shropshire/GRIT'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+END #mapfile
