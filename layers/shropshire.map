@@ -42,8 +42,8 @@ MAP
       "wfs_title"         "Illuminated_Bollards" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "all" ## Optional (serves all attributes for layer)
-      "gml_central_asset_id_alias" "central_as"
-      "gml_featureid"     "central_asset_id" ## REQUIRED
+      #"gml_central_asset_id_alias" "central_as"
+      #"gml_featureid"     "central_asset_id" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
     END
