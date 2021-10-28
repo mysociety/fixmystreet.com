@@ -18,19 +18,36 @@ MAP
   END
 
   LAYER
+    NAME "Street_Gazeteer"
+    METADATA
+      "wfs_title"         "Street_Gazeteer" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "ASSET_ID, SITE_CODE" ## Optional (serves all attributes for layer)
+      "gml_central_asset_id_alias" "central_as"
+      "gml_featureid"     "ASSET_ID" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'shropshire/street_gazetteer_lines'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
     NAME "Traffic_Signal_Areas"
     METADATA
       "wfs_title"         "Traffic_Signal_Areas" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "site_code,central_asset_id" ## Optional (serves all attributes for layer)
+      "gml_include_items" "ASSET_ID, SITE_CODE, FEATURE_ID" ## Optional (serves all attributes for layer)
       "gml_central_asset_id_alias" "central_as"
-      "gml_featureid"     "central_asset_id" ## REQUIRED
+      "gml_featureid"     "FEATURE_ID" ## REQUIRED
       "wfs_enable_request" "*"
     END
-    TYPE POINT
+    TYPE POLYGON
     STATUS ON
-    CONNECTIONTYPE OGR
-    CONNECTION 'shropshire/traffic_signals_areas'
+    DATA 'shropshire/traffic_signals_areas'
     PROJECTION
       "init=epsg:27700"
     END
@@ -47,11 +64,11 @@ MAP
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
     END
-    TYPE LINE
+    TYPE POINT
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'shropshire/ILUM.gpkg'
-    DATA 'Illuminated_Bollards'
+    DATA 'ILUM'
     PROJECTION
       "init=epsg:27700"
     END
@@ -70,7 +87,8 @@ MAP
     TYPE POINT
     STATUS ON
     CONNECTIONTYPE OGR
-    CONNECTION 'shropshire/LAMP'
+    CONNECTION 'shropshire/LAMP.gpkg'
+    DATA 'LAMP'
     PROJECTION
       "init=epsg:27700"
     END
@@ -89,7 +107,8 @@ MAP
     TYPE POINT
     STATUS ON
     CONNECTIONTYPE OGR
-    CONNECTION 'shropshire/PLMP'
+    CONNECTION 'shropshire/PLMP.gpkg'
+    DATA 'PLMP'
     PROJECTION
       "init=epsg:27700"
     END
@@ -108,7 +127,8 @@ MAP
     TYPE POINT
     STATUS ON
     CONNECTIONTYPE OGR
-    CONNECTION 'shropshire/BRID'
+    CONNECTION 'shropshire/BRID.gpkg'
+    DATA 'BRID'
     PROJECTION
       "init=epsg:27700"
     END
@@ -128,6 +148,7 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'shropshire/CTGR'
+    DATA 'CTGR'
     PROJECTION
       "init=epsg:27700"
     END
@@ -146,7 +167,8 @@ MAP
     TYPE POINT
     STATUS ON
     CONNECTIONTYPE OGR
-    CONNECTION 'shropshire/TSIG'
+    CONNECTION 'shropshire/TSIG.gpkg'
+    DATA 'TSIG'
     PROJECTION
       "init=epsg:27700"
     END
@@ -165,7 +187,8 @@ MAP
     TYPE POINT
     STATUS ON
     CONNECTIONTYPE OGR
-    CONNECTION 'shropshire/GRIT'
+    CONNECTION 'shropshire/GRIT.gpkg'
+    DATA 'GRIT'
     PROJECTION
       "init=epsg:27700"
     END
