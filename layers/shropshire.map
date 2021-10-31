@@ -22,10 +22,10 @@ MAP
     METADATA
       "wfs_title"         "Street_Gazeteer" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "ASSET_ID, SITE_CODE" ## Optional (serves all attributes for layer)
-      "gml_central_asset_id_alias" "central_as"
+      "gml_include_items" "all" ## Optional (serves all attributes for layer)
       "gml_featureid"     "ASSET_ID" ## REQUIRED
       "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
     END
     TYPE POLYGON
     STATUS ON
@@ -41,9 +41,9 @@ MAP
       "wfs_title"         "Traffic_Signal_Areas" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "ASSET_ID, SITE_CODE, FEATURE_ID" ## Optional (serves all attributes for layer)
-      "gml_central_asset_id_alias" "central_as"
       "gml_featureid"     "FEATURE_ID" ## REQUIRED
       "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
     END
     TYPE POLYGON
     STATUS ON
@@ -80,9 +80,9 @@ MAP
       "wfs_title"         "Street_Lights" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "site_code,central_asset_id" ## Optional (serves all attributes for layer)
-      "gml_central_asset_id_alias" "central_as"
       "gml_featureid"     "central_asset_id" ## REQUIRED
       "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
     END
     TYPE POINT
     STATUS ON
@@ -100,9 +100,9 @@ MAP
       "wfs_title"         "Parish_Street_Lights" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "site_code,central_asset_id" ## Optional (serves all attributes for layer)
-      "gml_central_asset_id_alias" "central_as"
       "gml_featureid"     "central_asset_id" ## REQUIRED
       "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
     END
     TYPE POINT
     STATUS ON
@@ -120,9 +120,9 @@ MAP
       "wfs_title"         "Bridges" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "site_code,central_asset_id" ## Optional (serves all attributes for layer)
-      "gml_central_asset_id_alias" "central_as"
       "gml_featureid"     "central_asset_id" ## REQUIRED
       "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
     END
     TYPE POINT
     STATUS ON
@@ -140,14 +140,14 @@ MAP
       "wfs_title"         "Cattle_Grids" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "site_code,central_asset_id" ## Optional (serves all attributes for layer)
-      "gml_central_asset_id_alias" "central_as"
       "gml_featureid"     "central_asset_id" ## REQUIRED
       "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
     END
     TYPE POINT
     STATUS ON
     CONNECTIONTYPE OGR
-    CONNECTION 'shropshire/CTGR'
+    CONNECTION 'shropshire/CTGR.gpkg'
     DATA 'CTGR'
     PROJECTION
       "init=epsg:27700"
@@ -160,9 +160,9 @@ MAP
       "wfs_title"         "Traffic_Signal" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "site_code,central_asset_id" ## Optional (serves all attributes for layer)
-      "gml_central_asset_id_alias" "central_as"
       "gml_featureid"     "central_asset_id" ## REQUIRED
       "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
     END
     TYPE POINT
     STATUS ON
@@ -180,9 +180,9 @@ MAP
       "wfs_title"         "Grit_Bins" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "site_code,central_asset_id" ## Optional (serves all attributes for layer)
-      "gml_central_asset_id_alias" "central_as"
       "gml_featureid"     "central_asset_id" ## REQUIRED
       "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
     END
     TYPE POINT
     STATUS ON
