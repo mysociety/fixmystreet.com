@@ -18,12 +18,12 @@ MAP
   END
 
   LAYER
-    NAME "Street_Gazeteer"
+    NAME "Street_Gazetteer"
     METADATA
-      "wfs_title"         "Street_Gazeteer" ##REQUIRED
+      "wfs_title"         "Street_Gazetteer" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "all" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "ASSET_ID" ## REQUIRED
+      "gml_include_items" "USRN" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
     END
@@ -40,7 +40,7 @@ MAP
     METADATA
       "wfs_title"         "Traffic_Signal_Areas" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "ASSET_ID, SITE_CODE, FEATURE_ID" ## Optional (serves all attributes for layer)
+      "gml_include_items" "ASSET_ID,SITE_CODE,FEATURE_ID" ## Optional (serves all attributes for layer)
       "gml_featureid"     "FEATURE_ID" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
@@ -58,9 +58,8 @@ MAP
     METADATA
       "wfs_title"         "Illuminated_Bollards" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "all" ## Optional (serves all attributes for layer)
-      #"gml_central_asset_id_alias" "central_as"
-      #"gml_featureid"     "central_asset_id" ## REQUIRED
+      "gml_include_items" "CentralAssetId,FeatureId" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "FeatureId" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
     END
@@ -79,8 +78,8 @@ MAP
     METADATA
       "wfs_title"         "Street_Lights" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "site_code,central_asset_id" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "central_asset_id" ## REQUIRED
+      "gml_include_items" "CentralAssetId,FeatureId" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "FeatureId" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
     END
@@ -99,8 +98,8 @@ MAP
     METADATA
       "wfs_title"         "Parish_Street_Lights" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "site_code,central_asset_id" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "central_asset_id" ## REQUIRED
+      "gml_include_items" "CentralAssetId,FeatureId" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "FeatureId" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
     END
@@ -115,12 +114,31 @@ MAP
   END #layer
 
   LAYER
+    NAME "Lights_Union"
+      METADATA
+        "wfs_title"         "Lights_Union" ##REQUIRED
+        "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+        "gml_include_items" "CentralAssetId,FeatureId" ## Optional (serves all attributes for layer)
+        "gml_featureid"     "FeatureId" ## REQUIRED
+        "wfs_enable_request" "*"
+      END
+    TYPE POINT
+    STATUS ON
+    PROCESSING "ITEMS=CentralAssetId,FeatureId"
+    CONNECTIONTYPE UNION
+    CONNECTION "Parish_Street_Lights,Street_Lights"
+      PROJECTION
+        "init=epsg:27700"
+      END
+  END
+
+  LAYER
     NAME "Bridges"
     METADATA
       "wfs_title"         "Bridges" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "site_code,central_asset_id" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "central_asset_id" ## REQUIRED
+      "gml_include_items" "CentralAssetId,FeatureId" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "FeatureId" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
     END
@@ -139,8 +157,8 @@ MAP
     METADATA
       "wfs_title"         "Cattle_Grids" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "site_code,central_asset_id" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "central_asset_id" ## REQUIRED
+      "gml_include_items" "CentralAssetId,FeatureId" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "FeatureId" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
     END
@@ -159,8 +177,8 @@ MAP
     METADATA
       "wfs_title"         "Traffic_Signal" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "site_code,central_asset_id" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "central_asset_id" ## REQUIRED
+      "gml_include_items" "CentralAssetId,FeatureId" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "FeatureId" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
     END
@@ -179,8 +197,8 @@ MAP
     METADATA
       "wfs_title"         "Grit_Bins" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "site_code,central_asset_id" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "central_asset_id" ## REQUIRED
+      "gml_include_items" "CentralAssetId,FeatureId" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "FeatureId" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
     END
