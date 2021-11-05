@@ -22,7 +22,7 @@ MAP
     METADATA
       "wfs_title"         "Street_Gazetteer" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "USRN" ## Optional (serves all attributes for layer)
+      "gml_include_items" "USRN,SITE_CLASS" ## Optional (serves all attributes for layer)
       "gml_featureid"     "fid" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
@@ -78,7 +78,7 @@ MAP
     METADATA
       "wfs_title"         "Street_Lights" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "CentralAssetId,FeatureId" ## Optional (serves all attributes for layer)
+      "gml_include_items" "CentralAssetId,FeatureId,FeatureTypeName" ## Optional (serves all attributes for layer)
       "gml_featureid"     "FeatureId" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
@@ -98,7 +98,7 @@ MAP
     METADATA
       "wfs_title"         "Parish_Street_Lights" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "CentralAssetId,FeatureId" ## Optional (serves all attributes for layer)
+      "gml_include_items" "CentralAssetId,FeatureId,FeatureTypeName" ## Optional (serves all attributes for layer)
       "gml_featureid"     "FeatureId" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
@@ -118,13 +118,13 @@ MAP
       METADATA
         "wfs_title"         "Lights_Union" ##REQUIRED
         "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-        "gml_include_items" "CentralAssetId,FeatureId" ## Optional (serves all attributes for layer)
+        "gml_include_items" "CentralAssetId,FeatureId,FeatureTypeName" ## Optional (serves all attributes for layer)
         "gml_featureid"     "FeatureId" ## REQUIRED
         "wfs_enable_request" "*"
       END
     TYPE POINT
     STATUS ON
-    PROCESSING "ITEMS=CentralAssetId,FeatureId"
+    PROCESSING "ITEMS=CentralAssetId,FeatureId,FeatureTypeName"
     CONNECTIONTYPE UNION
     CONNECTION "Parish_Street_Lights,Street_Lights"
       PROJECTION
