@@ -58,8 +58,8 @@ MAP
     METADATA
       "wfs_title"         "Illuminated_Bollards" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "CentralAssetId,FeatureId" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "FeatureId" ## REQUIRED
+      "gml_include_items" "ASSET_ID,FEATURE_ID,TYPE" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "FEATURE_ID" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
     END
@@ -69,7 +69,7 @@ MAP
     CONNECTION 'shropshire/ILUM.gpkg'
     DATA 'ILUM'
     PROJECTION
-      "init=epsg:27700"
+      "init=epsg:4326"
     END
   END #layer
 
@@ -78,8 +78,8 @@ MAP
     METADATA
       "wfs_title"         "Street_Lights" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "CentralAssetId,FeatureId,FeatureTypeName" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "FeatureId" ## REQUIRED
+      "gml_include_items" "ASSET_ID,FEATURE_ID,TYPE" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "FEATURE_ID" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
     END
@@ -89,7 +89,7 @@ MAP
     CONNECTION 'shropshire/LAMP.gpkg'
     DATA 'LAMP'
     PROJECTION
-      "init=epsg:27700"
+      "init=epsg:4326"
     END
   END #layer
 
@@ -98,8 +98,8 @@ MAP
     METADATA
       "wfs_title"         "Parish_Street_Lights" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "CentralAssetId,FeatureId,FeatureTypeName" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "FeatureId" ## REQUIRED
+      "gml_include_items" "ASSET_ID,FEATURE_ID,TYPE" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "FEATURE_ID" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
     END
@@ -109,7 +109,7 @@ MAP
     CONNECTION 'shropshire/PLMP.gpkg'
     DATA 'PLMP'
     PROJECTION
-      "init=epsg:27700"
+      "init=epsg:4326"
     END
   END #layer
 
@@ -118,17 +118,17 @@ MAP
       METADATA
         "wfs_title"         "Lights_Union" ##REQUIRED
         "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-        "gml_include_items" "CentralAssetId,FeatureId,FeatureTypeName" ## Optional (serves all attributes for layer)
-        "gml_featureid"     "FeatureId" ## REQUIRED
+        "gml_include_items" "ASSET_ID,FEATURE_ID,TYPE" ## Optional (serves all attributes for layer)
+        "gml_featureid"     "FEATURE_ID" ## REQUIRED
         "wfs_enable_request" "*"
       END
     TYPE POINT
     STATUS ON
-    PROCESSING "ITEMS=CentralAssetId,FeatureId,FeatureTypeName"
+    PROCESSING "ITEMS=ASSET_ID,FEATURE_ID,TYPE"
     CONNECTIONTYPE UNION
     CONNECTION "Parish_Street_Lights,Street_Lights"
       PROJECTION
-        "init=epsg:27700"
+        "init=epsg:4326"
       END
   END
 
