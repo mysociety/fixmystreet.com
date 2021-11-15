@@ -31,6 +31,63 @@ MAP
   END #layer
 
   LAYER
+    NAME "bollards_islands_beacons"
+    METADATA
+      "wfs_title"         "bollards_islands_beacons" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "FeatureId,CentralAssetId" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'hounslow/bollards_islands_beacons.gpkg'
+    DATA 'bollards_islands_beacons'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "grass_verges"
+    METADATA
+      "wfs_title"         "grass_verges" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "FeatureId,CentralAssetId" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'hounslow/grass_verges.gpkg'
+    DATA 'grass_verges'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "gulleys"
+    METADATA
+      "wfs_title"         "gulleys" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "FeatureId,CentralAssetId" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'hounslow/gulleys.gpkg'
+    DATA 'gulleys'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
     NAME "lighting"
     METADATA
       "wfs_title"         "lighting" ##REQUIRED
