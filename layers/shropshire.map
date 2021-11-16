@@ -1,0 +1,215 @@
+MAP
+  NAME "FMS_WFS_server"
+  STATUS ON
+  SIZE 400 300
+  #SYMBOLSET "../etc/symbols.txt"
+  EXTENT -180 -90 180 90
+  UNITS DD
+  SHAPEPATH "../../layers"
+  IMAGECOLOR 255 255 255
+  #FONTSET "../etc/fonts.txt"
+
+  OUTPUTFORMAT
+    NAME "geojson"
+    DRIVER "OGR/GEOJSON"
+    MIMETYPE "application/json; subtype=geojson"
+    FORMATOPTION "STORAGE=stream"
+    FORMATOPTION "FORM=SIMPLE"
+  END
+
+  LAYER
+    NAME "Street_Gazetteer"
+    METADATA
+      "wfs_title"         "Street_Gazetteer" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "USRN,SITE_CLASS" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'shropshire/street_gazetteer_lines'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Traffic_Signal_Areas"
+    METADATA
+      "wfs_title"         "Traffic_Signal_Areas" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "ASSET_ID,SITE_CODE,FEATURE_ID" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "FEATURE_ID" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'shropshire/traffic_signals_areas'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Illuminated_Bollards"
+    METADATA
+      "wfs_title"         "Illuminated_Bollards" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "ASSET_ID,FEATURE_ID,TYPE" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "FEATURE_ID" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'shropshire/ILUM.gpkg'
+    DATA 'ILUM'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "Street_Lights"
+    METADATA
+      "wfs_title"         "Street_Lights" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "ASSET_ID,FEATURE_ID,TYPE" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "FEATURE_ID" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'shropshire/LAMP.gpkg'
+    DATA 'LAMP'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "Parish_Street_Lights"
+    METADATA
+      "wfs_title"         "Parish_Street_Lights" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "ASSET_ID,FEATURE_ID,TYPE" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "FEATURE_ID" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'shropshire/PLMP.gpkg'
+    DATA 'PLMP'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "Lights_Union"
+      METADATA
+        "wfs_title"         "Lights_Union" ##REQUIRED
+        "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+        "gml_include_items" "ASSET_ID,FEATURE_ID,TYPE" ## Optional (serves all attributes for layer)
+        "gml_featureid"     "FEATURE_ID" ## REQUIRED
+        "wfs_enable_request" "*"
+      END
+    TYPE POINT
+    STATUS ON
+    PROCESSING "ITEMS=ASSET_ID,FEATURE_ID,TYPE"
+    CONNECTIONTYPE UNION
+    CONNECTION "Parish_Street_Lights,Street_Lights"
+      PROJECTION
+        "init=epsg:4326"
+      END
+  END
+
+  LAYER
+    NAME "Bridges"
+    METADATA
+      "wfs_title"         "Bridges" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "CentralAssetId,FeatureId" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "FeatureId" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'shropshire/BRID.gpkg'
+    DATA 'BRID'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Cattle_Grids"
+    METADATA
+      "wfs_title"         "Cattle_Grids" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "CentralAssetId,FeatureId" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "FeatureId" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'shropshire/CTGR.gpkg'
+    DATA 'CTGR'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Traffic_Signal"
+    METADATA
+      "wfs_title"         "Traffic_Signal" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "CentralAssetId,FeatureId" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "FeatureId" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'shropshire/TSIG.gpkg'
+    DATA 'TSIG'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Grit_Bins"
+    METADATA
+      "wfs_title"         "Grit_Bins" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "CentralAssetId,FeatureId" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "FeatureId" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'shropshire/GRIT.gpkg'
+    DATA 'GRIT'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+END #mapfile
