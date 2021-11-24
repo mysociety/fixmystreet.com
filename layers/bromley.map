@@ -18,12 +18,13 @@ MAP
       "wfs_title"         "Street Lights" ##REQUIRED
       "wfs_srs"           "EPSG:3857" ## REQUIRED
       "gml_include_items" "feature_id" ## Optional (serves all attributes for layer)
+      "gml_feature_id_alias" "FEATURE_ID"
       "gml_featureid"     "feature_id" ## REQUIRED
       "wfs_enable_request" "*"
     END
     TYPE POINT
     STATUS ON
-    DATA 'bromley/Lamp_columns_fms_march18'
+    DATA 'bromley/LampColumns121121TrimmedCopy'
     PROJECTION
       "init=epsg:27700"
     END
