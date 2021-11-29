@@ -118,13 +118,13 @@ MAP
       METADATA
         "wfs_title"         "Lights_Union" ##REQUIRED
         "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-        "gml_include_items" "ASSET_ID,FEATURE_ID,TYPE" ## Optional (serves all attributes for layer)
-        "gml_featureid"     "FEATURE_ID" ## REQUIRED
+        "gml_include_items" "ASSET_ID,OWNER,PART_NIGHT,FEAT_LABEL"
+        "gml_featureid"     "ASSET_ID" ## REQUIRED
         "wfs_enable_request" "*"
       END
     TYPE POINT
     STATUS ON
-    PROCESSING "ITEMS=ASSET_ID,FEATURE_ID,TYPE"
+    PROCESSING "ITEMS=ASSET_ID,OWNER,PART_NIGHT,FEAT_LABEL"
     CONNECTIONTYPE UNION
     CONNECTION "Parish_Street_Lights,Street_Lights"
       PROJECTION
