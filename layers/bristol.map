@@ -1,0 +1,35 @@
+MAP
+  NAME "FMS_WFS_server"
+  STATUS ON
+  SIZE 400 300
+  EXTENT -180 -90 180 90
+  UNITS DD
+  SHAPEPATH "../../layers"
+  IMAGECOLOR 255 255 255
+
+  OUTPUTFORMAT
+    NAME "geojson"
+    DRIVER "OGR/GEOJSON"
+    MIMETYPE "application/json; subtype=geojson"
+    FORMATOPTION "STORAGE=stream"
+    FORMATOPTION "FORM=SIMPLE"
+  END
+
+  LAYER
+    NAME "parks"
+    METADATA
+      "wfs_title"         "Bristol Parks"
+      "wfs_srs"           "EPSG:3857 EPSG:27700"
+      "gml_include_items" "SITE_NAME,SITE_CODE"
+      "gml_featureid"     "SITE_CODE"
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'bristol/CONTRACT_FEATURES_BySite'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+END #mapfile
