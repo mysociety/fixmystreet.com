@@ -153,4 +153,22 @@ MAP
     END
   END #layer
 
+  LAYER
+    NAME "A13TLRN_DBFO"
+    METADATA
+      "wfs_title"         "A13TLRN_DBFO" ##REQUIRED
+      "gml_featureid"     "fid" ## REQUIRED
+      "gml_include_items" "OBJECTID" ## Optional (serves all attributes for layer)
+      "wfs_enable_request" "* !GetCapabilities"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'tfl/TLRN_DBFO_Boundary'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
 END #mapfile
