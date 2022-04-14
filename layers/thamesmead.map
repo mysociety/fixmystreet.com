@@ -1,0 +1,96 @@
+ MAP
+   NAME "FMS_WFS_server"
+   STATUS ON
+   SIZE 400 300
+   EXTENT -180 -90 180 90
+   UNITS DD
+   SHAPEPATH "../../layers"
+   IMAGECOLOR 255 255 255
+   OUTPUTFORMAT
+     NAME "geojson"
+     DRIVER "OGR/GEOJSON"
+     MIMETYPE "application/json; subtype=geojson"
+     FORMATOPTION "STORAGE=stream"
+     FORMATOPTION "FORM=SIMPLE"
+   END # End for Output format
+    LAYER
+     NAME "hardsurfaces"
+     METADATA
+      "wfs_title"         "Hard surfaces"
+      "wfs_srs"           "EPSG:3857 EPSG:27700"
+      "gml_include_items" "maintainby,managedby,owner,fid"
+      "gml_featureid"     "fid"
+      "wfs_enable_request" "*"
+     END # End for metadata
+     TYPE POLYGON
+     STATUS ON
+     DATA 'thamesmead/hardsurfaces'
+     PROJECTION
+       "init=epsg:27700"
+     END # End for projection
+   END #layer
+   LAYER
+     NAME "grass"
+     METADATA
+      "wfs_title"         "Grass"
+      "wfs_srs"           "EPSG:3857 EPSG:27700"
+      "gml_include_items" "maintainby,managedby,owner,fid"
+      "gml_featureid"     "fid"
+      "wfs_enable_request" "*"
+     END # End for metadata
+     TYPE POLYGON
+     STATUS ON
+     DATA 'thamesmead/grass'
+     PROJECTION
+       "init=epsg:27700"
+     END # End for projection
+   END #layer
+   LAYER
+     NAME "planting"
+     METADATA
+      "wfs_title"         "Planting"
+      "wfs_srs"           "EPSG:3857 EPSG:27700"
+      "gml_include_items" "maintainby,managedby,owner,ogc_fid"
+      "gml_featureid"     "ogc_fid"
+      "wfs_enable_request" "*"
+     END # End for metadata
+     TYPE POLYGON
+     STATUS ON
+     DATA 'thamesmead/planting'
+     PROJECTION
+       "init=epsg:27700"
+     END # End for projection
+   END #layer
+   LAYER
+     NAME "treegroups"
+     METADATA
+      "wfs_title"         "Tree groups"
+      "wfs_srs"           "EPSG:3857 EPSG:27700"
+      "gml_include_items" "sitecode,Central_as,Owner,fid"
+      "gml_featureid"     "fid"
+      "wfs_enable_request" "*"
+     END # End for metadata
+     TYPE POLYGON
+     STATUS ON
+     DATA 'thamesmead/treegroups'
+     PROJECTION
+       "init=epsg:27700"
+     END # End for projection
+   END #layer
+   LAYER
+     NAME "water"
+     METADATA
+      "wfs_title"         "Water"
+      "wfs_srs"           "EPSG:3857 EPSG:27700"
+      "gml_include_items" "FeatureNam,Featuretyp,Owner,fid"
+      "gml_featureid"     "fid"
+      "wfs_enable_request" "*"
+     END # End for metadata
+     TYPE POLYGON
+     STATUS ON
+     DATA 'thamesmead/water'
+     PROJECTION
+       "init=epsg:27700"
+     END # End for projection
+   END #layer
+  END # End for mapfile
