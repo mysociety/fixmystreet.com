@@ -153,4 +153,21 @@ MAP
     END
   END #layer
 
+  LAYER
+    NAME "Drains"
+    METADATA
+      "wfs_title"         "Drains" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "node_id,USRN"
+      "gml_featureid"     "node_id" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bromley/KaarbonTechGulliesMarch22Trim'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
 END #mapfile
