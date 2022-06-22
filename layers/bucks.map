@@ -377,4 +377,22 @@ END
     END
   END #layer
 
+  LAYER
+    NAME "BusStops"
+    METADATA
+      "wfs_title"         "Bus Stops" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "NaptanCode" ## Optional (serves all attributes for layer)
+      "gml_NaptanCode_alias" "feature_id"
+      "gml_featureid"     "NaptanCode" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'bucks/Bus_stops'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
 END #mapfile
