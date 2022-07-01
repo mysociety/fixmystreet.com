@@ -43,15 +43,17 @@ MAP
     METADATA
       "wfs_title"         "Public Transport Stops" ##REQUIRED
       "wfs_srs"           "EPSG:3857" ## REQUIRED
-      "gml_include_items" "Confirm_CA,Asset_Id" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "fid" ## REQUIRED
+      "gml_include_items" "Central_Asset_Id,Asset_Id"
+      "gml_Central_Asset_Id_alias" "Confirm_CA"
+      "gml_featureid"     "Asset_Id"
       "wfs_enable_request" "* !GetCapabilities"
     END
     TYPE POINT
     STATUS ON
-    DATA 'lincs/Public_Transport_Stops'
+    CONNECTION 'lincs/Public_Transport_Stops.TAB'
+    CONNECTIONTYPE OGR
     PROJECTION
-      "init=epsg:3857"
+      "init=epsg:27700"
     END
   END #layer
 
@@ -60,15 +62,17 @@ MAP
     METADATA
       "wfs_title"         "Bollards" ##REQUIRED
       "wfs_srs"           "EPSG:3857" ## REQUIRED
-      "gml_include_items" "Confirm_CA,Asset_Id" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "fid" ## REQUIRED
+      "gml_include_items" "Central_Asset_Id,Asset_Id"
+      "gml_Central_Asset_Id_alias" "Confirm_CA"
+      "gml_featureid"     "Asset_Id"
       "wfs_enable_request" "* !GetCapabilities"
     END
     TYPE POINT
     STATUS ON
-    DATA 'lincs/SL_Bollards'
+    CONNECTION 'lincs/SL_Bollards.TAB'
+    CONNECTIONTYPE OGR
     PROJECTION
-      "init=epsg:3857"
+      "init=epsg:27700"
     END
   END #layer
 
@@ -77,15 +81,17 @@ MAP
     METADATA
       "wfs_title"         "Street Light Units" ##REQUIRED
       "wfs_srs"           "EPSG:3857" ## REQUIRED
-      "gml_include_items" "Confirm_CA,Asset_Id" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "fid" ## REQUIRED
+      "gml_include_items" "Central_Asset_Id,Asset_Id"
+      "gml_Central_Asset_Id_alias" "Confirm_CA"
+      "gml_featureid"     "Asset_Id"
       "wfs_enable_request" "* !GetCapabilities"
     END
     TYPE POINT
     STATUS ON
-    DATA 'lincs/SL_Street_Light_Units'
+    CONNECTION 'lincs/SL_Street_Light_Units.TAB'
+    CONNECTIONTYPE OGR
     PROJECTION
-      "init=epsg:3857"
+      "init=epsg:27700"
     END
   END #layer
 
@@ -94,15 +100,17 @@ MAP
     METADATA
       "wfs_title"         "Gullies/Offlets/Manholes" ##REQUIRED
       "wfs_srs"           "EPSG:3857" ## REQUIRED
-      "gml_include_items" "Confirm_CA,Asset_Id" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "fid" ## REQUIRED
+      "gml_include_items" "Central_Asset_Id,Asset_Id"
+      "gml_Central_Asset_Id_alias" "Confirm_CA"
+      "gml_featureid"     "Asset_Id"
       "wfs_enable_request" "* !GetCapabilities"
     END
     TYPE POINT
     STATUS ON
-    DATA 'lincs/LCC_Drainage-GulliesOffletsManholes'
+    CONNECTION 'lincs/LCC_Drainage-GulliesOffletsManholes.TAB'
+    CONNECTIONTYPE OGR
     PROJECTION
-      "init=epsg:3857"
+      "init=epsg:27700"
     END
   END #layer
 
@@ -111,15 +119,17 @@ MAP
     METADATA
       "wfs_title"         "Signs (lit)" ##REQUIRED
       "wfs_srs"           "EPSG:3857" ## REQUIRED
-      "gml_include_items" "Confirm_CA,Asset_Id" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "fid" ## REQUIRED
+      "gml_include_items" "Central_Asset_Id,Asset_Id"
+      "gml_Central_Asset_Id_alias" "Confirm_CA"
+      "gml_featureid"     "Asset_Id"
       "wfs_enable_request" "* !GetCapabilities"
     END
     TYPE POINT
     STATUS ON
-    DATA 'lincs/SL_Lit_Signs'
+    CONNECTION 'lincs/SL_Lit_Signs.TAB'
+    CONNECTIONTYPE OGR
     PROJECTION
-      "init=epsg:3857"
+      "init=epsg:27700"
     END
   END #layer
 
@@ -128,15 +138,17 @@ MAP
     METADATA
       "wfs_title"         "Structures" ##REQUIRED
       "wfs_srs"           "EPSG:3857" ## REQUIRED
-      "gml_include_items" "Confirm_CA,Asset_Id" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "fid" ## REQUIRED
+      "gml_include_items" "Central_Asset_Id,Asset_Id"
+      "gml_Central_Asset_Id_alias" "Confirm_CA"
+      "gml_featureid"     "Asset_Id"
       "wfs_enable_request" "* !GetCapabilities"
     END
     TYPE POINT
     STATUS ON
-    DATA 'lincs/ST_All_Structures'
+    CONNECTION 'lincs/ST_All_Structures.TAB'
+    CONNECTIONTYPE OGR
     PROJECTION
-      "init=epsg:3857"
+      "init=epsg:27700"
     END
   END #layer
 
@@ -145,15 +157,17 @@ MAP
     METADATA
       "wfs_title"         "Safety Barriers" ##REQUIRED
       "wfs_srs"           "EPSG:3857" ## REQUIRED
-      "gml_include_items" "Confirm_CA,Asset_Id" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "fid" ## REQUIRED
+      "gml_include_items" "Central_Asset_Id,Asset_Id"
+      "gml_Central_Asset_Id_alias" "Confirm_CA"
+      "gml_featureid"     "Asset_Id"
       "wfs_enable_request" "* !GetCapabilities"
     END
     TYPE POINT
     STATUS ON
-    DATA 'lincs/Safety_Barriers'
+    CONNECTION 'lincs/Safety_Barriers.TAB'
+    CONNECTIONTYPE OGR
     PROJECTION
-      "init=epsg:3857"
+      "init=epsg:27700"
     END
   END #layer
 
@@ -179,15 +193,17 @@ MAP
     METADATA
       "wfs_title"         "Carriageway" ##REQUIRED
       "wfs_srs"           "EPSG:3857" ## REQUIRED
-      "gml_include_items" "Confirm_CA,Asset_Id" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "fid" ## REQUIRED
+      "gml_include_items" "Central_Asset_Id,Asset_Id"
+      "gml_Central_Asset_Id_alias" "Confirm_CA"
+      "gml_featureid"     "Asset_Id"
       "wfs_enable_request" "* !GetCapabilities"
     END
     TYPE POINT
     STATUS ON
-    DATA 'lincs/Carriageway'
+    CONNECTION 'lincs/Carriageway.TAB'
+    CONNECTIONTYPE OGR
     PROJECTION
-      "init=epsg:3857"
+      "init=epsg:27700"
     END
   END #layer
 
