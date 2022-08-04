@@ -45,6 +45,7 @@ MAP
       "wfs_srs"           "EPSG:3857" ## REQUIRED
       "gml_include_items" "Central_Asset_Id,Asset_Id"
       "gml_Central_Asset_Id_alias" "Confirm_CA"
+      "gml_Feature_Type_alias" "Type"
       "gml_featureid"     "Asset_Id"
       "wfs_enable_request" "* !GetCapabilities"
     END
@@ -64,6 +65,7 @@ MAP
       "wfs_srs"           "EPSG:3857" ## REQUIRED
       "gml_include_items" "Central_Asset_Id,Asset_Id"
       "gml_Central_Asset_Id_alias" "Confirm_CA"
+      "gml_Feature_Type_alias" "Type"
       "gml_featureid"     "Asset_Id"
       "wfs_enable_request" "* !GetCapabilities"
     END
@@ -83,6 +85,7 @@ MAP
       "wfs_srs"           "EPSG:3857" ## REQUIRED
       "gml_include_items" "Central_Asset_Id,Asset_Id"
       "gml_Central_Asset_Id_alias" "Confirm_CA"
+      "gml_Feature_Type_alias" "Type"
       "gml_featureid"     "Asset_Id"
       "wfs_enable_request" "* !GetCapabilities"
     END
@@ -102,6 +105,7 @@ MAP
       "wfs_srs"           "EPSG:3857" ## REQUIRED
       "gml_include_items" "Central_Asset_Id,Asset_Id"
       "gml_Central_Asset_Id_alias" "Confirm_CA"
+      "gml_Feature_Type_alias" "Type"
       "gml_featureid"     "Asset_Id"
       "wfs_enable_request" "* !GetCapabilities"
     END
@@ -121,6 +125,7 @@ MAP
       "wfs_srs"           "EPSG:3857" ## REQUIRED
       "gml_include_items" "Central_Asset_Id,Asset_Id"
       "gml_Central_Asset_Id_alias" "Confirm_CA"
+      "gml_Feature_Type_alias" "Type"
       "gml_featureid"     "Asset_Id"
       "wfs_enable_request" "* !GetCapabilities"
     END
@@ -140,6 +145,7 @@ MAP
       "wfs_srs"           "EPSG:3857" ## REQUIRED
       "gml_include_items" "Central_Asset_Id,Asset_Id"
       "gml_Central_Asset_Id_alias" "Confirm_CA"
+      "gml_Feature_Type_alias" "Type"
       "gml_featureid"     "Asset_Id"
       "wfs_enable_request" "* !GetCapabilities"
     END
@@ -159,6 +165,7 @@ MAP
       "wfs_srs"           "EPSG:3857" ## REQUIRED
       "gml_include_items" "Central_Asset_Id,Asset_Id"
       "gml_Central_Asset_Id_alias" "Confirm_CA"
+      "gml_Feature_Type_alias" "Type"
       "gml_featureid"     "Asset_Id"
       "wfs_enable_request" "* !GetCapabilities"
     END
@@ -195,6 +202,7 @@ MAP
       "wfs_srs"           "EPSG:3857" ## REQUIRED
       "gml_include_items" "Central_Asset_Id,Asset_Id"
       "gml_Central_Asset_Id_alias" "Confirm_CA"
+      "gml_Feature_Type_alias" "Type"
       "gml_featureid"     "Asset_Id"
       "wfs_enable_request" "* !GetCapabilities"
     END
