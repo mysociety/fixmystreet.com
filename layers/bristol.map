@@ -29,4 +29,58 @@ MAP
     END
   END #layer
 
+  LAYER
+    NAME "CarParks"
+    TYPE POLYGON
+    STATUS ON
+    METADATA
+      "wfs_title"         "Car Parks" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "asset_id,site_code,site_name" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    PROCESSING "ITEMS=asset_id,site_code,site_name"
+    CONNECTIONTYPE UNION
+    CONNECTION "CarPark,MultiStoreyCarPark"
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "CarPark"
+    METADATA
+      "wfs_title"         "Cark Park source" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "asset_id,site_code,site_name" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'bristol/Car Park Surface'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "MultiStoreyCarPark"
+    METADATA
+      "wfs_title"         "Multi Storey Car Park source" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "asset_id,site_code,site_name" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'bristol/Multi Storey Car Park'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
 END #mapfile
