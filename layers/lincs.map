@@ -216,6 +216,26 @@ MAP
   END #layer
 
   LAYER
+    NAME "Grit_Bins"
+    METADATA
+      "wfs_title"         "Grit Bins" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "Central_Asset_Id,Asset_Id"
+      "gml_Central_Asset_Id_alias" "Confirm_CA"
+      "gml_Feature_Type_alias" "Type"
+      "gml_featureid"     "Asset_Id"
+      "wfs_enable_request" "* !GetCapabilities"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTION 'lincs/Grit_Bins.TAB'
+    CONNECTIONTYPE OGR
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
     NAME "LLPG"
     METADATA
       "wfs_title"         "LLPG" ##REQUIRED
