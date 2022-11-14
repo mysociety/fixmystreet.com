@@ -1,0 +1,105 @@
+MAP
+  NAME "Brent"
+  STATUS ON
+  EXTENT -180 -90 180 90
+  SHAPEPATH "../../layers"
+
+  OUTPUTFORMAT
+    NAME "geojson"
+    DRIVER "OGR/GEOJSON"
+    MIMETYPE "application/json; subtype=geojson"
+    FORMATOPTION "STORAGE=stream"
+    FORMATOPTION "FORM=SIMPLE"
+  END
+
+  LAYER
+    NAME "Gullies"
+    METADATA
+      "wfs_title"         "gullies" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "ukey"
+      "gml_featureid"     "gid" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'brent/environment-gullie_cleaning_feb16'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Housing"
+    METADATA
+      "wfs_title"         "housing" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "site_name"
+      "gml_featureid"     "site_name" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'brent/housing_polys'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END
+
+  LAYER
+    NAME "Parks_and_Open_Spaces"
+    METADATA
+      "wfs_title"         "parks_and_spaces" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "site_name"
+      "gml_featureid"     "site_name" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'brent/parks_and_open_spaces_poly'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END
+
+  LAYER
+    NAME "Highways"
+    METADATA
+      "wfs_title"         "highways" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "id,fid"
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'brent/transport-adopted_highways_polygons_brent'
+    PROJECTION
+        "init=epsg:27700"
+    END
+  END
+
+  LAYER
+    NAME "Street_Lighting"
+    METADATA
+      "wfs_title"         "streetlighting" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "gid,unit_id"
+      "gml_featureid"     "gid" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'brent/transport-street_lighting'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END
+
+END #mapfile
