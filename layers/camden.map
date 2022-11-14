@@ -1,0 +1,41 @@
+MAP
+  NAME "Camden"
+  STATUS ON
+  EXTENT 0 0 700000 1300000
+  SHAPEPATH "../../layers"
+  PROJECTION
+    "init=epsg:27700"
+  END
+
+  WEB
+    METADATA
+      "wfs_srs" "EPSG:27700 EPSG:3857"
+    END
+  END
+
+  OUTPUTFORMAT
+    NAME "geojson"
+    DRIVER "OGR/GEOJSON"
+    MIMETYPE "application/json; subtype=geojson"
+    FORMATOPTION "STORAGE=stream"
+    FORMATOPTION "FORM=SIMPLE"
+  END
+
+  LAYER
+    NAME "Streets"
+    METADATA
+      "wfs_title"         "Streets" ##REQUIRED
+      "gml_include_items" "NSG_REF"
+      "gml_featureid"     "NSG_REF" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE LINE
+    STATUS ON
+    DATA 'camden/STREETS'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+END #mapfile
