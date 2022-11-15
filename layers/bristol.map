@@ -1,11 +1,8 @@
 MAP
-  NAME "FMS_WFS_server"
+  NAME "Bristol"
   STATUS ON
-  SIZE 400 300
   EXTENT -180 -90 180 90
-  UNITS DD
   SHAPEPATH "../../layers"
-  IMAGECOLOR 255 255 255
 
   OUTPUTFORMAT
     NAME "geojson"

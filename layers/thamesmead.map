@@ -1,11 +1,9 @@
  MAP
-   NAME "FMS_WFS_server"
+   NAME "Thamesmead"
    STATUS ON
-   SIZE 400 300
    EXTENT -180 -90 180 90
-   UNITS DD
    SHAPEPATH "../../layers"
-   IMAGECOLOR 255 255 255
+
    OUTPUTFORMAT
      NAME "geojson"
      DRIVER "OGR/GEOJSON"
@@ -13,6 +11,7 @@
      FORMATOPTION "STORAGE=stream"
      FORMATOPTION "FORM=SIMPLE"
    END # End for Output format
+
     LAYER
      NAME "hardsurfaces"
      METADATA
@@ -29,6 +28,7 @@
        "init=epsg:27700"
      END # End for projection
    END #layer
+
    LAYER
      NAME "grass"
      METADATA
@@ -45,6 +45,7 @@
        "init=epsg:27700"
      END # End for projection
    END #layer
+
    LAYER
      NAME "planting"
      METADATA
@@ -61,6 +62,7 @@
        "init=epsg:27700"
      END # End for projection
    END #layer
+
    LAYER
      NAME "treegroups"
      METADATA
@@ -77,6 +79,7 @@
        "init=epsg:27700"
      END # End for projection
    END #layer
+
    LAYER
      NAME "water"
      METADATA
@@ -93,4 +96,5 @@
        "init=epsg:27700"
      END # End for projection
    END #layer
-  END # End for mapfile
+
+END # End for mapfile

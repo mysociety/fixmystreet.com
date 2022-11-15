@@ -1,13 +1,8 @@
 MAP
-  NAME "FMS_WFS_server"
+  NAME "Buckinghamshire"
   STATUS ON
-  SIZE 400 300
-  #SYMBOLSET "../etc/symbols.txt"
   EXTENT -180 -90 180 90
-  UNITS DD
   SHAPEPATH "../../layers"
-  IMAGECOLOR 255 255 255
-  #FONTSET "../etc/fonts.txt"
 
   OUTPUTFORMAT
     NAME "geojson"

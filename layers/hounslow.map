@@ -2,6 +2,7 @@ MAP
   NAME "Hounslow"
   STATUS ON
   EXTENT -180 -90 180 90
+  SHAPEPATH "../../layers"
 
   OUTPUTFORMAT
     NAME "geojson"
@@ -23,7 +24,7 @@ MAP
     TYPE POINT
     STATUS ON
     CONNECTIONTYPE OGR
-    CONNECTION '../../layers/hounslow/bins.gpkg'
+    CONNECTION 'hounslow/bins.gpkg'
     DATA 'bins'
     PROJECTION
       "init=epsg:27700"
@@ -42,7 +43,7 @@ MAP
     TYPE POINT
     STATUS ON
     CONNECTIONTYPE OGR
-    CONNECTION '../../layers/hounslow/lighting.gpkg'
+    CONNECTION 'hounslow/lighting.gpkg'
     DATA 'lighting'
     PROJECTION
       "init=epsg:27700"
@@ -61,7 +62,7 @@ MAP
     TYPE POINT
     STATUS ON
     CONNECTIONTYPE OGR
-    CONNECTION '../../layers/hounslow/signs.gpkg'
+    CONNECTION 'hounslow/signs.gpkg'
     DATA 'signs'
     PROJECTION
       "init=epsg:27700"
@@ -80,7 +81,7 @@ MAP
     TYPE POINT
     STATUS ON
     CONNECTIONTYPE OGR
-    CONNECTION '../../layers/hounslow/trees.gpkg'
+    CONNECTION 'hounslow/trees.gpkg'
     DATA 'trees'
     PROJECTION
       "init=epsg:27700"
@@ -100,7 +101,7 @@ MAP
     TYPE LINE
     STATUS ON
     CONNECTIONTYPE OGR
-    CONNECTION '../../layers/hounslow/streets.gpkg'
+    CONNECTION 'hounslow/streets.gpkg'
     DATA 'streets'
     PROJECTION
       "init=epsg:3857"
