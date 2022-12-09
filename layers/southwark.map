@@ -1,0 +1,53 @@
+MAP
+  NAME "Southwark"
+  STATUS ON
+  EXTENT -180 -90 180 90
+  SHAPEPATH "../../layers"
+
+  OUTPUTFORMAT
+    NAME "geojson"
+    DRIVER "OGR/GEOJSON"
+    MIMETYPE "application/json; subtype=geojson"
+    FORMATOPTION "STORAGE=stream"
+    FORMATOPTION "FORM=SIMPLE"
+  END
+
+  LAYER
+    NAME "LSG"
+    METADATA
+      "wfs_title"         "LSG" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "USRN,Street_or_numbered_street" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "USRN" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+  END
+    TYPE LINE
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION "southwark/LSG.TAB"
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Estates"
+    METADATA
+      "wfs_title"         "Estates" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "Site_code" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "Swk_GIS_ID" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POLYGON
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'southwark/Estates.TAB'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+END #mapfile
