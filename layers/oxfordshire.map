@@ -30,6 +30,48 @@ MAP
   END #layer
 
   LAYER
+    NAME "BRIDESFMS1"
+    METADATA
+      "wfs_title"         "OCC Roads" ##REQUIRED
+      "wfs_srs"           "EPSG:27700 EPSG:3857" ## REQUIRED
+      "gml_include_items" "all" ## Optional (serves all attributes for layer)
+      "gml_geometries" "SHAPE_GEOMETRY"
+      # "gml_featureid"     "??" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE LINE
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'oxfordshire/oxfordshirebridges.gpkg'
+    DATA 'BRIDESFMS1'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "MAINTAINABLE_AT_PUBLIC_EXPENSE_FMS"
+    METADATA
+      "wfs_title"         "OCC Roads" ##REQUIRED
+      "wfs_srs"           "EPSG:27700 EPSG:3857" ## REQUIRED
+      "gml_include_items" "all" ## Optional (serves all attributes for layer)
+      "gml_geometries" "SHAPE_GEOMETRY"
+      # "gml_featureid"     "??" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE LINE
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'oxfordshire/oxfordshireroads.gpkg'
+    DATA 'MAINTAINABLE_AT_PUBLIC_EXPENSE_FMS'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
     NAME "OCCRoads"
     METADATA
       "wfs_title"         "OCC Roads" ##REQUIRED
