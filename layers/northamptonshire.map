@@ -158,7 +158,47 @@ MAP
     END
     TYPE POINT
     STATUS ON
+    PROCESSING "ITEMS=Asset Id"
+    CONNECTIONTYPE UNION
+    CONNECTION "Pedestrian_Barrier_alone,Pedestrian_Guardrail"
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "Pedestrian_Barrier_alone"
+    METADATA
+      "wfs_title"         "Pedestrian Barrier" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Asset Id" ## REQUIRED
+      "gml_Asset Id_alias" "asset_id"
+      "gml_include_items" "all"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
     DATA 'northamptonshire/Pedestrian Barrier'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "Pedestrian_Guardrail"
+    METADATA
+      "wfs_title"         "Pedestrian Guard Rail" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Asset Id" ## REQUIRED
+      "gml_Asset Id_alias" "asset_id"
+      "gml_include_items" "all"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'northamptonshire/Pedestrian Guardrail Export'
     PROJECTION
       "init=epsg:4326"
     END
