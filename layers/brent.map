@@ -71,16 +71,16 @@ MAP
     METADATA
       "wfs_title"         "highways" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "id,fid"
-      "gml_featureid"     "fid" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
     END
     TYPE POLYGON
     STATUS ON
-    DATA 'brent/transport-adopted_highways_polygons_brent'
+    CONNECTIONTYPE OGR
+    CONNECTION 'brent/highways.gpkg'
+    DATA 'BrentHighways'
     PROJECTION
-        "init=epsg:27700"
+        "init=epsg:3857"
     END
   END
 
