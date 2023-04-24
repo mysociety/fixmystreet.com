@@ -1,0 +1,45 @@
+#!/usr/bin/env perl
+#
+# This script will find all the JS and CSS files under the FMS web/ directory,
+# and copy them to a collected_static directory with a content hash added to
+# each filename just before the suffix.
+
+use v5.14;
+use warnings;
+use Digest::MD5;
+use File::Basename qw(fileparse);
+use File::Copy qw(copy);
+use File::Find::Rule;
+use File::Path qw(make_path);
+
+my $ROOT = '.';
+my $OUT = "../data/collected_static/";
+
+my @files = File::Find::Rule
+    ->file
+    ->name('*.js', '*.css')
+    ->in("$ROOT/web/");
+
+foreach (@files) {
+    # (my $filename = $_) =~ s/\Q$ROOT\E//;
+
+    my ($name, $path, $suffix) = fileparse($_, qr/\.css/, qr/\.js/);
+    $path =~ s{^web/}{};
+    say "Looking at $_";
+    my $hash = _version_get_details($_);
+    my $out_dir = "$OUT$path";
+    my $out_name = "$name.$hash$suffix";
+    my $out = "$out_dir$out_name";
+    make_path($out_dir);
+    copy($_, $out) or die "Failed to copy $_ to $out: $!";
+}
+
+# Similar to the function in FixMyStreet::App::View::Web
+sub _version_get_details {
+    my $path = shift;
+    open (my $fh, '<', $path) or die "$path does not exist: $!";
+    binmode $fh;
+    my $digest = Digest::MD5->new->addfile($fh)->hexdigest;
+    close $fh;
+    return substr($digest, 0, 12);
+}
