@@ -17,8 +17,12 @@ my $OUT = "../data/collected_static/";
 
 my @files = File::Find::Rule
     ->file
-    ->name('*.js', '*.css')
+    ->name('*.js', '*.css', '*.css.map')
     ->in("$ROOT/web/");
+
+# This file is loaded relative to the OpenLayers JavaScript, so include and copy without hash
+my $ol_png = 'web/vendor/OpenLayers/img/cloud-popup-relative.png';
+push @files, $ol_png;
 
 foreach (@files) {
     # (my $filename = $_) =~ s/\Q$ROOT\E//;
@@ -28,7 +32,7 @@ foreach (@files) {
     say "Looking at $_";
     my $hash = _version_get_details($_);
     my $out_dir = "$OUT$path";
-    my $out_name = "$name.$hash$suffix";
+    my $out_name = "$name$hash$suffix";
     my $out = "$out_dir$out_name";
     make_path($out_dir);
     copy($_, $out) or die "Failed to copy $_ to $out: $!";
@@ -37,9 +41,15 @@ foreach (@files) {
 # Similar to the function in FixMyStreet::App::View::Web
 sub _version_get_details {
     my $path = shift;
+
+    # We want to copy this one file without a hash
+    return "" if $path eq $ol_png;
+    # Or if it is a CSS map (which we will only have the latest of)
+    return "" if $path =~ /\.css\.map$/;
+
     open (my $fh, '<', $path) or die "$path does not exist: $!";
     binmode $fh;
     my $digest = Digest::MD5->new->addfile($fh)->hexdigest;
     close $fh;
-    return substr($digest, 0, 12);
+    return '.' . substr($digest, 0, 12);
 }
