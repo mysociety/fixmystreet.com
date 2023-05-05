@@ -1,0 +1,37 @@
+Various scripts etc used for fixmystreet.com
+
+These are very specific to that deploy, hence them
+not being in the main fixmystreet repository.
+
+bin/critical-css - run upon deploy, compiles the critical CSS for the site
+front page by fetching it with penthouse, compressing and copying into place.
+
+bin/install - installs node and penthouse
+
+bin/auto-js-update - run upon deploy, uses the closure compiler to create
+minified versions of the FixMyStreet JavaScript. The FMS code knows to use
+these files in preference if they exist. If the source files are the same,
+it copies across rather than recompile.
+
+bin/collect-static - finds all JS/CSS in the FIxMyStreet repo and copies them
+to a collected_static directory with a content hash added to each filename
+just before the suffix.
+
+bin/govuk-css - used to compile two GOV.UK CSS files we use (radios and forms).
+Assumes you have govuk-frontend/src checked out above.
+
+bin/check_fixmystreet - used by server monitoring to see how many unsent
+reports and updates there are.
+
+pwa/shots.js - this will fetch and frame the front page of the provided domain
+for use on the web app help page. Run as `node shots.js --cobrand C --domain D
+--theme T` and puts screenshots in large and small directories for copying
+under web/cobrands/fixmystreet-uk-councils/web-app/ on FMS.
+
+Council specific:
+    bin/hackney/parse_categories_sheet.py - used to create relevant data for FixMyStreet from a source spreadsheet
+    bin/bexley-add-streets-data - adds a UPRN field to a shapefile containing NSGRefs.
+    data/bromley_parks.csv - data on Bromley parks
+
+Old:
+    bin/parse-sld.py and bin/load-mm - used for old MasterMap loading
