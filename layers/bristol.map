@@ -30,6 +30,23 @@ MAP
   END #layer
 
   LAYER
+    NAME "docks"
+    METADATA
+      "wfs_title"         "Docks" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "site_code,asset_id" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "asset_id" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'bristol/bristol-water'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
     NAME "CarParks"
     TYPE POLYGON
     STATUS ON
