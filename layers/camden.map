@@ -33,6 +33,7 @@ MAP
     TYPE LINE
     STATUS ON
     DATA 'camden/STREETS'
+    FILTER ('[RD_STATUS]' != 'PRIVATE')
     PROJECTION
       "init=epsg:27700"
     END
