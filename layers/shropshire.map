@@ -24,7 +24,7 @@ MAP
     END
     TYPE POLYGON
     STATUS ON
-    DATA 'shropshire/street_gazetteer_lines'
+    DATA 'shropshire/gazetteer_lines'
     PROJECTION
       "init=epsg:27700"
     END
