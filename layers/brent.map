@@ -31,6 +31,25 @@ MAP
   END #layer
 
   LAYER
+    NAME "brent_boundaries"
+    METADATA
+      "wfs_title"         "brent_boundaries" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "id"
+      "gml_featureid"     "id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'brent/boundary_update_05_23'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+
+  LAYER
     NAME "Housing"
     METADATA
       "wfs_title"         "housing" ##REQUIRED
