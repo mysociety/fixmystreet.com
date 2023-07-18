@@ -67,6 +67,38 @@ MAP
   END
 
   LAYER
+    NAME "Queens_Park"
+    METADATA
+      "wfs_title"         "queens_park" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "gid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'brent/queens_park'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END
+
+  LAYER
+    NAME "Cemeteries"
+    METADATA
+      "wfs_title"         "cemeteries" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "gid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'brent/cemeteries'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END
+
+  LAYER
     NAME "Highways"
     METADATA
       "wfs_title"         "highways" ##REQUIRED
