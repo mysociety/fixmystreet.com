@@ -3,6 +3,9 @@ MAP
   STATUS ON
   EXTENT -180 -90 180 90
   SHAPEPATH "../../layers"
+  PROJECTION
+    "init=epsg:4326"
+  END
 
   OUTPUTFORMAT
     NAME "geojson"
@@ -10,6 +13,14 @@ MAP
     MIMETYPE "application/json; subtype=geojson"
     FORMATOPTION "STORAGE=stream"
     FORMATOPTION "FORM=SIMPLE"
+  END
+
+  WEB
+    METADATA
+      "wms_title" "WMS Server"
+      "wfs_srs" "EPSG:3857 EPSG:27700 EPSG:4326"
+      "ows_enable_request" "*"
+    END
   END
 
   LAYER
@@ -29,6 +40,25 @@ MAP
       "init=epsg:27700"
     END
   END #layer
+
+  LAYER
+    NAME "BrentDiffs"
+    METADATA
+      "wfs_title"         "BrentDiffs" ##REQUIRED
+      "gml_include_items" "fid,name"
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POLYGON
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'brent/BrentDiffs.gpkg'
+    DATA 'BrentDiffs'
+    PROJECTION
+        "init=epsg:4326"
+    END
+  END
 
   LAYER
     NAME "Housing"
