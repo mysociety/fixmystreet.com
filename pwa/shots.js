@@ -12,7 +12,7 @@ async function visit(page, cobrand, url, scrshot) {
     console.log('  Processing', cobrand);
     await page.goto('https://' + url);
     // One non-JS cookie banner, don't want temporary messages
-    await page.evaluate("document.querySelectorAll('.cookie-warning, .emergency-message').forEach(d => { d.style.display = 'none'; });");
+    await page.evaluate("document.querySelectorAll('.cookie-warning, .emergency-message, .site-message, .dev-site-notice').forEach(d => { d.style.display = 'none'; });");
     await page.screenshot({ path: scrshot });
 }
 
