@@ -170,4 +170,20 @@ MAP
     END
   END #layer
 
+  LAYER
+    NAME "Crystal_Palace_Park"
+    METADATA
+      "wfs_title"         "Crystal Palace Park" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "OBJECTID" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'bromley/CrystalPalaceParkBoundary'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
 END #mapfile
