@@ -1,0 +1,359 @@
+MAP
+  NAME "West Northamptonshire"
+  STATUS ON
+  EXTENT -180 -90 180 90
+  SHAPEPATH "../../layers"
+
+  OUTPUTFORMAT
+    NAME "geojson"
+    DRIVER "OGR/GEOJSON"
+    MIMETYPE "application/json; subtype=geojson"
+    FORMATOPTION "STORAGE=stream"
+    FORMATOPTION "FORM=SIMPLE"
+  END
+
+  LAYER
+    NAME "Bridges"
+    METADATA
+      "wfs_title"         "Bridges" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Asset Id" ## REQUIRED
+      "gml_Asset Id_alias" "asset_id"
+      "gml_include_items" "all"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'westnorthants/Bridges'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "Bus_Stop"
+    METADATA
+      "wfs_title"         "Bus Stop" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Asset Id" ## REQUIRED
+      "gml_Asset Id_alias" "asset_id"
+      "gml_include_items" "all"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'westnorthants/Bus Stop'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "Carriageway"
+    METADATA
+      "wfs_title"         "Carriageway" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Asset Id" ## REQUIRED
+      "gml_Asset Id_alias" "asset_id"
+      "gml_include_items" "all"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE LINE
+    STATUS ON
+    DATA 'westnorthants/Carriageway'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "Gates"
+    METADATA
+      "wfs_title"         "Gates" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Asset Id" ## REQUIRED
+      "gml_Asset Id_alias" "asset_id"
+      "gml_include_items" "all"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'westnorthants/Gates'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "GritBins"
+    METADATA
+      "wfs_title"         "GritBins" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Asset Id" ## REQUIRED
+      "gml_Asset Id_alias" "asset_id"
+      "gml_include_items" "all"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'westnorthants/GritBins'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "Gully"
+    METADATA
+      "wfs_title"         "Gully" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Asset Id" ## REQUIRED
+      "gml_Asset Id_alias" "asset_id"
+      "gml_include_items" "all"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'westnorthants/Gully'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "PRoW_Network"
+    METADATA
+      "wfs_title"         "PRoW Network" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Asset Id" ## REQUIRED
+      "gml_Asset Id_alias" "asset_id"
+      "gml_include_items" "all"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE LINE
+    STATUS ON
+    DATA 'westnorthants/PRoW Network'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "Pedestrian_Barrier"
+    METADATA
+      "wfs_title"         "Pedestrian Barrier" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Asset Id" ## REQUIRED
+      "gml_Asset Id_alias" "asset_id"
+      "gml_include_items" "all"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROCESSING "ITEMS=Asset Id"
+    CONNECTIONTYPE UNION
+    CONNECTION "Pedestrian_Barrier_alone,Pedestrian_Guardrail"
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "Pedestrian_Barrier_alone"
+    METADATA
+      "wfs_title"         "Pedestrian Barrier" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Asset Id" ## REQUIRED
+      "gml_Asset Id_alias" "asset_id"
+      "gml_include_items" "all"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'westnorthants/Pedestrian Barrier'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "Pedestrian_Guardrail"
+    METADATA
+      "wfs_title"         "Pedestrian Guard Rail" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Asset Id" ## REQUIRED
+      "gml_Asset Id_alias" "asset_id"
+      "gml_include_items" "all"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'westnorthants/Pedestrian Guardrail Export'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "Safety_Bollard"
+    METADATA
+      "wfs_title"         "Safety Bollard" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Asset Id" ## REQUIRED
+      "gml_Asset Id_alias" "asset_id"
+      "gml_include_items" "all"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'westnorthants/Safety Bollard'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "Sign"
+    METADATA
+      "wfs_title"         "Sign" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Asset Id" ## REQUIRED
+      "gml_Asset Id_alias" "asset_id"
+      "gml_include_items" "all"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'westnorthants/Sign'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "Stile"
+    METADATA
+      "wfs_title"         "Stile" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Asset Id" ## REQUIRED
+      "gml_Asset Id_alias" "asset_id"
+      "gml_include_items" "all"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'westnorthants/Stile'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "Structures"
+    METADATA
+      "wfs_title"         "Structures" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Asset Id" ## REQUIRED
+      "gml_Asset Id_alias" "asset_id"
+      "gml_include_items" "all"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'westnorthants/Structures'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "Traffic_Calming"
+    METADATA
+      "wfs_title"         "Traffic_Calming" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Asset Id" ## REQUIRED
+      "gml_Asset Id_alias" "asset_id"
+      "gml_include_items" "all"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'westnorthants/Traffic Calming'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "Traffic_Signal_Junction"
+    METADATA
+      "wfs_title"         "Traffic_Signal_Junction" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Asset Id" ## REQUIRED
+      "gml_Asset Id_alias" "asset_id"
+      "gml_include_items" "all"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'westnorthants/Traffic Signal Junction'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "Tree"
+    METADATA
+      "wfs_title"         "Tree" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Asset Id" ## REQUIRED
+      "gml_Asset Id_alias" "asset_id"
+      "gml_include_items" "all"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'westnorthants/Tree'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "Waymarker"
+    METADATA
+      "wfs_title"         "Waymarker" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Asset Id" ## REQUIRED
+      "gml_Asset Id_alias" "asset_id"
+      "gml_include_items" "all"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'westnorthants/Waymarker'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+END #mapfile
