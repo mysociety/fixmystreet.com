@@ -1,0 +1,42 @@
+Pick container: Which container do you need?
+Replacement: Why do you need a\nreplacement container?
+Replacement2: Why do you need a\nreplacement container?
+Recycling swap: Would you like to replace\nyour recycling box containers\nwith a wheelie bin?
+Recycling swap2: Would you like to replace\nyour recycling box containers\nwith a wheelie bin?
+Recycling number: How many\nboxes/\ncontainers?
+Recycling number2: How many\nboxes/\ncontainers?
+Notes missing: Can you give us any\ninformation about what\nhappened to your container?
+Notes damaged: What happened to\nyour container?
+About you1: About/\nSummary/\nEND { style.fill: lightgrey }
+About you2: About/\nSummary/\nEND { style.fill: lightgrey }
+About you3: Confirm\nAbout/\nSummary/\nEND { style.fill: lightgrey }
+About you4: About/\nSummary/\nEND { style.fill: lightgrey }
+About you5: About/\nSummary/\nEND { style.fill: lightgrey }
+About you6: About/\nSummary/\nEND { style.fill: lightgrey }
+About you7: Confirm\nAbout/\nSummary/\nEND { style.fill: lightgrey }
+
+Pick container -> Replacement: Other
+Pick container -> Recycling swap: Recycling bin\n(don’t have a bin)
+Pick container -> About you1: Recycling blue stripe bag\nor Paper single use bag
+Pick container -> Replacement2: Recycling box
+
+Replacement2 -> Recycling number2: Damaged/\nMissing
+Replacement2 -> Recycling number: New resident\nwithout\na container
+Replacement2 -> Recycling swap2: I need an additional\ncontainer/bin
+
+Replacement -> About you2: New resident\nwithout\na container
+Replacement -> Notes damaged: Damaged
+Replacement -> Notes missing: Missing
+
+Recycling swap -> Replacement: No
+Recycling swap -> About you3: Yes
+
+Recycling swap2 -> Recycling number: No
+Recycling swap2 -> About you7: Yes
+
+Recycling number2 -> Notes damaged: Damaged
+Recycling number2 -> Notes missing: Missing
+Recycling number -> About you4
+
+Notes missing -> About you5
+Notes damaged -> About you6
