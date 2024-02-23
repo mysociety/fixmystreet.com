@@ -94,4 +94,21 @@ MAP
     END
   END #layer
 
+  LAYER
+    NAME "PROW"
+    METADATA
+      "wfs_title"         "PROW" ##REQUIRED
+      "gml_include_items" "type,parish,path_no"
+      "gml_featureid"     "ogc_fid" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'centralbeds/row_legal_network'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
 END #mapfile
