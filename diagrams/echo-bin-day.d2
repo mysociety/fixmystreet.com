@@ -1,0 +1,28 @@
+shape: sequence_diagram
+
+user: { shape: person }
+user -> WasteWorks: Visit site
+user <- WasteWorks: Postcode form { style.stroke-dash: 5 }
+#user <- itemResponse.t: item {
+#    style.stroke-dash: 5
+#}
+
+user -> WasteWorks: Postcode
+WasteWorks -> Echo: FindPoints
+WasteWorks <- Echo: Addresses
+user <- WasteWorks: Address form { style.stroke-dash: 5 }
+
+user -> WasteWorks: Address
+
+WasteWorks.t -> Echo: GetPointAddress
+WasteWorks.t -> Echo: GetServiceUnitsForObject
+WasteWorks.t -> Echo: GetEventsForObject
+
+WasteWorks <- Echo: API results
+
+WasteWorks.t2 -> Echo: GetEventsForObject \n (each Service Unit)
+WasteWorks.t2 -> Echo: GetTasks
+
+WasteWorks <- Echo: API results
+
+user <- WasteWorks: Bin day page { style.stroke-dash: 5 }

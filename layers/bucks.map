@@ -328,7 +328,7 @@ END
       "wfs_title"         "Bus Stops" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "NaptanCode" ## Optional (serves all attributes for layer)
-      "gml_NaptanCode_alias" "feature_id"
+      "gml_NaptanCode_alias" "title"
       "gml_featureid"     "NaptanCode" ## REQUIRED
       "wfs_enable_request" "*"
     END

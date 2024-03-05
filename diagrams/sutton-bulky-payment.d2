@@ -1,0 +1,20 @@
+shape: sequence_diagram
+
+user: { shape: person }
+
+user -> WasteWorks: Submits\nbulky form
+
+WasteWorks.t -> Echo: PostEvent with\nevent details
+
+WasteWorks.t -> Payment\nprovider: Redirect user to\npayment provider
+
+Payment\nprovider -> WasteWorks: Redirect back after\nsuccessful payment
+
+WasteWorks."Parameters verified"
+
+WasteWorks.t2 -> User: Payment confirmation screen
+
+WasteWorks.t2 -> User: Email with booking details
+
+WasteWorks.t2 -> Echo: UpdateEvent with\npayment details
+

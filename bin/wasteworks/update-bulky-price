@@ -1,0 +1,29 @@
+#!/usr/bin/env perl
+
+use v5.14;
+use warnings;
+
+BEGIN {
+    use File::Basename qw(dirname);
+    use File::Spec;
+    my $d = dirname(File::Spec->rel2abs($0));
+    require "$d/../../../fixmystreet/setenv.pl";
+}
+
+use FixMyStreet::DB;
+
+my $body_name = shift or die "Provide body name as first argument";
+my $base_price = shift or die "Provide base price as second argument";
+my $band1_price = shift or die "Provide smaller collection price as third argument";
+
+my $body = FixMyStreet::DB->resultset("Body")->find({ name => $body_name }) or die "Could not find body";
+my $cfg = $body->get_extra_metadata("wasteworks_config");
+
+say "Current WW config for $body_name is $cfg->{base_price} / $cfg->{band1_price}";
+
+$cfg->{base_price} = $base_price;
+$cfg->{band1_price} = $band1_price;
+$body->set_extra_metadata("wasteworks_config", $cfg);
+$body->update;
+
+say "Updated WW config for $body_name to $base_price / $band1_price";

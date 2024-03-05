@@ -5,5 +5,5 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." >/dev/null 2>&1 && pwd )"
 FMS="$DIR/../fixmystreet"
 
 echo "Compiling GOV.UK CSS"
-$FMS/bin/cron-wrapper perl $DIR/bin/make_css $DIR/css/radios.scss $FMS/web/vendor/govuk-frontend/radios.css
 $FMS/bin/cron-wrapper perl $DIR/bin/make_css $DIR/css/forms.scss $FMS/web/vendor/govuk-frontend/forms.css
+$FMS/bin/cron-wrapper perl $DIR/bin/make_css $DIR/css/forms-cyclinguk.scss $FMS/web/cobrands/cyclinguk/govuk-frontend/forms.css

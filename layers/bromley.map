@@ -170,4 +170,55 @@ MAP
     END
   END #layer
 
+  LAYER
+    NAME "Crystal_Palace_Park"
+    METADATA
+      "wfs_title"         "Crystal Palace Park" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Name" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    CONNECTIONTYPE OGR
+    CONNECTION 'bromley/Crystal Palace Park.kml'
+    DATA 'Crystal Palace Park'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "National_Sports_Centre"
+    METADATA
+      "wfs_title"         "National Sports Centre" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Name" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    CONNECTIONTYPE OGR
+    CONNECTION 'bromley/National Sports Centre.kml'
+    DATA 'National Sports Centre'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "Chislehurst_Commons"
+    METADATA
+      "wfs_title"         "Chislehurst Commons" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Name" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    CONNECTIONTYPE OGR
+    CONNECTION 'bromley/Chislehurst Commons.kml'
+    DATA 'Chislehurst Commons'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
 END #mapfile

@@ -7,10 +7,15 @@
 use v5.14;
 use warnings;
 use Digest::MD5;
+use Encode qw(encode_utf8);
 use File::Basename qw(fileparse);
 use File::Copy qw(copy);
 use File::Find::Rule;
 use File::Path qw(make_path);
+
+use FixMyStreet::Cobrand;
+use FixMyStreet::Template::JS;
+use Path::Tiny;
 
 my $ROOT = '.';
 my $OUT = "../data/collected_static/";
@@ -25,17 +30,50 @@ my $ol_png = 'web/vendor/OpenLayers/img/cloud-popup-relative.png';
 push @files, $ol_png;
 
 foreach (@files) {
-    # (my $filename = $_) =~ s/\Q$ROOT\E//;
-
-    my ($name, $path, $suffix) = fileparse($_, qr/\.css/, qr/\.js/);
-    $path =~ s{^web/}{};
     say "Looking at $_";
     my $hash = _version_get_details($_);
-    my $out_dir = "$OUT$path";
-    my $out_name = "$name$hash$suffix";
-    my $out = "$out_dir$out_name";
-    make_path($out_dir);
+    my $out = get_location($_, $hash);
     copy($_, $out) or die "Failed to copy $_ to $out: $!";
+}
+
+# And the dynamically generated files as well!
+my $file = "js/asset_layers";
+foreach my $cobrand (map { $_->{moniker} } FixMyStreet::Cobrand->available_cobrand_classes) {
+    say "Looking at asset layers for $cobrand";
+    my $layers = FixMyStreet::Template::JS::pick_asset_layers($cobrand);
+    my $output = _template("$file.html", { asset_layers => $layers });
+    my $hash = "$cobrand.";
+    $hash .= _version_get_details("templates/web/base/$file.html");
+    $hash .= _version_get_details('conf/general.yml');
+    my $out = get_location("$file.js", $hash);
+    path($out)->spew_utf8($output);
+}
+
+# Translation files
+$file = "js/translation_strings";
+my $cls = FixMyStreet::Cobrand::Default->new;
+foreach my $langcfg (@{$cls->languages}) {
+    my ($lang, $verbose, $locale) = split /,/, $langcfg;
+    say "Looking at translation $lang";
+    $cls->set_lang_and_domain($lang, 1, FixMyStreet->path_to('locale')->stringify);
+    my $output = _template("$file.html");
+    my $hash = "$lang.";
+    $hash .= _version_get_details("templates/web/base/$file.html");
+    if ($lang ne 'en-gb') {
+        $hash .= _version_get_details("locale/$locale.UTF-8/LC_MESSAGES/FixMyStreet.po");
+    }
+    my $out = get_location("$file.js", $hash);
+    path($out)->spew_utf8($output);
+}
+
+# ---
+
+sub _template {
+    my ($template, $vars) = @_;
+    my $tt = FixMyStreet::Template->new({ INCLUDE_PATH => [ 'templates/web/base' ] });
+    my $output;
+    $tt->process($template, $vars, \$output);
+    return $output;
 }
 
 # Similar to the function in FixMyStreet::App::View::Web
@@ -51,5 +89,16 @@ sub _version_get_details {
     binmode $fh;
     my $digest = Digest::MD5->new->addfile($fh)->hexdigest;
     close $fh;
-    return '.' . substr($digest, 0, 12);
+    return substr($digest, 0, 12);
+}
+
+sub get_location {
+    my ($file, $hash) = @_;
+    my ($name, $path, $suffix) = fileparse($file, qr/\.css/, qr/\.js/);
+    $path =~ s{^web/}{};
+    my $out_dir = "$OUT$path";
+    my $out_name = "$name.$hash$suffix";
+    my $out = "$out_dir$out_name";
+    make_path($out_dir);
+    return $out;
 }

@@ -3,6 +3,9 @@ MAP
   STATUS ON
   EXTENT -180 -90 180 90
   SHAPEPATH "../../layers"
+  PROJECTION
+    "init=epsg:4326"
+  END
 
   OUTPUTFORMAT
     NAME "geojson"
@@ -10,6 +13,14 @@ MAP
     MIMETYPE "application/json; subtype=geojson"
     FORMATOPTION "STORAGE=stream"
     FORMATOPTION "FORM=SIMPLE"
+  END
+
+  WEB
+    METADATA
+      "wms_title" "WMS Server"
+      "wfs_srs" "EPSG:3857 EPSG:27700 EPSG:4326"
+      "ows_enable_request" "*"
+    END
   END
 
   LAYER
@@ -29,6 +40,25 @@ MAP
       "init=epsg:27700"
     END
   END #layer
+
+  LAYER
+    NAME "BrentDiffs"
+    METADATA
+      "wfs_title"         "BrentDiffs" ##REQUIRED
+      "gml_include_items" "fid,name"
+      "gml_featureid"     "fid" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POLYGON
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'brent/BrentDiffs.gpkg'
+    DATA 'BrentDiffs'
+    PROJECTION
+        "init=epsg:4326"
+    END
+  END
 
   LAYER
     NAME "Housing"
@@ -67,6 +97,38 @@ MAP
   END
 
   LAYER
+    NAME "Queens_Park"
+    METADATA
+      "wfs_title"         "queens_park" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "gid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'brent/queens_park'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END
+
+  LAYER
+    NAME "Cemeteries"
+    METADATA
+      "wfs_title"         "cemeteries" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "gid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'brent/cemeteries'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END
+
+  LAYER
     NAME "Highways"
     METADATA
       "wfs_title"         "highways" ##REQUIRED
@@ -97,6 +159,44 @@ MAP
     TYPE POINT
     STATUS ON
     DATA 'brent/transport-street_lighting'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END
+
+  LAYER
+    NAME "Highway_Verges"
+    METADATA
+      "wfs_title"         "highway_verges" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "Roadname"
+      "gml_featureid"     "Roadname" ## REQUIRED
+      "gml_Roadname_alias" "site_name"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'brent/highway_verges_polys'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END
+
+  LAYER
+    NAME "Allotments"
+    METADATA
+      "wfs_title"         "allotments" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "name"
+      "gml_featureid"     "name" ## REQUIRED
+      "gml_name_alias"    "site_name"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'brent/allotments_polys'
     PROJECTION
       "init=epsg:27700"
     END
