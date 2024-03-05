@@ -204,4 +204,21 @@ MAP
     END
   END #layer
 
+  LAYER
+    NAME "Chislehurst_Commons"
+    METADATA
+      "wfs_title"         "Chislehurst Commons" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Name" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    CONNECTIONTYPE OGR
+    CONNECTION 'bromley/Chislehurst Commons.kml'
+    DATA 'Chislehurst Commons'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
 END #mapfile
