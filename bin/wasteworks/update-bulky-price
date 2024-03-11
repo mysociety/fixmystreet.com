@@ -1,4 +1,9 @@
 #!/usr/bin/env perl
+#
+# Called with a body name and then either:
+# --price N to change the main bulky price alone
+# --small N --large N to change a two-price body
+# --items CSV to update per-item pricing (columns Item and either Price or Domestic/Trade), in pounds
 
 use v5.14;
 use warnings;
@@ -11,19 +16,59 @@ BEGIN {
 }
 
 use FixMyStreet::DB;
+use Text::CSV;
+use Getopt::Long::Descriptive;
 
-my $body_name = shift or die "Provide body name as first argument";
-my $base_price = shift or die "Provide base price as second argument";
-my $band1_price = shift or die "Provide smaller collection price as third argument";
+my ($opts, $usage) = describe_options(
+    '%c %o',
+    ['body=s', 'which body name to update'],
+    ['price=i', 'single bulky collection price (A)'],
+    ['small=i', 'smaller collection price (B)'],
+    ['large=i', 'larger collection price (B)'],
+    ['items=s', 'CSV filename to update per-item pricing (C)'],
+    ['help|h', "print usage message and exit" ],
+);
+$usage->die if $opts->help;
+$usage->die unless $opts->body;
+$usage->die unless $opts->price || ($opts->small && $opts->large) || $opts->items;
 
-my $body = FixMyStreet::DB->resultset("Body")->find({ name => $body_name }) or die "Could not find body";
+my $body_name = $opts->body;
+my $body = FixMyStreet::DB->resultset("Body")->find({ name => $opts->body }) or die "Could not find body $body_name\n";
 my $cfg = $body->get_extra_metadata("wasteworks_config");
 
-say "Current WW config for $body_name is $cfg->{base_price} / $cfg->{band1_price}";
+if ($opts->large && $opts->small) {
+    say "Current WW config for $body_name is $cfg->{base_price} / $cfg->{band1_price}";
+    $cfg->{base_price} = $opts->large;
+    $cfg->{band1_price} = $opts->small;
+    say "Updating WW config for $body_name to $cfg->{base_price} / $cfg->{band1_price}";
+} elsif ($opts->price) {
+    say "Current WW config for $body_name is $cfg->{base_price}";
+    $cfg->{base_price} = $opts->price;
+    say "Updating WW config for $body_name to $cfg->{base_price}";
+} elsif ($opts->items) {
+    my %current = map { $_->{name} => $_ } @{$cfg->{item_list}};
 
-$cfg->{base_price} = $base_price;
-$cfg->{band1_price} = $band1_price;
+    my $csv = Text::CSV->new;
+    open my $fh, "<:encoding(utf8)", $opts->items or die $!;
+    $csv->header($fh);
+
+    while (my $row = $csv->getline_hr($fh)) {
+        die "Could not find existing $row->{item}" unless $current{$row->{item}};
+        if ($row->{price}) {
+            $current{$row->{item}}{price} = $row->{price} * 100;
+        } else {
+            $current{$row->{item}}{price_Domestic} = $row->{domestic} * 100;
+            $current{$row->{item}}{price_Trade} = $row->{trade} * 100;
+        }
+        delete $current{$row->{item}};
+    }
+    if (%current) {
+        say "Existing rows not present in CSV:";
+        say join("\n", sort keys %current);
+    }
+}
+
 $body->set_extra_metadata("wasteworks_config", $cfg);
 $body->update;
 
-say "Updated WW config for $body_name to $base_price / $band1_price";
+say "Updated WW config for $body_name";
