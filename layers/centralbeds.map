@@ -98,7 +98,7 @@ MAP
     NAME "PROW"
     METADATA
       "wfs_title"         "PROW" ##REQUIRED
-      "gml_include_items" "ogc_fid,type"
+      "gml_include_items" "type,parish,path_no"
       "gml_featureid"     "ogc_fid" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
