@@ -202,4 +202,21 @@ MAP
     END
   END
 
+  LAYER
+    NAME "GritBins"
+    METADATA
+      "wfs_title"         "grit_bins" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "mi_prinx" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'brent/gritting_bins'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END
+
 END #mapfile
