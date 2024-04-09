@@ -65,8 +65,8 @@ MAP
     METADATA
       "wfs_title"         "housing" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "site_name"
-      "gml_featureid"     "site_name" ## REQUIRED
+      "gml_include_items" "fid,site_name"
+      "gml_featureid"     "fid" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
     END
