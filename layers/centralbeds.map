@@ -105,7 +105,7 @@ MAP
     END
     TYPE POINT
     STATUS ON
-    DATA 'centralbeds/row_legal_network_26012024'
+    DATA 'centralbeds/row_legal_network'
     PROJECTION
       "init=epsg:27700"
     END
