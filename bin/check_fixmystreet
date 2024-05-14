@@ -38,6 +38,7 @@ sub unsent_update_count {
     my $u = FixMyStreet::DB->resultset("Comment")
        ->to_body([ keys %$bodies ])
        ->search({ "me.confirmed" => { '<', \"current_timestamp - '5 minutes'::interval" } })
+       ->search({ 'me.send_fail_reason' => { '!=' => 'Skipping posting due to wait' } })
        ->search($params, { join => "problem" });
 
     return $u->count;
