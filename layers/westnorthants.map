@@ -301,6 +301,25 @@ MAP
   END #layer
 
   LAYER
+    NAME "Pedestrian_Crossing"
+    METADATA
+      "wfs_title"         "Pedestrian_Crossing" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Asset Id" ## REQUIRED
+      "gml_Asset Id_alias" "asset_id"
+      "gml_include_items" "all"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'westnorthants/Pedestrian Crossing'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
     NAME "Traffic_Signal_Junction"
     METADATA
       "wfs_title"         "Traffic_Signal_Junction" ##REQUIRED
@@ -314,6 +333,27 @@ MAP
     TYPE POINT
     STATUS ON
     DATA 'westnorthants/Traffic Signal Junction'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "Traffic_Signals"
+    METADATA
+      "wfs_title"         "Traffic_Signals" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Asset Id" ## REQUIRED
+      "gml_Asset Id_alias" "asset_id"
+      "gml_include_items" "all"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    PROCESSING "ITEMS=Asset Id"
+    CONNECTIONTYPE UNION
+    CONNECTION "Traffic_Signal_Junction,Pedestrian_Crossing"
     PROJECTION
       "init=epsg:4326"
     END

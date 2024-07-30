@@ -1,0 +1,76 @@
+#!/usr/bin/env perl
+#
+# handlemail-echodowntime:
+# Handle an individual incoming mail message.
+#
+# This script should be invoked through the .forward mechanism.
+# It processes emails from Echo about its downtime.
+
+use v5.14;
+use warnings;
+
+use File::Basename qw(dirname);
+use File::Spec;
+my $root;
+
+BEGIN {
+    $root = dirname(File::Spec->rel2abs($0)) . '/../..';
+    require "$root/fixmystreet/setenv.pl";
+}
+
+use Time::Piece;
+use Path::Tiny;
+use mySociety::HandleMail;
+use FixMyStreet;
+use FixMyStreet::Email::Sender;
+
+my %data = mySociety::HandleMail::get_message();
+my $m = $data{message} or exit 0;
+
+my $out = "$root/data/echo-downtime.csv";
+
+my $body = join " ", @{$m->body};
+if ($body =~ /will be taken offline on\s+(.*?)\s+at\s+(.*?)\s+for\s+approximately\s+(\d+)\s+hours/s) {
+    my ($date, $time, $length) = ($1, $2, $3);
+
+    my $year = localtime->year;
+    $date =~ s/(?<=\d)(st|nd|rd|th)//;
+    my $start = eval { Time::Piece->strptime("$date $year $time", '%A %d %B %Y %H:%M'); };
+    exit 0 if $@;
+
+    my $end = $start + $length * 60 * 60;
+
+    path($out)->append([ $start->datetime, ',', $end->datetime, "\n" ]);
+    forward_on($start, $end);
+}
+
+exit 0;
+
+# ---
+
+sub forward_on {
+    my ($start, $end) = @_;
+    my $from = FixMyStreet->config('CONTACT_EMAIL');
+    my ($to) = $m->head()->get('From') =~ /<(.*)>/;
+    my ($id) = $m->head()->get('Message-ID') =~ /(<.*>)/;
+    my $subject = $m->head()->get('Subject');
+    chomp $subject;
+    my @lines = (
+        "Subject: Re: $subject",
+        "In-Reply-To: $id",
+        "From: $from",
+        "To: $to",
+        "",
+        "Email noticed and downtime logged for $start to $end",
+    );
+    unless (FixMyStreet::Email::Sender->try_to_send(
+        join("\n", @lines) . "\n",
+        {
+            from => $from,
+            to => $to,
+        }
+    )) {
+        exit 75;
+    }
+    exit 0;
+}
