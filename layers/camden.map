@@ -39,4 +39,21 @@ MAP
     END
   END #layer
 
+  LAYER
+    NAME "AgreementBoundaries"
+    METADATA
+      "wfs_title"         "AgreementBoundaries" ##REQUIRED
+      "gml_include_items" "FID"
+      "gml_featureid"     "FID" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE LINE
+    STATUS ON
+    DATA 'camden/LBCamdenBorderAgreements'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
 END #mapfile
