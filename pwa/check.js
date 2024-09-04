@@ -11,14 +11,18 @@ if (!out) {
     out = '.';
 }
 
-const SITES = [
+const WASTE = [
+    'bexley', 'borsetshire', 'brent', 'bromley', 'kingston', 'merton',
+    'peterborough', 'sutton',
+];
+const FMS = [
     'bathnes', 'bexley', 'borsetshire', 'brent', 'bristol', 'bromley',
     'buckinghamshire', 'camden', 'centralbedfordshire', 'cheshireeast',
     'cyclinguk', 'eastherts', 'gloucestershire', 'greenwich', 'hackney',
-    'hart', 'highwaysengland', 'hounslow', 'isleofwight', 'kingston',
+    'hart', 'highwaysengland', 'hounslow', 'isleofwight',
     'lincolnshire', 'merton', 'northnorthants', 'northumberland',
     'oxfordshire', 'peterborough', 'rutland', 'shropshire', 'southwark',
-    'sutton', 'tfl', 'thamesmead', 'westminster', 'westnorthants',
+    'tfl', 'thamesmead', 'westminster', 'westnorthants',
     'fixmystreet',
 ];
 
@@ -42,6 +46,7 @@ async function visit(page, url, scrshot) {
 
   await exec('mkdir -p ' + out);
 
+  const SITES = path.includes('/waste') ? WASTE : FMS;
   for (cobrand of SITES) {
       let file = out + '/' + cobrand + '.png';
       await visit(page, base.replace('{s}', cobrand) + path, file);
