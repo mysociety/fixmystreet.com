@@ -1,9 +1,14 @@
+const util = require('util');
+const exec = util.promisify(require("child_process").exec);
 const puppeteer = require('puppeteer');
-const { base, path, width, height } = require('minimist')(process.argv.slice(2));
+const { base, path, width, height, out } = require('minimist')(process.argv.slice(2));
 
 if (!base || !path) {
-    console.log('check.js --base [http://{s}.localhost:3000] --path [/faq] [--width N] [--height N]');
+    console.log('check.js --base [http://{s}.localhost:3000] --path [/faq] [--width N] [--height N] [--out DIR]');
     process.exit(1);
+}
+if (!out) {
+    out = '.';
 }
 
 const SITES = [
@@ -35,8 +40,11 @@ async function visit(page, url, scrshot) {
       await page.setViewport({ width: width, height: height });
   }
 
+  await exec('mkdir -p ' + out);
+
   for (cobrand of SITES) {
-      await visit(page, base.replace('{s}', cobrand) + path, cobrand + '.png');
+      let file = out + '/' + cobrand + '.png';
+      await visit(page, base.replace('{s}', cobrand) + path, file);
   }
 
   await browser.close();
