@@ -37,7 +37,7 @@ foreach (@files) {
     if ($mtime_file > $mtime_compiled) {
         #say "Compiling $filename...";
         say "Compiling $_...";
-        `java -jar ../fixmystreet.com/closure-compiler-v20170910.jar --rewrite_polyfills false --js $_ > $compiled.new`;
+        `java -jar ../fixmystreet.com/closure-compiler-v20240317.jar --language_out ECMASCRIPT_2015 --rewrite_polyfills false --js $_ > $compiled.new`;
         rename("$compiled.new", $compiled) if -s "$compiled.new";
     }
 }
