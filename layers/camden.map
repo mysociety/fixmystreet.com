@@ -43,7 +43,7 @@ MAP
     NAME "AgreementBoundaries"
     METADATA
       "wfs_title"         "AgreementBoundaries" ##REQUIRED
-      "gml_include_items" "FID"
+      "gml_include_items" "FID,RESPBOROUG"
       "gml_featureid"     "FID" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
