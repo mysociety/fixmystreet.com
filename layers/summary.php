@@ -44,8 +44,8 @@ file_put_contents($DIR . 'summary.json', $j);
 file_put_contents($ROOT . 'tilma/web/layers.json', $j);
 
 function parse_ogr($ogr) {
-	preg_match('#^INFO: Open.*\n *using driver.*successful\.\n\nLayer name: (.*?)\n(?:Metadata:\n  DBF_DATE_LAST_UPDATE=(.*?)\n)?Geometry: (.*?)\nFeature Count: (.*?)\n(?:Extent: (.*?)\n)?Layer SRS WKT:\n(?:\(unknown\)|(?:GEOGCR?S|PROJCR?S|COMPOUNDCRS).*?(?:1936|WGS 84).*\]\])\n(.*)#s', $ogr, $m);
-if (!$m) { print $ogr; exit; }
+    preg_match('#^INFO: Open.*\n *using driver.*successful\.\n\nLayer name: (.*?)\n(?:Metadata:\n  DBF_DATE_LAST_UPDATE=(.*?)\n)?Geometry: (.*?)\nFeature Count: (.*?)\n(?:Extent: (.*?)\n)?Layer SRS WKT:\n(?:\(unknown\)|(?:GEOGCR?S|PROJCR?S|COMPOUNDCRS|ENGCRS).*?(?:1936|WGS 84|unknown).*\]\])\n(.*)#s', $ogr, $m);
+    if (!$m) { print $ogr; exit; }
 	preg_match_all('#^(.*?): .*?$#m', $m[6], $mm);
 	return [
 		'name' => $m[1],
