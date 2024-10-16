@@ -1,0 +1,24 @@
+shape: sequence_diagram
+
+user: { shape: person }
+user -> WasteWorks: Visit site
+user <- WasteWorks: Postcode form { style.stroke-dash: 5 }
+
+user -> WasteWorks: Postcode
+WasteWorks -> BexleyAddresses: addresses_for_postcode
+WasteWorks <- BexleyAddresses: Addresses
+user <- WasteWorks: Address form { style.stroke-dash: 5 }
+
+user -> WasteWorks: Address
+WasteWorks -> Whitespace: GetSiteInfo
+WasteWorks <- Whitespace: property details based on UPRN
+WasteWorks -> BexleyAddresses: usrn_for_uprn
+WasteWorks <- BexleyAddresses: USRN
+WasteWorks.t -> Whitespace: GetAccountSiteID \n (if site has a SiteParentID)
+WasteWorks.t -> Whitespace: GetSiteCollections \n (list of containers at the property)
+WasteWorks.t -> Whitespace: GetSiteWorksheets \n (open missed collection reports)
+WasteWorks.t -> Whitespace: GetCollectionByUprnAndDate \n (for past collections)
+WasteWorks.t -> Whitespace: GetCollectionByUprnAndDate \n (for future collections)
+WasteWorks.t -> Whitespace: GetInCabLogs \n (check missed collection report elegibility)
+WasteWorks.t <- Whitespace: API results
+user <- WasteWorks: Bin day page { style.stroke-dash: 5 }
