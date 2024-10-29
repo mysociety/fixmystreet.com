@@ -31,4 +31,38 @@ MAP
     END
   END
 
+  LAYER
+    NAME "merton_owned_parks"
+    METADATA
+      "wfs_title"         "Merton Owned Parks"
+      "wfs_srs"           "EPSG:3857 EPSG:27700"
+      "gml_include_items" "Park_Name,Park_ID"
+      "gml_featureid"     "Park_ID"
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'merton/Merton_Owned_Parks'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END
+
+  LAYER
+    NAME "external_parks"
+    METADATA
+      "wfs_title"         "External Parks"
+      "wfs_srs"           "EPSG:3857 EPSG:27700"
+      "gml_include_items" "Park_Name,Park_ID"
+      "gml_featureid"     "Park_ID"
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'merton/External_Parks'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END
+
 END
