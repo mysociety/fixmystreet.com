@@ -1,0 +1,34 @@
+MAP
+  NAME "Merton"
+  STATUS ON
+  EXTENT -180 -90 180 90
+  SHAPEPATH "../../layers"
+
+  OUTPUTFORMAT
+    NAME "geojson"
+    DRIVER "OGR/GEOJSON"
+    MIMETYPE "application/json; subtype=geojson"
+    FORMATOPTION "STORAGE=stream"
+    FORMATOPTION "FORM=SIMPLE"
+  END
+
+  LAYER
+    NAME "recycling_banks"
+    METADATA
+      "wfs_title"         "Recycling banks"
+      "wfs_srs"           "EPSG:3857 EPSG:27700"
+      "gml_include_items" "name"
+      "gml_featureid"     "uprn"
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'merton/recycling_banks.gpkg'
+    DATA 'recycling_banks'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END
+
+END
