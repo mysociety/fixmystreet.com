@@ -139,11 +139,12 @@ MAP
     NAME "Parks_Open_Spaces"
     METADATA
       "wfs_title"         "Parks & open spaces" ##REQUIRED
-      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "SITENAME,site_code" ## Optional (serves all attributes for layer)
       "gml_SITENAME_alias" "site_name"
       "gml_featureid"     "OBJECTID" ## REQUIRED
       "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
     END
     TYPE POINT
     STATUS ON
