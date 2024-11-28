@@ -219,4 +219,21 @@ MAP
     END
   END
 
+  LAYER
+    NAME "CarParks"
+    METADATA
+      "wfs_title"         "car_parks" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'brent/car_parks'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END
+
 END #mapfile
