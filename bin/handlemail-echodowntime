@@ -30,7 +30,7 @@ my $m = $data{message} or exit 0;
 my $out = "$root/data/echo-downtime.csv";
 
 my $body = join " ", @{$m->body};
-if ($body =~ /will be taken offline on\s+(.*?)\s+at\s+(.*?)\s+for\s+approximately\s+(\d+)\s+hours/s) {
+if ($body =~ /will be taken offline on\s+(.*?)\s+at\s+(.*?)\s+for\s+approximately\s+(\d+)\s+hours?/s) {
     my ($date, $time, $length) = ($1, $2, $3);
 
     my $year = localtime->year;
