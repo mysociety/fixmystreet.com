@@ -31,4 +31,60 @@ MAP
     END
   END
 
+  LAYER
+    NAME "all_parks"
+    TYPE POLYGON
+    STATUS ON
+    CONNECTIONTYPE UNION
+    METADATA
+      "wfs_title"         "All Parks" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "Park_Name,Park_ID,UPRN" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "Park_ID" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    CONNECTION "merton_owned_parks,external_parks"
+    PROCESSING "ITEMS=Park_Name,Park_ID,UPRN"
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END
+
+  LAYER
+    NAME "merton_owned_parks"
+    METADATA
+      "wfs_title"         "Merton Owned Parks"
+      "wfs_srs"           "EPSG:3857 EPSG:27700"
+      "gml_include_items" "Park_Name,Park_ID,UPRN"
+      "gml_featureid"     "Park_ID"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'merton/Merton_Owned_Parks'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END
+
+  LAYER
+    NAME "external_parks"
+    METADATA
+      "wfs_title"         "External Parks"
+      "wfs_srs"           "EPSG:3857 EPSG:27700"
+      "gml_include_items" "Park_Name,Park_ID,UPRN"
+      "gml_featureid"     "Park_ID"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'merton/External_Parks'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END
+
 END

@@ -32,4 +32,24 @@ MAP
     END
   END #layer
 
+  LAYER
+    NAME "TrafficSignals"
+    METADATA
+      "wfs_title"         "WSF" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "install_no,equip_type,led_halogen" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "install_no" ## REQUIRED
+      "wfs_enable_request" "*"  # necessary
+      "wfs_getfeature_formatlist" "geojson" # so FMS.com cobrand lookup_site_code works
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'gloucestershire/gcc_signals_listings.gpkg'
+    DATA 'gcc_signals_listings'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
 END #mapfile
