@@ -12,7 +12,7 @@ async function visit(page, cobrand, url, scrshot) {
     console.log('  Processing', cobrand);
     await page.goto('https://' + url);
     // One non-JS cookie banner, don't want temporary messages
-    await page.evaluate("document.querySelectorAll('.cookie-warning, .emergency-message, .site-message, .dev-site-notice').forEach(d => { d.style.display = 'none'; });");
+    await page.evaluate("document.querySelectorAll('.cookie-warning, .emergency-message, .site-message, .dev-site-notice, .occlss-alert').forEach(d => { d.style.display = 'none'; });");
     await page.screenshot({ path: scrshot });
 }
 
@@ -21,7 +21,10 @@ async function visit(page, cobrand, url, scrshot) {
   const page = await browser.newPage();
 
   // Otherwise half of them are cookie banners
-  page.setJavaScriptEnabled(false)
+  // Oxfordshire's we hide above and has YT video to show
+  if (cobrand !== 'oxfordshire') {
+    page.setJavaScriptEnabled(false)
+  }
 
   // frameit requires pictures in their own directory
   await exec('mkdir -p shots-i shots-a large small');
