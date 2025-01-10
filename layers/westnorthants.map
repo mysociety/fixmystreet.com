@@ -44,7 +44,7 @@ MAP
     END
     TYPE POINT
     STATUS ON
-    DATA 'westnorthants/Bus Stop'
+    DATA 'westnorthants/Bus_Stop'
     PROJECTION
       "init=epsg:4326"
     END
@@ -139,7 +139,7 @@ MAP
     END
     TYPE LINE
     STATUS ON
-    DATA 'westnorthants/PRoW Network'
+    DATA 'westnorthants/PRoW_Network'
     PROJECTION
       "init=epsg:4326"
     END
@@ -180,7 +180,7 @@ MAP
     END
     TYPE POINT
     STATUS ON
-    DATA 'westnorthants/Pedestrian Barrier'
+    DATA 'westnorthants/Pedestrian_Barrier'
     PROJECTION
       "init=epsg:4326"
     END
@@ -218,7 +218,7 @@ MAP
     END
     TYPE POINT
     STATUS ON
-    DATA 'westnorthants/Safety Bollard'
+    DATA 'westnorthants/Safety_Bollard'
     PROJECTION
       "init=epsg:4326"
     END
@@ -294,7 +294,7 @@ MAP
     END
     TYPE POLYGON
     STATUS ON
-    DATA 'westnorthants/Traffic Calming'
+    DATA 'westnorthants/Traffic_Calming'
     PROJECTION
       "init=epsg:4326"
     END
@@ -313,7 +313,7 @@ MAP
     END
     TYPE POINT
     STATUS ON
-    DATA 'westnorthants/Pedestrian Crossing'
+    DATA 'westnorthants/Pedestrian_Crossing'
     PROJECTION
       "init=epsg:4326"
     END
@@ -332,7 +332,7 @@ MAP
     END
     TYPE POINT
     STATUS ON
-    DATA 'westnorthants/Traffic Signal Junction'
+    DATA 'westnorthants/Traffic_Signal_Junction'
     PROJECTION
       "init=epsg:4326"
     END
