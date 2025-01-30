@@ -165,7 +165,9 @@ MAP
     END
     TYPE POINT
     STATUS ON
-    DATA 'bromley/KaarbonTechGulliesMarch22Trim'
+    CONNECTIONTYPE OGR
+    CONNECTION 'bromley/KaarbonTechGullies.gpkg'
+    DATA 'gullies'
     PROJECTION
       "init=epsg:27700"
     END
