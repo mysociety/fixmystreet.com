@@ -225,6 +225,23 @@ MAP
   END #layer
 
   LAYER
+    NAME "WarrenAvenue"
+    METADATA
+      "wfs_title"         "Warren Avenue" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Name" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    CONNECTIONTYPE OGR
+    CONNECTION 'bromley/WarrenAvenuePlayingFields.kml'
+    DATA 'Warren Avenue Playing Fields'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
     NAME "Recycling_Bank_Points"
     METADATA
       "wfs_title"         "Recycling_Bank_Points" ##REQUIRED
