@@ -518,6 +518,7 @@
         "schemas": {
             "Service": {
                 "description": "A single service (type) offered via Open311",
+                "xml": { "name": "service" },
                 "required": [
                     "service_code",
                     "service_name",
@@ -574,6 +575,7 @@
             },
             "ServiceDefinition": {
                 "description": "Attributes associated with a service code. These attributes can be unique to the city/jurisdiction.",
+                "xml": { "name": "service_definition" },
                 "required": [
                     "service_code",
                     "attributes"
@@ -596,6 +598,7 @@
             },
             "ServiceAttribute": {
                 "description": "A single attribute extension for a service",
+                "xml": { "name": "attribute" },
                 "required": [
                     "variable",
                     "code",
@@ -657,6 +660,7 @@
             },
             "AttributeValue": {
                 "description": "Possible value for ServiceAttribute that defines lists",
+                "xml": { "name": "value" },
                 "required": [
                     "key",
                     "name"
@@ -675,6 +679,7 @@
             },
             "Request": {
                 "description": "Issues that have been reported as service requests. Location is submitted via lat/long or address or address_id",
+                "xml": { "name": "request" },
                 "required": [
                     "service_request_id",
                     "status",
@@ -777,6 +782,7 @@
             },
             "RequestResponse": {
                 "description": "Details for tracking an created service request",
+                "xml": { "name": "request" },
                 "properties": {
                     "service_request_id": {
                         "type": "string",
@@ -801,6 +807,7 @@
             },
             "Update": {
                 "description": "Update on a service request",
+                "xml": { "name": "request_update" },
                 "required": [
                     "update_id",
                     "service_request_id",
@@ -856,6 +863,7 @@
             },
             "UpdateResponse": {
                 "description": "Details for a created service request update",
+                "xml": { "name": "request_update" },
                 "properties": {
                     "update_id": {
                         "type": "string",
@@ -876,6 +884,7 @@
             },
             "TokenResponse": {
                 "description": "Resolves temporary token to ID of the request",
+                "xml": { "name": "request" },
                 "properties": {
                     "service_request_id": {
                         "type": "string",
@@ -891,6 +900,7 @@
             },
             "TokenUpdateResponse": {
                 "description": "Resolves temporary token to ID of the update",
+                "xml": { "name": "request_update" },
                 "properties": {
                     "update_id": {
                         "type": "string",
