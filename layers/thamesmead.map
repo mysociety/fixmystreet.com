@@ -97,4 +97,21 @@
      END # End for projection
    END #layer
 
+   LAYER
+     NAME "blockbuildings"
+     METADATA
+      "wfs_title"         "Block buildings"
+      "wfs_srs"           "EPSG:3857 EPSG:27700"
+      "gml_include_items" "uprn,fid"
+      "gml_featureid"     "fid"
+      "wfs_enable_request" "*"
+     END # End for metadata
+     TYPE POLYGON
+     STATUS ON
+     DATA 'thamesmead/blockbuildings'
+     PROJECTION
+       "init=epsg:27700"
+     END # End for projection
+   END #layer
+
 END # End for mapfile
