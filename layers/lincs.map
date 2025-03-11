@@ -204,9 +204,10 @@ MAP
     END
     TYPE POINT
     STATUS ON
-    DATA 'lincs/NSG'
+    CONNECTION 'lincs/NSG.TAB'
+    CONNECTIONTYPE OGR
     PROJECTION
-      "init=epsg:3857"
+      "init=epsg:27700"
     END
   END #layer
 
