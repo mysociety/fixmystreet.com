@@ -202,11 +202,12 @@ MAP
       "gml_featureid"     "fid" ## REQUIRED
       "wfs_enable_request" "* !GetCapabilities"
     END
-    TYPE POINT
+    TYPE LINE
     STATUS ON
-    DATA 'lincs/NSG'
+    CONNECTION 'lincs/NSG.TAB'
+    CONNECTIONTYPE OGR
     PROJECTION
-      "init=epsg:3857"
+      "init=epsg:27700"
     END
   END #layer
 
