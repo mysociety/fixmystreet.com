@@ -202,7 +202,7 @@ MAP
       "gml_featureid"     "fid" ## REQUIRED
       "wfs_enable_request" "* !GetCapabilities"
     END
-    TYPE POINT
+    TYPE LINE
     STATUS ON
     CONNECTION 'lincs/NSG.TAB'
     CONNECTIONTYPE OGR
