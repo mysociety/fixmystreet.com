@@ -15,10 +15,27 @@ Pick container -> Replacement: Other
 why_sacks -> About you1: I am a new resident\nwithout any
 why_sacks -> About you1: I have used all\nthe sacks provided
 
-why_green -> About you2: My container\nis damaged
-why_green -> About you2: My container\nis missing
+why_green -> recent_order: My container\nis damaged
+why_green -> recent_order: My container\nis missing
 
-Replacement -> About you5: I am a new resident\nwithout a container
-Replacement -> About you5: My container\nis damaged
-Replacement -> About you5: My container\nis missing
-Replacement -> About you5: I would like an\nextra container
+Replacement -> how_long_lived: I am a new resident\nwithout a container
+Replacement -> recent_order: My container\nis damaged
+Replacement -> recent_order: My container\nis missing
+Replacement -> recent_order2: I would like an\nextra container
+
+recent_order: Check if recent order { style.fill: lightblue }
+recent_order -> About you2: No recent order
+recent_order -> Referral: Recent order
+
+recent_order2: Check if recent order { style.fill: lightblue }
+recent_order2 -> About you5: No recent order
+recent_order2 -> extra_refusal: Recent order
+
+how_long_lived: How long have you\nlived at this address?
+how_long_lived -> recent_order: Less than 3 months
+how_long_lived -> Referral2: 3 months or more
+
+extra_refusal: Refuse\nEND { style.fill: lightgrey }
+
+Referral: Summary\nEND\nReferral { style.fill: lightgrey }
+Referral2: Summary\nEND\nReferral { style.fill: lightgrey }
