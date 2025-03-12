@@ -126,7 +126,7 @@ MAP
     END
     TYPE POINT
     STATUS ON
-    CONNECTION 'lincs/LCC_Drainage-GulliesOffletsManholes.TAB'
+    CONNECTION 'lincs/Drainage01-CollectionPoints.TAB'
     CONNECTIONTYPE OGR
     PROJECTION
       "init=epsg:27700"
