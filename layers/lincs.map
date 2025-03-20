@@ -99,12 +99,28 @@ MAP
       "wfs_title"         "Grass verges" ##REQUIRED
       "wfs_srs"           "EPSG:3857" ## REQUIRED
       "gml_include_items" "Asset_Id,Cut_1,Cut_2,Cut_3,CutType,Cut_By,Authority"
-      "gml_Central_Asset_Id_alias" "Confirm_CA"
-      "gml_Feature_Type_alias" "Type"
       "gml_featureid"     "Asset_Id"
       "wfs_enable_request" "* !GetCapabilities"
     END
     TYPE POLYGON
+    STATUS ON
+    CONNECTION 'lincs/LCC Verges.TAB'
+    CONNECTIONTYPE OGR
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "LCC_Verges_Lines"
+    METADATA
+      "wfs_title"         "Grass verges" ##REQUIRED
+      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "gml_include_items" "Asset_Id,Cut_1,Cut_2,Cut_3,CutType,Cut_By,Authority"
+      "gml_featureid"     "Asset_Id"
+      "wfs_enable_request" "* !GetCapabilities"
+    END
+    TYPE LINE
     STATUS ON
     CONNECTION 'lincs/LCC Verges.TAB'
     CONNECTIONTYPE OGR
