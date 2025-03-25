@@ -29,14 +29,7 @@ jobs:
             ~/.local/bin/d2 $file _site/$base.svg -t 105 --sketch
           done
       - name: Generate index
-        run: |
-          echo '<ul>' > _site/diagrams/index.html
-          for file in _site/diagrams/*.svg; do
-            name="${file##*/}"
-            echo "<li><a href='$name'>$name</a></li>" >> _site/diagrams/index.html
-          done
-          echo '</ul>' >> _site/diagrams/index.html
-
+        run: diagrams/make-index.pl
       - uses: actions/upload-pages-artifact@v3
   deploy:
     needs: build

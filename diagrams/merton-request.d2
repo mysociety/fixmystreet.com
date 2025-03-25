@@ -1,0 +1,24 @@
+Pick container: Which containers do you need?
+Replacement: Why do you need a\nreplacement container?
+About you1: About\nSummary\nEND { style.fill: lightblue }
+
+Pick container -> Replacement: Other
+Pick container -> About you1: Recycling blue stripe bag\nor Paper single use bag
+Replacement -> About you1: Damaged/\nMissing/\nNew resident/\nAdditional container
+
+
+Medical: Does anyone in your household have any medical condition\nthat causes extra waste that cannot be recycled?
+HowMany: How many people live in\nyour home (include you)?
+HowMuch: How much non-hazardous, non-recyclable\n waste does your household produce\ndue to medical conditions?
+About you: About\nSummary\nEND { style.fill: lightblue }
+Not eligible { style.fill: lightgrey }
+Link to info { style.fill: lightgrey }
+
+Medical -> HowMany: No
+Medical -> HowMuch: Yes
+HowMuch -> HowMany: Less than 1 black sack a fortnight
+HowMuch -> About you: 1 or 2 black sacks a fortnight
+HowMuch -> Link to info: 3 or more black sack a fortnight
+HowMany -> Not eligible: 1 to 4
+HowMany -> About you: 5 or more
+
