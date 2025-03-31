@@ -674,6 +674,10 @@
                     "name": {
                         "type": "string",
                         "description": "Human readable title of an option for singlevaluelist or multivaluelist (analogous to the innerhtml text node of an html option tag)."
+                    },
+                    "disable_message": {
+                        "type": "string",
+                        "description": "Human readable description of why a report can't be made when option selected. If present report can not be made when selected"
                     }
                 }
             },
