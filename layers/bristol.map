@@ -30,6 +30,23 @@ MAP
   END #layer
 
   LAYER
+    NAME "flytippingparks"
+    METADATA
+      "wfs_title"         "Bristol Parks for Flytipping"
+      "wfs_srs"           "EPSG:3857 EPSG:27700"
+      "gml_include_items" ""
+      "gml_featureid"     "SITE_CODE"
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'bristol/Flytipping_Disolve'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
     NAME "docks"
     METADATA
       "wfs_title"         "Docks" ##REQUIRED
