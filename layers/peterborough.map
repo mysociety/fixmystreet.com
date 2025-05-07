@@ -72,13 +72,17 @@ MAP
     METADATA
       "wfs_title"          "Peterborough Street Lights"
       "wfs_srs"            "EPSG:3857 EPSG:27700"
-      "gml_include_items"  "UNITID,UNITNO,FULLSTREET,LOCALITY"
-      "gml_featureid"      "UNITID"
+      "gml_include_items"  "central_as,unitno,site_name,locality_n"
+      "gml_site_name_alias" "FULLSTREET"
+      "gml_locality_n_alias" "LOCALITY"
+      "gml_unitno_alias" "UNITNO"
+      "gml_central_as_alias" "UNITID"
+      "gml_featureid"      "central_as"
       "wfs_enable_request" "*"
     END
     TYPE POINT
     STATUS ON
-    DATA 'peterborough/StreetLights'
+    DATA 'peterborough/AllStreetLights01052025'
     PROJECTION
       "init=epsg:27700"
     END
