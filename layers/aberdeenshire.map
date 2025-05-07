@@ -1,0 +1,149 @@
+MAP
+  NAME "Aberdeenshire"
+  STATUS ON
+  EXTENT -180 -90 180 90
+  SHAPEPATH "../../layers"
+
+  OUTPUTFORMAT
+    NAME "geojson"
+    DRIVER "OGR/GEOJSON"
+    MIMETYPE "application/json; subtype=geojson"
+    FORMATOPTION "STORAGE=stream"
+    FORMATOPTION "FORM=SIMPLE"
+  END
+
+  LAYER
+    NAME "WSS"
+    METADATA
+      "wfs_title"         "Whole Street Section" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "centralAssetId,siteCode" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "featureKey" ## REQUIRED
+      "wfs_enable_request" "*"  # necessary
+      "wfs_getfeature_formatlist" "geojson" # so FMS.com cobrand lookup_site_code works
+    END
+    TYPE LINE
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'aberdeenshire/WSS.gpkg'
+    DATA 'WSS'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "GULL"
+    METADATA
+      "wfs_title"         "Gullies" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "centralAssetId,siteCode,featureId,featureTypeCode" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "featureKey" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'aberdeenshire/GULL.gpkg'
+    DATA 'GULL'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "GRPI"
+    METADATA
+      "wfs_title"         "Grit Piles" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "centralAssetId,siteCode,featureId,featureTypeCode" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "featureKey" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'aberdeenshire/GRPI.gpkg'
+    DATA 'GRPI'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "GRIT"
+    METADATA
+      "wfs_title"         "Grit Bins" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "centralAssetId,siteCode,featureId,featureTypeCode" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "featureKey" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'aberdeenshire/GRIT.gpkg'
+    DATA 'GRIT'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "BBSP"
+    METADATA
+      "wfs_title"         "Bridges" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "centralAssetId,siteCode,featureId,featureTypeCode" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "featureKey" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'aberdeenshire/BBSP.gpkg'
+    DATA 'BBSP'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "CARP"
+    METADATA
+      "wfs_title"         "Car Parks" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "centralAssetId,siteCode,featureId,featureTypeCode" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "featureKey" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'aberdeenshire/CARP.gpkg'
+    DATA 'CARP'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "StreetLighting"
+    METADATA
+      "wfs_title"         "Street Lighting" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "centralAssetId,siteCode,featureId,featureTypeCode" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "featureKey" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'aberdeenshire/StreetLighting.gpkg'
+    DATA 'StreetLighting'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+END #mapfile
