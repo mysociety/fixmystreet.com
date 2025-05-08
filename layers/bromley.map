@@ -242,6 +242,23 @@ MAP
   END #layer
 
   LAYER
+    NAME "NatureFriendlyVerges"
+    METADATA
+      "wfs_title"         "Nature Friendly Verges" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Name" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    CONNECTIONTYPE OGR
+    CONNECTION 'bromley/NatureFriendlyVerges.kml'
+    DATA 'Nature Friendly Verges'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
     NAME "Recycling_Bank_Points"
     METADATA
       "wfs_title"         "Recycling_Bank_Points" ##REQUIRED
