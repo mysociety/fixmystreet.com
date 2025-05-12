@@ -37,7 +37,7 @@ MAP
     METADATA
       "wfs_title"         "GULL" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "centralAssetId,siteCode,featureId" ## Optional (serves all attributes for layer)
+      "gml_include_items" "centralAssetId,siteCode,featureId,featureTypeCode" ## Optional (serves all attributes for layer)
       "gml_featureid"     "fid" ## REQUIRED
       "wfs_enable_request" "*"
     END
@@ -56,7 +56,7 @@ MAP
     METADATA
       "wfs_title"         "GRPI" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "centralAssetId,siteCode,featureId" ## Optional (serves all attributes for layer)
+      "gml_include_items" "centralAssetId,siteCode,featureId,featureTypeCode" ## Optional (serves all attributes for layer)
       "gml_featureid"     "fid" ## REQUIRED
       "wfs_enable_request" "*"
     END
@@ -75,7 +75,7 @@ MAP
     METADATA
       "wfs_title"         "GRIT" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "centralAssetId,siteCode,featureId" ## Optional (serves all attributes for layer)
+      "gml_include_items" "centralAssetId,siteCode,featureId,featureTypeCode" ## Optional (serves all attributes for layer)
       "gml_featureid"     "fid" ## REQUIRED
       "wfs_enable_request" "*"
     END
@@ -94,7 +94,7 @@ MAP
     METADATA
       "wfs_title"         "BBSP" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "centralAssetId,siteCode,featureId" ## Optional (serves all attributes for layer)
+      "gml_include_items" "centralAssetId,siteCode,featureId,featureTypeCode" ## Optional (serves all attributes for layer)
       "gml_featureid"     "fid" ## REQUIRED
       "wfs_enable_request" "*"
     END
@@ -113,7 +113,7 @@ MAP
     METADATA
       "wfs_title"         "CARP" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "centralAssetId,siteCode,featureId" ## Optional (serves all attributes for layer)
+      "gml_include_items" "centralAssetId,siteCode,featureId,featureTypeCode" ## Optional (serves all attributes for layer)
       "gml_featureid"     "fid" ## REQUIRED
       "wfs_enable_request" "*"
     END
@@ -132,7 +132,7 @@ MAP
     METADATA
       "wfs_title"         "StreetLighting" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "centralAssetId,siteCode,featureId" ## Optional (serves all attributes for layer)
+      "gml_include_items" "centralAssetId,siteCode,featureId,featureTypeCode" ## Optional (serves all attributes for layer)
       "gml_featureid"     "fid" ## REQUIRED
       "wfs_enable_request" "*"
     END
