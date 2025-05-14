@@ -18,7 +18,7 @@ MAP
       "wfs_title"         "Whole Street Section" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "centralAssetId,siteCode" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "fid" ## REQUIRED
+      "gml_featureid"     "featureKey" ## REQUIRED
       "wfs_enable_request" "*"  # necessary
       "wfs_getfeature_formatlist" "geojson" # so FMS.com cobrand lookup_site_code works
     END
@@ -38,7 +38,7 @@ MAP
       "wfs_title"         "Gullies" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "centralAssetId,siteCode,featureId,featureTypeCode" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "fid" ## REQUIRED
+      "gml_featureid"     "featureKey" ## REQUIRED
       "wfs_enable_request" "*"
     END
     TYPE POINT
@@ -57,7 +57,7 @@ MAP
       "wfs_title"         "Grit Piles" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "centralAssetId,siteCode,featureId,featureTypeCode" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "fid" ## REQUIRED
+      "gml_featureid"     "featureKey" ## REQUIRED
       "wfs_enable_request" "*"
     END
     TYPE POINT
@@ -76,7 +76,7 @@ MAP
       "wfs_title"         "Grit Bins" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "centralAssetId,siteCode,featureId,featureTypeCode" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "fid" ## REQUIRED
+      "gml_featureid"     "featureKey" ## REQUIRED
       "wfs_enable_request" "*"
     END
     TYPE POINT
@@ -95,7 +95,7 @@ MAP
       "wfs_title"         "Bridges" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "centralAssetId,siteCode,featureId,featureTypeCode" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "fid" ## REQUIRED
+      "gml_featureid"     "featureKey" ## REQUIRED
       "wfs_enable_request" "*"
     END
     TYPE POINT
@@ -114,7 +114,7 @@ MAP
       "wfs_title"         "Car Parks" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "centralAssetId,siteCode,featureId,featureTypeCode" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "fid" ## REQUIRED
+      "gml_featureid"     "featureKey" ## REQUIRED
       "wfs_enable_request" "*"
     END
     TYPE POINT
@@ -133,7 +133,7 @@ MAP
       "wfs_title"         "Street Lighting" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "centralAssetId,siteCode,featureId,featureTypeCode" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "fid" ## REQUIRED
+      "gml_featureid"     "featureKey" ## REQUIRED
       "wfs_enable_request" "*"
     END
     TYPE POINT
