@@ -56,17 +56,22 @@ function parse_ogr($ogr) {
 		(?:
 			\(unknown\)
 			|
-			(?: GEOG|PROJ|COMPOUND|ENG )CR?S .*? (?: 1936|WGS[ ]84|unknown ) .* \]\]
+			PROJCRS\["unnamed", \s+ BASEGEOGCRS\["unnamed", \s+ DATUM\["([^"]*) .*? \]\]
+			|
+			BOUNDCRS\[ \s+ SOURCECRS\[ \s+ PROJCRS\["([^"]*) .* \]\]
+			|
+			(?: GEOG|PROJ|COMPOUND|ENG )CR?S\["([^"]*) .* \]\]
 		)\n
 		(.*)#sx', $ogr, $m);
 	if (!$m) { print "Could not parse OGR data: $ogr"; exit; }
-	preg_match_all('#^(.*?): .*?$#m', $m[6], $mm);
+	preg_match_all('#^(.*?): .*?$#m', $m[9], $mm);
 	return [
 		'name' => $m[1],
 		'date' => strtotime($m[2]),
 		'geometry' => $m[3],
 		'features' => $m[4],
 		'extent' => $m[5],
+		'srid' => $m[6] ?: $m[7] ?: $m[8],
 		'fields' => $mm[1],
 	];
 }
