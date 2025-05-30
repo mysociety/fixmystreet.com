@@ -42,7 +42,7 @@ MAP
     NAME "Highways"
     METADATA
       "wfs_title"         "Highways" ##REQUIRED
-      "gml_include_items" "ROA_NUMBER,sect_label,area_name"
+      "gml_include_items" "ROA_NUMBER,sect_label,area_name,descriptor"
       "gml_featureid"     "SECT_LABEL" ## REQUIRED
       "gml_roa_number_alias" "ROA_NUMBER"
       "wfs_enable_request" "*"
@@ -63,7 +63,7 @@ MAP
     END
     TYPE LINE
     STATUS ON
-    DATA 'highways/network'
+    DATA 'highways/network_and_tnkrd_combined'
     PROJECTION
       "init=epsg:27700"
     END
