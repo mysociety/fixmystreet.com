@@ -27,7 +27,7 @@ usort($i, function($a, $b) {
 
 $out = [];
 foreach ($i as $d) {
-	$ogr = `ogrinfo -ro -al -so '$d'`;
+	$ogr = `ogrinfo -ro -al -so '$d' 2>&1 | grep -v 'may only be partially supported'`;
 	$data = parse_ogr($ogr);
 	if (!$data['date']) $data['date'] = filemtime($d);
 	$data['directory'] = str_replace($DIR, '', $d->getPathInfo());
