@@ -1,0 +1,106 @@
+MAP
+  NAME "Hart"
+  STATUS ON
+  EXTENT -180 -90 180 90
+  SHAPEPATH "../../layers"
+
+  OUTPUTFORMAT
+    NAME "geojson"
+    DRIVER "OGR/GEOJSON"
+    MIMETYPE "application/json; subtype=geojson"
+    FORMATOPTION "STORAGE=stream"
+    FORMATOPTION "FORM=SIMPLE"
+  END
+
+  LAYER
+    NAME "Land"
+    METADATA
+      "wfs_title"         "Land" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "ogc_fid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    STATUS ON
+    PROCESSING "ITEMS=ogc_fid"
+    CONNECTIONTYPE UNION
+    CONNECTION "Council_Land,Grounds"
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END
+
+  LAYER
+    NAME "Council_Land"
+    METADATA
+      "wfs_title"         "Council_Land" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "ogc_fid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'hart/Hart_District_Council_assets.gpkg'
+    DATA 'LUC_Hart_District_Council_Land_20250213'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "NoMowMay"
+    METADATA
+      "wfs_title"         "NoMowMay" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "id" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'hart/Hart_District_Council_assets.gpkg'
+    DATA 'LUC_NoMowMay_Outside_HDC_Land_20250213'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Grounds"
+    METADATA
+      "wfs_title"         "Grounds" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "ogc_fid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'hart/Hart_District_Council_assets.gpkg'
+    DATA 'LUC_Grounds_Maintenance_Edited_20250214'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Bins"
+    METADATA
+      "wfs_title"         "Bins" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "name" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "ogc_fid" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'hart/Hart_District_Council_assets.gpkg'
+    DATA 'UPDATE_BIN_Layer_hdcbins'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+END #mapfile
