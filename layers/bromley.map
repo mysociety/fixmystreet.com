@@ -139,11 +139,12 @@ MAP
     NAME "Parks_Open_Spaces"
     METADATA
       "wfs_title"         "Parks & open spaces" ##REQUIRED
-      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "SITENAME,site_code" ## Optional (serves all attributes for layer)
       "gml_SITENAME_alias" "site_name"
       "gml_featureid"     "OBJECTID" ## REQUIRED
       "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
     END
     TYPE POINT
     STATUS ON
@@ -164,7 +165,9 @@ MAP
     END
     TYPE POINT
     STATUS ON
-    DATA 'bromley/KaarbonTechGulliesMarch22Trim'
+    CONNECTIONTYPE OGR
+    CONNECTION 'bromley/KaarbonTechGullies.gpkg'
+    DATA 'gullies'
     PROJECTION
       "init=epsg:27700"
     END
@@ -216,6 +219,40 @@ MAP
     CONNECTIONTYPE OGR
     CONNECTION 'bromley/Chislehurst Commons.kml'
     DATA 'Chislehurst Commons'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "WarrenAvenue"
+    METADATA
+      "wfs_title"         "Warren Avenue" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Name" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    CONNECTIONTYPE OGR
+    CONNECTION 'bromley/WarrenAvenuePlayingFields.kml'
+    DATA 'Warren Avenue Playing Fields'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
+  LAYER
+    NAME "NatureFriendlyVerges"
+    METADATA
+      "wfs_title"         "Nature Friendly Verges" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_featureid"     "Name" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    CONNECTIONTYPE OGR
+    CONNECTION 'bromley/NatureFriendlyVerges.kml'
+    DATA 'Nature Friendly Verges'
     PROJECTION
       "init=epsg:4326"
     END

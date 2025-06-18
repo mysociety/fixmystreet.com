@@ -102,9 +102,7 @@ MAP
     END
     TYPE POINT
     STATUS ON
-    CONNECTIONTYPE OGR
-    CONNECTION 'oxfordshire/TrafficSignals.gpkg'
-    DATA 'TrafficSignals'
+    DATA 'oxfordshire/TrafficSignals'
     PROJECTION
       "init=epsg:27700"
     END

@@ -1,0 +1,48 @@
+#!/usr/bin/env perl
+
+use Path::Tiny;
+use Text::CSV;
+use FixMyStreet::DB;
+
+my $columns = [
+    # Header, column, (SQL if needed)
+    [ 'ID', 'id' ],
+    [ 'Category', 'category' ],
+    [ 'Title', 'title' ],
+    [ 'Detail', 'detail' ],
+    [ 'Latitude', 'latitude' ],
+    [ 'Longitude', 'longitude' ],
+    [ 'Confirmed', 'confirmed', "to_json(date_trunc('second', confirmed))#>>'{}'" ],
+    [ 'When sent', 'whensent', "to_json(date_trunc('second', whensent))#>>'{}'" ],
+    [ 'State', 'state' ],
+    [ 'Area guess', 'borough_guess', "coalesce(geocode->'address'->>'city_district', geocode->'LPI'->>'ADMINISTRATIVE_AREA')" ],
+    [ 'Service', 'service' ],
+    [ 'Cobrand', 'cobrand' ],
+];
+my $out = FixMyStreet->path_to('web/static/temp/london-bikes.csv');
+
+my @bodies = FixMyStreet::DB->resultset("Body")->search({
+    name => [ 'Dott', 'Tier', 'Lime', 'HumanForest', 'Voi' ],
+})->all;
+
+my $reports = FixMyStreet::DB->resultset("Problem")
+    ->to_body([ map { $_->id } @bodies ])
+    ->search({
+        state => [ FixMyStreet::DB::Result::Problem->visible_states() ],
+        non_public => 0,
+    }, {
+        'columns' => [ map { $_->[2] ? { $_->[1] => \$_->[2] } : $_->[1] } @$columns ],
+        order_by => 'id',
+    });
+
+my $file = path("$out-part");
+my $handle = $file->openw_utf8;
+
+my $csv = Text::CSV->new({ binary => 1, eol => "\n" });
+$csv->print($handle, [ map { $_->[0] } @$columns ]);
+
+while (my $report = $reports->next) {
+    $csv->print($handle, [ map { $report->get_column($_->[1]) } @$columns ]);
+}
+
+$file->move($out);

@@ -23,6 +23,8 @@ Assumes you have govuk-frontend/src checked out above.
 bin/check_fixmystreet - used by server monitoring to see how many unsent
 reports and updates there are.
 
+bin/bike-export - generates stats on London hire bike bodies
+
 pwa/shots.js - this will fetch and frame the front page of the provided domain
 for use on the web app help page. Run as `node shots.js --cobrand C --domain D
 --theme T` and puts screenshots in large and small directories for copying

@@ -1,5 +1,5 @@
 MAP
-  NAME "Highways Agency"
+  NAME "Canal and River Trust"
   STATUS ON
   EXTENT 0 0 700000 1300000
   SIZE 256 256
@@ -39,53 +39,23 @@ MAP
   END
 
   LAYER
-    NAME "Highways"
+    NAME "Canals"
     METADATA
-      "wfs_title"         "Highways" ##REQUIRED
-      "gml_include_items" "ROA_NUMBER,sect_label,area_name,descriptor"
-      "gml_featureid"     "SECT_LABEL" ## REQUIRED
-      "gml_roa_number_alias" "ROA_NUMBER"
+      "wfs_title"         "Canals" ##REQUIRED
+      "gml_include_items" "OBJECTID,SAP_NAME,SAP_PLANT_,SAP_FUNC_L"
+      "gml_featureid"     "OBJECTID" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
     END
     CLASS
-      NAME "Scot-road"
-      EXPRESSION (length('[ROA_NUMBER]') = 0)
+      NAME "Canal"
       STYLE
-        COLOR 128 128 128
-      END
-    END
-    CLASS
-      NAME "Motorway"
-      EXPRESSION ('[ROA_NUMBER]' ~* 'M')
-      STYLE
-        COLOR 0 121 193
-      END
-    END
-    CLASS
-      NAME "A-road"
-      STYLE
-        COLOR 0 112 60
+        COLOR 0 166 184
       END
     END
     TYPE LINE
     STATUS ON
-    DATA 'highways/network_and_tnkrd_combined'
-    PROJECTION
-      "init=epsg:27700"
-    END
-  END #layer
-
-  LAYER
-    NAME "Highways_litter_pick"
-    METADATA
-      "wfs_title"         "Highways_litter_pick" ##REQUIRED
-      "wfs_enable_request" "*"
-      "wfs_getfeature_formatlist" "geojson"
-    END
-    TYPE LINE
-    STATUS ON
-    DATA 'highways/Refuse_collection_sections'
+    DATA 'crt/canals'
     PROJECTION
       "init=epsg:27700"
     END
