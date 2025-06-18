@@ -236,4 +236,61 @@ MAP
     END
   END
 
+  LAYER
+    NAME "TreesBHP"
+    METADATA
+      "wfs_title"         "Trees" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'brent/Brent_Trees.gpkg'
+    DATA 'trees'
+    FILTER ( "[Owner_id]" eq 'BHP' )
+    PROJECTION
+        "init=epsg:27700"
+    END
+  END
+
+  LAYER
+    NAME "TreesHIG"
+    METADATA
+      "wfs_title"         "Trees" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'brent/Brent_Trees.gpkg'
+    DATA 'trees'
+    FILTER ( "[Owner_id]" eq 'HIG' )
+    PROJECTION
+        "init=epsg:27700"
+    END
+  END
+
+  LAYER
+    NAME "TreesPKS"
+    METADATA
+      "wfs_title"         "Trees" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'brent/Brent_Trees.gpkg'
+    DATA 'trees'
+    FILTER ( "[Owner_id]" eq 'PKS' )
+    PROJECTION
+        "init=epsg:27700"
+    END
+  END
+
 END #mapfile
