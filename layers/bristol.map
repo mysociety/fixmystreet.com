@@ -69,7 +69,7 @@ MAP
     STATUS ON
     METADATA
       "wfs_title"         "Car Parks" ##REQUIRED
-      "wfs_srs"           "EPSG:3857" ## REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
       "gml_include_items" "asset_id,site_code,site_name" ## Optional (serves all attributes for layer)
       "gml_featureid"     "asset_id" ## REQUIRED
       "wfs_enable_request" "*"
