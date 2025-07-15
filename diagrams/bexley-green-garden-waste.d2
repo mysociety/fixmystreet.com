@@ -1,0 +1,118 @@
+classes: {
+  question: {
+    shape: diamond
+  }
+}
+
+is_communal: Is property communal?
+is_communal.class: question
+
+uses_sacks: "Does property use sacks\ninstead of standard bins?"
+uses_sacks.class: question
+
+eligible_no: "Cannot have a\ngarden waste subscription"
+eligible_yes: "Can have a\ngarden waste subscription"
+
+is_communal -> eligible_no: Yes
+is_communal -> uses_sacks: No
+uses_sacks -> eligible_no: Yes
+uses_sacks -> eligible_yes: No
+
+has_subscription_data: "Is there existing subscription data\nfor the property?"
+has_subscription_data.class: question
+
+eligible_yes -> has_subscription_data
+has_subscription_data -> new_subscription_container: No
+has_subscription_data -> existing_subscription_container: Yes
+
+new_subscription_container: New subscription {
+  new_link: "Bin days page shows\n'Sign up for a garden waste collection' link"
+  payment_type: Payment type? {
+    class: question
+  }
+  cc: Credit card {
+    text: |md
+      - no discount offered
+      - payment handled by  
+        Capita Paye.net
+    |
+  }
+  dd: Direct Debit {
+    text: |md
+      - includes a discount
+      - payment handled by  
+        Access PaySuite
+    |
+  }
+  report_sent: Report sent {
+    text: |md
+      - details sent to Agile
+      - Bexley will later update  
+        Whitespace with data from Agile
+    |
+  }
+
+  new_link -> payment_type: 'Click through to form'
+
+  payment_type -> cc
+  payment_type -> dd
+
+  cc -> report_sent
+  dd -> report_sent
+}
+
+existing_subscription_container: Existing subscription {
+  direction: right
+  db_only: DB data only? {
+    class: question
+  }
+  db_and: DB and ... {
+    class: question
+  }
+  whitespace_only: "Counts as no subscription.\n'Sign up' link still shown."
+  agile_only: "Whitespace data such as next\ncollection shown as 'pending'"
+  payment_type: Payment type? {
+    class: question
+  }
+  cc: Credit card {
+    actions: Available actions {
+      text: |md
+        - renew
+          - if within renewal window  
+            (42 days from expiry)
+        - amend
+          - can increase or reduce number of  
+            bins associated with subscription
+          - involves making another CC  
+            payment if adding bin(s)
+        - cancel
+      |
+    }
+  }
+  dd: Direct Debit {
+    actions: Available actions {
+      text: |md
+        - amend
+          - can increase or reduce number of  
+            bins associated with subscription
+          - involves amending existing  
+            DD agreement
+          - there will also be an ad-hoc  
+            payment if adding bin(s)
+        - cancel
+      |
+    }
+  }
+
+  db_only -> "Means report has not been sent.\n'Sign up' link still shown.": Yes
+  db_only -> db_and: No
+
+  db_and -> whitespace_only: ... Whitespace data only
+  db_and -> agile_only: ... Agile data only
+  db_and -> payment_type: ... Whitespace and\nAgile data
+
+  agile_only -> payment_type
+
+  payment_type -> cc
+  payment_type -> dd
+}
