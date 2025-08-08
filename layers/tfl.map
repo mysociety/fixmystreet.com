@@ -136,6 +136,24 @@ MAP
   END #layer
 
   LAYER
+    NAME "buspremisesites"
+    METADATA
+      "wfs_title"         "buspremisesites" ##REQUIRED
+      "gml_include_items" "all" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "SITE_ID" ## REQUIRED
+      "wfs_enable_request" "* !GetCapabilities"  # necessary
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'tfl/BusPremise_Sites.gpkg'
+    DATA 'buspremisesites'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
     NAME "piers"
     METADATA
       "wfs_title"         "piers" ##REQUIRED
