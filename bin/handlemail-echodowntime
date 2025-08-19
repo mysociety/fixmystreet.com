@@ -35,6 +35,7 @@ if ($body =~ /will be taken offline on\s+(.*?)\s+at\s+(.*?)\s+for\s+approximatel
 
     my $year = localtime->year;
     $date =~ s/(?<=\d)(st|nd|rd|th)//;
+    $date =~ s/\*//g; # In case they have emboldened the day
     my $start = eval { Time::Piece->strptime("$date $year $time", '%A %d %B %Y %H:%M'); };
     exit 0 if $@;
 
