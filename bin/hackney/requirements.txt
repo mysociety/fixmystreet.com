@@ -2,6 +2,6 @@ click==7.1.1
 google-api-python-client==1.7.12
 google-auth-httplib2==0.0.3
 google-auth-oauthlib==0.4.1
-ipython==7.13.0
+ipython==8.10.0
 PyYAML==5.3
 requests==2.23.0
