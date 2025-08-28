@@ -7,16 +7,16 @@ classes: {
 is_communal: Is property communal?
 is_communal.class: question
 
-uses_sacks: "Does property use sacks\ninstead of standard bins?"
-uses_sacks.class: question
+has_paper: "Does property have\na paper bin (PC-180)?"
+has_paper.class: question
 
 eligible_no: "Cannot have a\ngarden waste subscription"
 eligible_yes: "Can have a\ngarden waste subscription"
 
 is_communal -> eligible_no: Yes
-is_communal -> uses_sacks: No
-uses_sacks -> eligible_no: Yes
-uses_sacks -> eligible_yes: No
+is_communal -> has_paper: No
+has_paper -> eligible_no: No
+has_paper -> eligible_yes: Yes
 
 has_subscription_data: "Is there existing subscription data\nfor the property?"
 has_subscription_data.class: question
