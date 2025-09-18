@@ -1,0 +1,36 @@
+MAP
+  NAME "Herefordshire"
+  STATUS ON
+  EXTENT -180 -90 180 90
+  SHAPEPATH "../../layers"
+
+  OUTPUTFORMAT
+    NAME "geojson"
+    DRIVER "OGR/GEOJSON"
+    MIMETYPE "application/json; subtype=geojson"
+    FORMATOPTION "STORAGE=stream"
+    FORMATOPTION "FORM=SIMPLE"
+  END
+
+  LAYER
+    NAME "Streets"
+    METADATA
+      "wfs_title"         "Streets"
+      "wfs_srs"           "EPSG:27700 EPSG:3857"
+      "gml_include_items" ""
+      "gml_featureid"     "usrn"
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson" # so FMS.com cobrand lookup_site_code works
+    END
+    TYPE LINE
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'herefordshire/streets.gpkg'
+    DATA 'streets_all'
+    FILTER ("[adoption_status]"='Local Authority Adopted')
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+END #mapfile
