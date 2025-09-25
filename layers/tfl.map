@@ -124,6 +124,7 @@ MAP
       "gml_include_items" "all" ## Optional (serves all attributes for layer)
       "gml_featureid"     "SITE_ID" ## REQUIRED
       "wfs_enable_request" "* !GetCapabilities"  # necessary
+      "wfs_getfeature_formatlist" "geojson"
     END
     TYPE POINT
     STATUS ON
