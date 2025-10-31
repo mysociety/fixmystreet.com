@@ -277,4 +277,22 @@ MAP
 
   END #layer
 
+  LAYER
+    NAME "Chinbrook_Meadows"
+    METADATA
+      "wfs_title"         "Chinbrook Meadows" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700 EPSG:4326" ## REQUIRED
+      "gml_featureid"     "id" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POLYGON
+    CONNECTIONTYPE OGR
+    CONNECTION 'bromley/ChinbrookMeadows.gpkg'
+    DATA 'chinbrook_meadows'
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END #layer
+
 END #mapfile
