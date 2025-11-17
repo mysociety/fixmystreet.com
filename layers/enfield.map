@@ -1,0 +1,32 @@
+MAP
+    NAME "Enfield_WFS_server"
+    STATUS ON
+    SIZE 400 300
+    EXTENT -180 -90 180 90
+    SHAPEPATH "../../layers"
+    OUTPUTFORMAT
+        NAME "geojson"
+        DRIVER "OGR/GEOJSON"
+        MIMETYPE "application/json; subtype=geojson"
+        FORMATOPTION "STORAGE=stream"
+        FORMATOPTION "FORM=SIMPLE"
+    END # End for Output format
+    LAYER
+        NAME "adopted_roads"
+        METADATA
+        "wfs_title"         "Adopted Roads"
+        "wfs_srs"           "EPSG:3857 EPSG:27700"
+        "gml_include_items" "fid"
+        "gml_featureid"     "fid"
+        "wfs_enable_request" "*"
+        END # End for metadata
+        TYPE POLYGON
+        STATUS ON
+        CONNECTIONTYPE OGR
+        CONNECTION 'enfield/enfield_simplified_merged.gpkg'
+        DATA 'merged'
+        PROJECTION
+        "init=epsg:27700"
+        END # End for projection
+    END #layer
+END # End for mapfile
