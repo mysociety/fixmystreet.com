@@ -3,14 +3,22 @@
 use v5.14;
 use File::Basename;
 
-my $root = dirname(__FILE__) . '/../_site/diagrams';
-open(FP, ">$root/index.html") or die $!;
+my $dir = dirname(__FILE__);
+my $root = "$dir/../_site/diagrams";
 
-say FP '<ul>';
-for (<$root/*.svg>) {
-    my $name = basename($_);
-    say FP "<li><a href='$name'>$name</a></li>";
-}
-say FP '</ul>';
+open(FP, "<", "$dir/index.html") or die $!;
+my $template = join('', <FP>);
 close FP;
 
+my $out = "<ul>\n";
+for (<$root/*.svg>) {
+    my $name = basename($_);
+    $out .= "<li><a href='$name'>$name</a></li>\n";
+}
+$out .= "</ul>\n";
+
+$template =~ s/CONTENT/$out/;
+
+open(FP, ">", "$root/index.html") or die $!;
+print FP $template;
+close FP;
