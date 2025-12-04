@@ -1,0 +1,38 @@
+cloud: SocietyWorks private cloud {
+    all: Data centres in different locations {
+        lb: Load balancer
+        lb.nginx -> lb.Varnish
+        lb.Varnish -> App server in\nany data centre { style.stroke-dash: 4 }
+        From a load\nbalancer -> app.Apache { style.stroke-dash: 4 }
+        app: App servers
+        app.Apache -> app.WasteWorks/\nFixMyStreet
+        app.Apache -> app.tilma
+        app.style.multiple: true
+        app.WasteWorks/\nFixMyStreet -> _.sov.db
+        app.tilma: Tilma\n(GIS)
+    }
+    all.style.multiple: true
+    hex: CLL data centre {
+        db: Database
+        db.shape: Cylinder
+    }
+    sov: SOV data centre {
+        db: Database
+        db.shape: Cylinder
+        open311-adapter
+        db -> _.hex.db : Replication
+    }
+    cam: CAM data centre {
+        app: App servers
+        app.style.multiple: true
+        app.send-daemon: Sending Daemon
+        app.cron: Cron jobs
+        app.cron -> _.sov.db
+        app.send-daemon -> _.sov.db
+        app.cron -> _.sov.open311-adapter
+        app.send-daemon -> _.sov.open311-adapter
+    }
+}
+
+Internet -> cloud.all.lb.nginx
+Internet.shape: Cloud
