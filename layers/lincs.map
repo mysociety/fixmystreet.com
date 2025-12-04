@@ -238,7 +238,7 @@ MAP
       "gml_featureid"     "Asset_Id"
       "wfs_enable_request" "* !GetCapabilities"
     END
-    TYPE POINT
+    TYPE LINE
     STATUS ON
     CONNECTION 'lincs/Carriageway.TAB'
     CONNECTIONTYPE OGR
