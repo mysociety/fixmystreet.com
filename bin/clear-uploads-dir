@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+# Script to clear out various data stored in FMS uploads/ directory
+# Additional cases can be added as necessary
+#
+
+# Uploads should be at the same level as the repository this is part of
+UPLOADS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/../../uploads" >/dev/null 2>&1 && pwd -P )"
+
+if [ -d "$UPLOADS_DIR" ]; then
+
+    # Clean up dashboard_csv files over 6 months old
+    if [ -d "${UPLOADS_DIR}/dashboard_csv" ]; then
+        /usr/bin/find "${UPLOADS_DIR}/dashboard_csv/" -type f -mtime +180 -delete
+        /usr/bin/find "${UPLOADS_DIR}/dashboard_csv/" -type d -empty -delete
+    else
+        echo "Error: No ${UPLOADS_DIR}/dashboard_csv/ directory found, exiting." >&2
+        exit 1
+    fi
+
+    # Add other cases below, as needed
+else
+    echo "Error: No ${UPLOADS_DIR} found, exiting." >&2
+    exit 1
+fi
