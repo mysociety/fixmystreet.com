@@ -24,18 +24,16 @@ MAP
   LAYER
     NAME "Highways"
     METADATA
-      "wfs_title"              "Highways" ##REQUIRED
-      "gml_include_items"      "Aurora OID,Asset Refe"
-      "gml_Aurora%20OID_alias" "unit_id"
-      "gml_Asset%20Refe_alias" "usrn"
-      "gml_featureid"          "Aurora OID" ## REQUIRED
-      "wfs_enable_request"     "*"
+      "wfs_title"           "Highways" ##REQUIRED
+      "gml_include_items"   "unit_id,asset_ref"
+      "gml_asset_ref_alias" "usrn"
+      "gml_featureid"       "unit_id" ## REQUIRED
+      "wfs_enable_request"  "*"
       "wfs_getfeature_formatlist" "geojson"
     END
     TYPE LINE
     STATUS ON
-    DATA 'centralbeds/aurora/Assetline'
-    FILTER ( "[Asset Type]" eq 'Street' )
+    DATA 'centralbeds/aurora/Street'
     PROJECTION
       "init=epsg:27700"
     END
@@ -44,18 +42,16 @@ MAP
   LAYER
     NAME "StreetLighting"
     METADATA
-      "wfs_title"              "StreetLighting" ##REQUIRED
-      "gml_include_items"      "Aurora OID,Asset Refe"
-      "gml_Aurora%20OID_alias" "unit_id"
-      "gml_Asset%20Refe_alias" "label"
-      "gml_featureid"          "Aurora OID" ## REQUIRED
-      "wfs_enable_request"     "*"
+      "wfs_title"           "StreetLighting" ##REQUIRED
+      "gml_include_items"   "unit_id,asset_ref"
+      "gml_asset_ref_alias" "label"
+      "gml_featureid"       "unit_id" ## REQUIRED
+      "wfs_enable_request"  "*"
       "wfs_getfeature_formatlist" "geojson"
     END
     TYPE POINT
     STATUS ON
-    DATA 'centralbeds/aurora/Assetpoint'
-    FILTER ( "[Asset Type]" eq 'Lighting Point' )
+    DATA 'centralbeds/aurora/LightingPoint'
     PROJECTION
       "init=epsg:27700"
     END
@@ -81,17 +77,15 @@ MAP
   LAYER
     NAME "SaltBins"
     METADATA
-      "wfs_title"              "SaltBins" ##REQUIRED
-      "gml_include_items"      "Aurora OID"
-      "gml_Aurora%20OID_alias" "unit_id"
-      "gml_featureid"          "Aurora OID" ## REQUIRED
-      "wfs_enable_request"     "*"
+      "wfs_title"          "SaltBins" ##REQUIRED
+      "gml_include_items"  "unit_id"
+      "gml_featureid"      "unit_id" ## REQUIRED
+      "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
     END
     TYPE POINT
     STATUS ON
-    DATA 'centralbeds/aurora/Assetpoint'
-    FILTER ( "[Asset Type]" eq 'Grit Bin' )
+    DATA 'centralbeds/aurora/GritBin'
     PROJECTION
       "init=epsg:27700"
     END
