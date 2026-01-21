@@ -77,16 +77,15 @@ MAP
   LAYER
     NAME "SaltBins"
     METADATA
-      "wfs_title"         "SaltBins" ##REQUIRED
-      "gml_unit id_alias" "unit_id"
-      "gml_include_items" "unit id"
-      "gml_featureid"     "unit id" ## REQUIRED
+      "wfs_title"          "SaltBins" ##REQUIRED
+      "gml_include_items"  "unit_id"
+      "gml_featureid"      "unit_id" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
     END
     TYPE POINT
     STATUS ON
-    DATA 'centralbeds/CBC Salt Bins 19122023'
+    DATA 'centralbeds/aurora/GritBin'
     PROJECTION
       "init=epsg:27700"
     END
