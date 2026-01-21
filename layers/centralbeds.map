@@ -24,16 +24,18 @@ MAP
   LAYER
     NAME "Highways"
     METADATA
-      "wfs_title"         "Highways" ##REQUIRED
-      "gml_include_items" "ogc_fid,adoption,usrn_type_"
-      "gml_usrn_type__alias" "streetref1"
-      "gml_featureid"     "ogc_fid" ## REQUIRED
-      "wfs_enable_request" "*"
+      "wfs_title"              "Highways" ##REQUIRED
+      "gml_include_items"      "Aurora OID,Asset Refe"
+      "gml_Aurora%20OID_alias" "unit_id"
+      "gml_Asset%20Refe_alias" "usrn"
+      "gml_featureid"          "unit_id" ## REQUIRED
+      "wfs_enable_request"     "*"
       "wfs_getfeature_formatlist" "geojson"
     END
     TYPE LINE
     STATUS ON
-    DATA 'centralbeds/Highways2025'
+    DATA 'centralbeds/aurora/Assetline'
+    FILTER ( "[Asset Type]" eq 'Street' )
     PROJECTION
       "init=epsg:27700"
     END
