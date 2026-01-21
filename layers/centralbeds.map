@@ -24,12 +24,12 @@ MAP
   LAYER
     NAME "Highways"
     METADATA
-      "wfs_title"            "Highways" ##REQUIRED
-      "gml_include_items"    "Aurora_OID,Asset_Refe"
-      "gml_Aurora_OID_alias" "unit_id"
-      "gml_Asset_Refe_alias" "usrn"
-      "gml_featureid"        "unit_id" ## REQUIRED
-      "wfs_enable_request"   "*"
+      "wfs_title"              "Highways" ##REQUIRED
+      "gml_include_items"      "Aurora OID,Asset Refe"
+      "gml_Aurora%20OID_alias" "unit_id"
+      "gml_Asset%20Refe_alias" "usrn"
+      "gml_featureid"          "unit_id" ## REQUIRED
+      "wfs_enable_request"     "*"
       "wfs_getfeature_formatlist" "geojson"
     END
     TYPE LINE
@@ -44,12 +44,12 @@ MAP
   LAYER
     NAME "StreetLighting"
     METADATA
-      "wfs_title"            "StreetLighting" ##REQUIRED
-      "gml_include_items"    "Aurora_OID,Asset_Refe"
-      "gml_Aurora_OID_alias" "unit_id"
-      "gml_Asset_Refe_alias" "label"
-      "gml_featureid"        "unit_id" ## REQUIRED
-      "wfs_enable_request"   "*"
+      "wfs_title"              "StreetLighting" ##REQUIRED
+      "gml_include_items"      "Aurora OID,Asset Refe"
+      "gml_Aurora%20OID_alias" "unit_id"
+      "gml_Asset%20Refe_alias" "label"
+      "gml_featureid"          "unit_id" ## REQUIRED
+      "wfs_enable_request"     "*"
       "wfs_getfeature_formatlist" "geojson"
     END
     TYPE POINT
@@ -81,11 +81,11 @@ MAP
   LAYER
     NAME "SaltBins"
     METADATA
-      "wfs_title"            "SaltBins" ##REQUIRED
-      "gml_include_items"    "Aurora_OID"
-      "gml_Aurora_OID_alias" "unit_id"
-      "gml_featureid"        "unit id" ## REQUIRED
-      "wfs_enable_request"   "*"
+      "wfs_title"              "SaltBins" ##REQUIRED
+      "gml_include_items"      "Aurora OID"
+      "gml_Aurora%20OID_alias" "unit_id"
+      "gml_featureid"          "unit id" ## REQUIRED
+      "wfs_enable_request"     "*"
       "wfs_getfeature_formatlist" "geojson"
     END
     TYPE POINT
