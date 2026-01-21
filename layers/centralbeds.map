@@ -41,22 +41,21 @@ MAP
     END
   END #layer
 
-  # It doesn't appear possible to include field with spaces
-  # in the WFS output, so the original shapefile was 
-  # processed as follows (photos may be used in the future):
-  # $ ogr2ogr StreetLighting.shp Street\ Lighting.shp -sql "SELECT ogc_fid, \"lighting c\" AS lighting_c, photo01, photo02, photo03, photo04, photo05, photo06 FROM \"Street Lighting\""
   LAYER
     NAME "StreetLighting"
     METADATA
-      "wfs_title"         "StreetLighting" ##REQUIRED
-      "gml_include_items" "ogc_fid,lighting_c,eqno,asset"
-      "gml_featureid"     "ogc_fid" ## REQUIRED
-      "wfs_enable_request" "*"
+      "wfs_title"            "StreetLighting" ##REQUIRED
+      "gml_include_items"    "Aurora_OID,Asset_Refe"
+      "gml_Aurora_OID_alias" "unit_id"
+      "gml_Asset_Refe_alias" "label"
+      "gml_featureid"        "unit_id" ## REQUIRED
+      "wfs_enable_request"   "*"
       "wfs_getfeature_formatlist" "geojson"
     END
     TYPE POINT
     STATUS ON
-    DATA 'centralbeds/StreetLighting'
+    DATA 'centralbeds/aurora/Assetpoint'
+    FILTER ( "[Asset Type]" eq 'Lighting Point' )
     PROJECTION
       "init=epsg:27700"
     END
