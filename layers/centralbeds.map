@@ -28,7 +28,7 @@ MAP
       "gml_include_items"      "Aurora OID,Asset Refe"
       "gml_Aurora%20OID_alias" "unit_id"
       "gml_Asset%20Refe_alias" "usrn"
-      "gml_featureid"          "unit_id" ## REQUIRED
+      "gml_featureid"          "Aurora OID" ## REQUIRED
       "wfs_enable_request"     "*"
       "wfs_getfeature_formatlist" "geojson"
     END
@@ -48,7 +48,7 @@ MAP
       "gml_include_items"      "Aurora OID,Asset Refe"
       "gml_Aurora%20OID_alias" "unit_id"
       "gml_Asset%20Refe_alias" "label"
-      "gml_featureid"          "unit_id" ## REQUIRED
+      "gml_featureid"          "Aurora OID" ## REQUIRED
       "wfs_enable_request"     "*"
       "wfs_getfeature_formatlist" "geojson"
     END
@@ -84,7 +84,7 @@ MAP
       "wfs_title"              "SaltBins" ##REQUIRED
       "gml_include_items"      "Aurora OID"
       "gml_Aurora%20OID_alias" "unit_id"
-      "gml_featureid"          "unit id" ## REQUIRED
+      "gml_featureid"          "Aurora OID" ## REQUIRED
       "wfs_enable_request"     "*"
       "wfs_getfeature_formatlist" "geojson"
     END
