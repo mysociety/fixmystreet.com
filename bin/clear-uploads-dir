@@ -18,6 +18,14 @@ if [ -d "$UPLOADS_DIR" ]; then
         exit 1
     fi
 
+    # claims_files - keep for 12 months
+    if [ -d "${UPLOADS_DIR}/claims_files" ]; then
+        /usr/bin/find "${UPLOADS_DIR}/claims_files/" -type f -mtime +365 -delete
+    else
+        echo "Error: No ${UPLOADS_DIR}/claims_files/ directory found, exiting." >&2
+        exit 1
+    fi
+
     # Add other cases below, as needed
 else
     echo "Error: No ${UPLOADS_DIR} found, exiting." >&2
