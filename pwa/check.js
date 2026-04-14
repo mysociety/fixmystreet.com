@@ -22,7 +22,7 @@ const FMS = [
     'hart', 'highwaysengland', 'hounslow', 'isleofwight',
     'lincolnshire', 'merton', 'northnorthants', 'northumberland',
     'oxfordshire', 'peterborough', 'rutland', 'shropshire', 'southwark',
-    'tfl', 'thamesmead', 'westminster', 'westnorthants',
+    'tfl', 'thamesmead', 'westnorthants',
     'fixmystreet',
 ];
 
