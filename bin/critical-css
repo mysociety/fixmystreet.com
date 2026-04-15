@@ -10,7 +10,7 @@ CODEDIR=../fixmystreet.com
 echo "Compiling critical CSS"
 TMP=$(mktemp -d)
 pushd $CODEDIR
-node critical.js > $TMP/critical.auto.css
+node critical.js "$NEWHOME/web/cobrands/fixmystreet.com/base.css" > $TMP/critical.auto.css
 popd
 
 echo "Compressing critical CSS"
