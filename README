@@ -6,7 +6,8 @@ not being in the main fixmystreet repository.
 bin/critical-css - run upon deploy, compiles the critical CSS for the site
 front page by fetching it with penthouse, compressing and copying into place.
 
-bin/install - installs node and penthouse
+bin/install - installs the modules in package.json (currently just penthouse used for critical-css)
+requires node and npm
 
 bin/auto-js-update - run upon deploy, uses the closure compiler to create
 minified versions of the FixMyStreet JavaScript. The FMS code knows to use
