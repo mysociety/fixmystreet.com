@@ -1,8 +1,17 @@
 Pick container: Which container do you need?
 Replacement: Why do you need a\nreplacement container?
+Replacement2: Why do you need a\nreplacement container?
 About you: About/\nSummary/\nEND { style.fill: lightgrey }
+About you2: About/\nSummary
+Payment\nprovider: { style.fill: lightgreen }
+Payment confirmation: Payment\nconfirmation/\nEND { style.fill: lightgrey }
 
-Pick container -> Replacement: Other
+Pick container -> Replacement: Box/food\nwaste caddy
 Pick container -> About you: Recycling blue stripe bag\nor Paper single use bag
+Pick container -> Replacement2: Other
+Pick container -> About you2: Larger or\nsmaller\ncontainer
+Replacement2 -> About you2: Damaged/\nMissing
+About you2 -> Payment\nprovider
+Payment\nprovider -> Payment confirmation
 
 Replacement -> About you: Damaged/\nMissing

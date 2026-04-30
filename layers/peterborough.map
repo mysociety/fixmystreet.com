@@ -88,4 +88,40 @@ MAP
     END
   END #layer
 
+  LAYER
+    NAME "LitterBins"
+    METADATA
+      "wfs_title"          "Peterborough Litter Bins "
+      "wfs_srs"            "EPSG:3857 EPSG:27700"
+      "gml_include_items"  "OBJECTID,Type,Location,Reference"
+      "gml_featureid"      "OBJECTID"
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'peterborough/LitterBins'
+    FILTER ( "[Type]" eq 'Litter Bin' )
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "DogBins"
+    METADATA
+      "wfs_title"          "Peterborough Dog Bins "
+      "wfs_srs"            "EPSG:3857 EPSG:27700"
+      "gml_include_items"  "OBJECTID,Type,Location,Reference"
+      "gml_featureid"      "OBJECTID"
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'peterborough/LitterBins'
+    FILTER ( "[Type]" eq 'Dog Waste Bin' )
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
 END #mapfile

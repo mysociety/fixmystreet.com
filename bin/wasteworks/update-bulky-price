@@ -22,9 +22,9 @@ use Getopt::Long::Descriptive;
 my ($opts, $usage) = describe_options(
     '%c %o',
     ['body=s', 'which body name to update'],
-    ['price=i', 'single bulky collection price (A)'],
-    ['small=i', 'smaller collection price (B)'],
-    ['large=i', 'larger collection price (B)'],
+    ['price=s', 'single bulky collection price (A)'],
+    ['small=s', 'smaller collection price (B)'],
+    ['large=s', 'larger collection price (B)'],
     ['items=s', 'CSV filename to update per-item pricing (C)'],
     ['help|h', "print usage message and exit" ],
 );
@@ -38,13 +38,35 @@ my $cfg = $body->get_extra_metadata("wasteworks_config");
 
 if ($opts->large && $opts->small) {
     say "Current WW config for $body_name is $cfg->{base_price} / $cfg->{band1_price}";
-    $cfg->{base_price} = $opts->large;
-    $cfg->{band1_price} = $opts->small;
+    if ($opts->large =~ /,/) { # Assume normal,pops
+        my ($normal, $pops) = split /,/, $opts->large;
+        $cfg->{base_price} = $normal;
+        $cfg->{base_pop_price} = $pops;
+        $cfg->{pop_costs} = 1;
+    } else {
+        $cfg->{base_price} = $opts->large;
+    }
+    if ($opts->small =~ /,/) { # Assume normal,pops
+        my ($normal, $pops) = split /,/, $opts->small;
+        $cfg->{band1_price} = $normal;
+        $cfg->{band1_pop_price} = $pops;
+        $cfg->{pop_costs} = 1;
+    } else {
+        $cfg->{band1_price} = $opts->small;
+    }
     say "Updating WW config for $body_name to $cfg->{base_price} / $cfg->{band1_price}";
 } elsif ($opts->price) {
     say "Current WW config for $body_name is $cfg->{base_price}";
-    $cfg->{base_price} = $opts->price;
-    say "Updating WW config for $body_name to $cfg->{base_price}";
+    if ($opts->price =~ /,/) { # Assume normal,pops
+        my ($normal, $pops) = split /,/, $opts->price;
+        $cfg->{base_price} = $normal;
+        $cfg->{base_pop_price} = $pops;
+        $cfg->{pop_costs} = 1;
+        say "Updating WW config for $body_name to $normal / $pops";
+    } else {
+        $cfg->{base_price} = $opts->price;
+        say "Updating WW config for $body_name to $cfg->{base_price}";
+    }
 } elsif ($opts->items) {
     my %current = map { $_->{name} => $_ } @{$cfg->{item_list}};
 

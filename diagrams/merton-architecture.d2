@@ -1,0 +1,24 @@
+Internet.shape: Cloud
+Internet -> cloud.WasteWorks
+Internet -> cloud.FixMyStreet
+Internet -> cloud.tilma: Asset\nrequests
+
+cloud: SocietyWorks private cloud {
+    WasteWorks -> _.adelante
+    WasteWorks <-> _.Echo
+
+    FixMyStreet -> open311-adapter
+    WasteWorks -> open311-adapter
+
+    open311-adapter -> _.Echo: WasteWorks
+    open311-adapter -> _.Merton: FixMyStreet
+
+    tilma -> _.os: Map\ntiles
+    tilma -> _.alloy: Street lights\n& Drains
+}
+
+cloud.tilma: Tilma\n(GIS)
+merton: Merton\nAzure
+adelante: Adelante\n(payments)
+os: Ordnance\nSurvey\nMaps API
+alloy: Alloy

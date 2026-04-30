@@ -1,0 +1,32 @@
+Current: Current size of\nrefuse bin { shape: diamond }
+
+How many: How many people live\nin this household?
+Pick container1: Which container do you need?
+Pick container2: Which container do you need?
+Biggest: Already have the\nbiggest size
+
+Payment\nprovider: { style.fill: lightgreen }
+
+Current -> How many: 180L
+Current -> Pick container1: 240L
+Current -> Pick container2: 360L
+
+Pick container1 -> Large application: 360L
+Pick container1 -> About you: 180L
+
+Pick container2 -> About you: 180L
+Pick container2 -> About you: 240L
+
+How many -> Biggest: 1-4
+How many -> Large application: 7 or more
+How many -> About you: 5 or 6
+About you -> Payment\nprovider
+
+About you: About/\nSummary
+Payment\nprovider -> Payment\nconfirmation
+Payment\nconfirmation -> END
+
+END { style.fill: lightgrey }
+
+
+

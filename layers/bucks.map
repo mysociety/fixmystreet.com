@@ -340,4 +340,41 @@ END
     END
   END #layer
 
+  LAYER
+    NAME "BC_CAR_PARKS"
+    METADATA
+      "wfs_title"         "Car Parks" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "Street_nam"
+      "gml_geometries"    "Shape"
+      "gml_Street_nam_alias" "OBJECTID"
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'bucks/CAR_PARKS'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "OS_HIGHWAYS_SPEED"
+    METADATA
+      "wfs_title"         "Highways Speed" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "gml_include_items" "speed,os_link_id" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "os_link_id" ## REQUIRED
+      "gml_geometries"    "Shape"
+      "gml_os_link_id_alias" "OBJECTID"
+      "wfs_enable_request" "*"
+    END
+    TYPE LINE
+    STATUS ON
+    DATA 'bucks/OS_HIGHWAYS_SPEED'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
 END #mapfile

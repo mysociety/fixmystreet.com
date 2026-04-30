@@ -27,7 +27,7 @@ usort($i, function($a, $b) {
 
 $out = [];
 foreach ($i as $d) {
-	$ogr = `ogrinfo -ro -al -so '$d' 2>&1 | grep -v 'may only be partially supported'`;
+	$ogr = `ogrinfo -ro -al -so '$d' 2>&1 | grep -v 'may only be partially supported' | grep -v 'One or several characters couldn'\''t be converted correctly'`;
 	$data = parse_ogr($ogr);
 	if (!$data['date']) $data['date'] = filemtime($d);
 	$data['directory'] = str_replace($DIR, '', $d->getPathInfo());
@@ -90,12 +90,19 @@ function parse_layers($map) {
 			if ($fin == 'LAYER') {
 				preg_match("#NAME ['\"](.*?)['\"]#", $layer, $m);
 				$name = $m[1];
+				$layer_file = '';
 				if (preg_match("#CONNECTIONTYPE UNION#", $layer)) {
 					# Nothing
 				} elseif (preg_match("#CONNECTION ['\"](.*?)['\"]#", $layer, $m)) {
-					$used[str_replace('../../layers/', '', $m[1])] = $name;
+					$layer_file = str_replace('../../layers/', '', $m[1]);
 				} elseif (preg_match("#^DATA ['\"](.*?)['\"]#m", $layer, $m)) {
-					$used["$m[1].shp"] = $name;
+					$layer_file = "$m[1].shp";
+				}
+				if ($layer_file) {
+					$used[$layer_file]['name'] = $name;
+					if (preg_match("#^TYPE (.*)#m", $layer, $m)) {
+						$used[$layer_file]['type'] = $m[1];
+					}
 				}
 				$layer = '';
 			}

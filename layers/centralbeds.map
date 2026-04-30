@@ -24,37 +24,34 @@ MAP
   LAYER
     NAME "Highways"
     METADATA
-      "wfs_title"         "Highways" ##REQUIRED
-      "gml_include_items" "ogc_fid,adoption,usrn_type_"
-      "gml_usrn_type__alias" "streetref1"
-      "gml_featureid"     "ogc_fid" ## REQUIRED
-      "wfs_enable_request" "*"
+      "wfs_title"           "Highways" ##REQUIRED
+      "gml_include_items"   "unit_id,asset_ref"
+      "gml_asset_ref_alias" "usrn"
+      "gml_featureid"       "unit_id" ## REQUIRED
+      "wfs_enable_request"  "*"
       "wfs_getfeature_formatlist" "geojson"
     END
     TYPE LINE
     STATUS ON
-    DATA 'centralbeds/Highways2025'
+    DATA 'centralbeds/aurora/Street'
     PROJECTION
       "init=epsg:27700"
     END
   END #layer
 
-  # It doesn't appear possible to include field with spaces
-  # in the WFS output, so the original shapefile was 
-  # processed as follows (photos may be used in the future):
-  # $ ogr2ogr StreetLighting.shp Street\ Lighting.shp -sql "SELECT ogc_fid, \"lighting c\" AS lighting_c, photo01, photo02, photo03, photo04, photo05, photo06 FROM \"Street Lighting\""
   LAYER
     NAME "StreetLighting"
     METADATA
-      "wfs_title"         "StreetLighting" ##REQUIRED
-      "gml_include_items" "ogc_fid,lighting_c,eqno,asset"
-      "gml_featureid"     "ogc_fid" ## REQUIRED
-      "wfs_enable_request" "*"
+      "wfs_title"           "StreetLighting" ##REQUIRED
+      "gml_include_items"   "unit_id,asset_ref"
+      "gml_asset_ref_alias" "label"
+      "gml_featureid"       "unit_id" ## REQUIRED
+      "wfs_enable_request"  "*"
       "wfs_getfeature_formatlist" "geojson"
     END
     TYPE POINT
     STATUS ON
-    DATA 'centralbeds/StreetLighting'
+    DATA 'centralbeds/aurora/LightingPoint'
     PROJECTION
       "init=epsg:27700"
     END
@@ -80,16 +77,15 @@ MAP
   LAYER
     NAME "SaltBins"
     METADATA
-      "wfs_title"         "SaltBins" ##REQUIRED
-      "gml_unit id_alias" "unit_id"
-      "gml_include_items" "unit id"
-      "gml_featureid"     "unit id" ## REQUIRED
+      "wfs_title"          "SaltBins" ##REQUIRED
+      "gml_include_items"  "unit_id"
+      "gml_featureid"      "unit_id" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
     END
     TYPE POINT
     STATUS ON
-    DATA 'centralbeds/CBC Salt Bins 19122023'
+    DATA 'centralbeds/aurora/GritBin'
     PROJECTION
       "init=epsg:27700"
     END
