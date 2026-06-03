@@ -3,7 +3,7 @@ var penthouse = require('penthouse');
 penthouse({
     url: 'https://www.fixmystreet.com/',
     // cssString: 'body { color; red }', // the original css to extract critcial css from
-    css: '/data/vhost/www.fixmystreet.com/fixmystreet/web/cobrands/fixmystreet.com/base.css',
+    css: process.argv[2],
 
     width: 480,
     height: 1000,

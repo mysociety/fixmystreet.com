@@ -1,3 +1,6 @@
+#!/bin/bash
+set -e
+
 # The new timestamped deploy directory
 NEWHOME=$(pwd)
 
@@ -6,7 +9,9 @@ CODEDIR=../fixmystreet.com
 
 echo "Compiling critical CSS"
 TMP=$(mktemp -d)
-../node/bin/node $CODEDIR/critical.js > $TMP/critical.auto.css
+pushd $CODEDIR
+node critical.js "$NEWHOME/web/cobrands/fixmystreet.com/base.css" > $TMP/critical.auto.css
+popd
 
 echo "Compressing critical CSS"
 bin/cron-wrapper perl $CODEDIR/bin/make_css $TMP/critical.auto.css $TMP/critical.auto.min.css
