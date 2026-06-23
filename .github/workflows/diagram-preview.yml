@@ -1,0 +1,113 @@
+name: Preview changed diagrams
+
+on:
+  pull_request:
+    paths:
+      - 'diagrams/*.d2'
+    types: [opened, synchronize, reopened, closed]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  preview:
+    if: github.event.action != 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Find changed .d2 files
+        id: changed
+        run: |
+          files=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- 'diagrams/*.d2' | tr '\n' ' ')
+          count=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- 'diagrams/*.d2' | wc -l | tr -d ' ')
+          echo "files=$files" >> "$GITHUB_OUTPUT"
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+
+      - name: Install d2
+        if: steps.changed.outputs.count > 0
+        run: curl -fsSL https://d2lang.com/install.sh | sh -s --
+
+      - name: Generate diagrams
+        if: steps.changed.outputs.count > 0
+        run: |
+          mkdir -p /tmp/previews
+          for file in ${{ steps.changed.outputs.files }}; do
+            base=$(basename "${file%.*}")
+            ~/.local/bin/d2 "$file" "/tmp/previews/$base.svg" -t 105 --sketch
+          done
+
+      - name: Push previews to branch
+        if: steps.changed.outputs.count > 0
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          PREVIEW_BRANCH="diagram-previews/pr-${{ github.event.pull_request.number }}"
+          if git ls-remote --exit-code origin "$PREVIEW_BRANCH" > /dev/null 2>&1; then
+            git fetch origin "$PREVIEW_BRANCH"
+            git switch "$PREVIEW_BRANCH"
+          else
+            git switch --orphan "$PREVIEW_BRANCH"
+          fi
+          cp /tmp/previews/*.svg .
+          git add *.svg
+          git diff --staged --quiet || git commit -m "Update diagram previews for PR #${{ github.event.pull_request.number }}"
+          git push origin "$PREVIEW_BRANCH"
+
+      - name: Post or update PR comment
+        if: steps.changed.outputs.count > 0
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const branch = `diagram-previews/pr-${pr.number}`;
+            const files = '${{ steps.changed.outputs.files }}'.trim().split(/\s+/).filter(Boolean);
+
+            let body = '## Diagram previews\n\n';
+            for (const file of files) {
+              const name = file.replace(/^diagrams\//, '').replace(/\.d2$/, '');
+              const url = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${name}.svg`;
+              body += `### \`${name}\`\n\n![${name}](${url})\n\n`;
+            }
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner, repo, issue_number: pr.number
+            });
+            const marker = '## Diagram previews';
+            const existing = comments.find(c =>
+              c.user.login === 'github-actions[bot]' && c.body.startsWith(marker)
+            );
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner, repo, comment_id: existing.id, body
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner, repo, issue_number: pr.number, body
+              });
+            }
+
+  cleanup:
+    if: github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete preview branch
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const branch = `diagram-previews/pr-${context.payload.pull_request.number}`;
+            try {
+              await github.rest.git.deleteRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: `heads/${branch}`
+              });
+            } catch (e) {
+              // Branch may not exist if no diagrams changed
+            }
