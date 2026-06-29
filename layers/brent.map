@@ -293,4 +293,21 @@ MAP
     END
   END
 
+  LAYER
+    NAME "Litter_Bins"
+    METADATA
+      "wfs_title"         "Litter Bins" ##REQUIRED
+      "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'brent/Litter_Bins.gpkg'
+    DATA 'litter_bins'
+    PROJECTION
+        "init=epsg:4326"
+    END
+  END
 END #mapfile

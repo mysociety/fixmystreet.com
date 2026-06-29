@@ -102,27 +102,10 @@ MAP
       "gml_featureid"     "Asset_Id"
       "wfs_enable_request" "* !GetCapabilities"
     END
-    TYPE POLYGON
-    STATUS ON
-    CONNECTION 'lincs/LCC Verges.TAB'
-    CONNECTIONTYPE OGR
-    PROJECTION
-      "init=epsg:27700"
-    END
-  END #layer
-
-  LAYER
-    NAME "LCC_Verges_Lines"
-    METADATA
-      "wfs_title"         "Grass verges" ##REQUIRED
-      "wfs_srs"           "EPSG:3857" ## REQUIRED
-      "gml_include_items" "Asset_Id,Cut_1,Cut_2,Cut_3,CutType,Cut_By,Authority"
-      "gml_featureid"     "Asset_Id"
-      "wfs_enable_request" "* !GetCapabilities"
-    END
+    # LINE will return both polygons and lines in the data
     TYPE LINE
     STATUS ON
-    CONNECTION 'lincs/LCC Verges.TAB'
+    CONNECTION 'lincs/LCC_Verges.TAB'
     CONNECTIONTYPE OGR
     PROJECTION
       "init=epsg:27700"
