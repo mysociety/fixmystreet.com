@@ -44,6 +44,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'oxfordshire/oxfordshirebridges.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'BRIDESFMS1'
     PROJECTION
       "init=epsg:27700"
@@ -65,6 +68,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'oxfordshire/oxfordshireroads.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'MAINTAINABLE_AT_PUBLIC_EXPENSE_FMS'
     PROJECTION
       "init=epsg:27700"
@@ -85,6 +91,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'oxfordshire/OCCRoads.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'OCCRoads'
     PROJECTION
       "init=epsg:27700"

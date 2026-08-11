@@ -26,6 +26,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'openusrn/openusrn.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'openUSRN'
     PROJECTION
       "init=epsg:27700"

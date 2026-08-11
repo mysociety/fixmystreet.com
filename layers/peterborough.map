@@ -26,6 +26,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'peterborough/highways.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'highways'
     PROJECTION
       "init=epsg:3857"

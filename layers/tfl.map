@@ -57,6 +57,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'tfl/tlrn2025.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'TLRN'
     PROJECTION
       "init=epsg:27700"
@@ -75,6 +78,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'tfl/TrafficSignals.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'TrafficSignals'
     PROJECTION
       "init=epsg:27700"
@@ -93,6 +99,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'tfl/Bus_Stops.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'Bus_Stops'
     PROJECTION
       "init=epsg:27700"
@@ -111,6 +120,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'tfl/tfl_bus_stations.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'tfl_bus_stations'
     PROJECTION
       "init=epsg:27700"
@@ -130,6 +142,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'tfl/BusPremise_Sites.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'buspremisesites'
     PROJECTION
       "init=epsg:27700"
@@ -148,6 +163,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'tfl/tfl_river_piers.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'tfl_river_piers'
     PROJECTION
       "init=epsg:27700"
@@ -166,6 +184,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'tfl/roadworks.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'roadworks'
     PROJECTION
       "init=epsg:4326"

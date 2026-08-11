@@ -24,6 +24,9 @@ MAP
         STATUS ON
         CONNECTIONTYPE OGR
         CONNECTION 'enfield/enfield_simplified_merged.gpkg'
+        CONNECTIONOPTIONS
+          "IMMUTABLE" "YES"
+        END
         DATA 'merged'
         PROJECTION
         "init=epsg:27700"

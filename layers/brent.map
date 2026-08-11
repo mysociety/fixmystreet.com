@@ -54,6 +54,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'brent/BrentDiffs.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'BrentDiffs'
     PROJECTION
         "init=epsg:4326"
@@ -140,6 +143,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'brent/highways.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'BrentHighways'
     PROJECTION
         "init=epsg:3857"
@@ -248,6 +254,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'brent/Brent_Trees.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'trees'
     FILTER ( "[Owner_id]" eq 'BHP' )
     PROJECTION
@@ -267,6 +276,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'brent/Brent_Trees.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'trees'
     FILTER ( "[Owner_id]" eq 'HIG' )
     PROJECTION
@@ -286,6 +298,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'brent/Brent_Trees.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'trees'
     FILTER ( "[Owner_id]" eq 'PKS' )
     PROJECTION
@@ -305,6 +320,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'brent/Litter_Bins.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'litter_bins'
     PROJECTION
         "init=epsg:4326"

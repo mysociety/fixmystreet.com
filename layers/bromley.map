@@ -167,6 +167,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'bromley/KaarbonTechGullies.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'gullies'
     PROJECTION
       "init=epsg:27700"
@@ -270,6 +273,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'bromley/Recycling_Bank_Points.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'Recycling_Bank_Points'
     PROJECTION
       "init=epsg:4326"
@@ -289,6 +295,9 @@ MAP
     TYPE POLYGON
     CONNECTIONTYPE OGR
     CONNECTION 'bromley/ChinbrookMeadows.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'chinbrook_meadows'
     PROJECTION
       "init=epsg:4326"
