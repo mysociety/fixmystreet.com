@@ -26,6 +26,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'gloucestershire/WSF.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'WSF'
     PROJECTION
       "init=epsg:27700"
@@ -46,6 +49,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'gloucestershire/gcc_signals_listings.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'gcc_signals_listings'
     PROJECTION
       "init=epsg:27700"

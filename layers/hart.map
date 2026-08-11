@@ -42,6 +42,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'hart/Hart_District_Council_assets.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'LUC_Hart_District_Council_Land_20250213'
     PROJECTION
       "init=epsg:27700"
@@ -60,6 +63,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'hart/Hart_District_Council_assets.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'LUC_NoMowMay_Outside_HDC_Land_20250213'
     PROJECTION
       "init=epsg:27700"
@@ -78,6 +84,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'hart/Hart_District_Council_assets.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'LUC_Grounds_Maintenance_Edited_20250214'
     PROJECTION
       "init=epsg:27700"
@@ -97,6 +106,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'hart/Hart_District_Council_assets.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'UPDATE_BIN_Layer_hdcbins'
     PROJECTION
       "init=epsg:27700"

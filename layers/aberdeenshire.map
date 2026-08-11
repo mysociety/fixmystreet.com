@@ -26,6 +26,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'aberdeenshire/WSS.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'WSS'
     PROJECTION
       "init=epsg:27700"
@@ -45,6 +48,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'aberdeenshire/GULL.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'GULL'
     PROJECTION
       "init=epsg:27700"
@@ -64,6 +70,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'aberdeenshire/GRPI.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'GRPI'
     PROJECTION
       "init=epsg:27700"
@@ -83,6 +92,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'aberdeenshire/GRIT.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'GRIT'
     PROJECTION
       "init=epsg:27700"
@@ -102,6 +114,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'aberdeenshire/BBSP.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'BBSP'
     PROJECTION
       "init=epsg:27700"
@@ -121,6 +136,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'aberdeenshire/CARP.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'CARP'
     PROJECTION
       "init=epsg:27700"
@@ -140,6 +158,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'aberdeenshire/StreetLighting.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'StreetLighting'
     PROJECTION
       "init=epsg:27700"

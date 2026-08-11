@@ -62,6 +62,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'shropshire/ILUM.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'ILUM'
     PROJECTION
       "init=epsg:4326"
@@ -82,6 +85,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'shropshire/LAMP.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'LAMP'
     PROJECTION
       "init=epsg:4326"
@@ -102,6 +108,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'shropshire/PLMP.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'PLMP'
     PROJECTION
       "init=epsg:4326"
@@ -141,6 +150,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'shropshire/BRID.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'BRID'
     PROJECTION
       "init=epsg:27700"
@@ -161,6 +173,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'shropshire/CTGR.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'CTGR'
     PROJECTION
       "init=epsg:27700"
@@ -181,6 +196,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'shropshire/TSIG.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'TSIG'
     PROJECTION
       "init=epsg:27700"
@@ -201,6 +219,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'shropshire/GRIT.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'GRIT'
     PROJECTION
       "init=epsg:27700"
@@ -221,6 +242,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'shropshire/WBIN.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'WBIN'
     PROJECTION
       "init=epsg:27700"

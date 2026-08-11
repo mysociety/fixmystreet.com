@@ -25,6 +25,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'merton/recycling_banks.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'recycling_banks'
     PROJECTION
       "init=epsg:4326"

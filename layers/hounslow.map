@@ -25,6 +25,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'hounslow/bins.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'bins'
     PROJECTION
       "init=epsg:27700"
@@ -44,6 +47,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'hounslow/lighting.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'lighting'
     PROJECTION
       "init=epsg:27700"
@@ -63,6 +69,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'hounslow/signs.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'signs'
     PROJECTION
       "init=epsg:27700"
@@ -82,6 +91,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'hounslow/trees.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'trees'
     PROJECTION
       "init=epsg:27700"
@@ -102,6 +114,9 @@ MAP
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'hounslow/streets.gpkg'
+    CONNECTIONOPTIONS
+      "IMMUTABLE" "YES"
+    END
     DATA 'streets'
     PROJECTION
       "init=epsg:3857"
