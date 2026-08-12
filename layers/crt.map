@@ -42,7 +42,7 @@ MAP
     NAME "Canals"
     METADATA
       "wfs_title"         "Canals" ##REQUIRED
-      "gml_include_items" "OBJECTID,name,region,functionallocation"
+      "gml_include_items" "OBJECTID,name,region,functional"
       "gml_featureid"     "OBJECTID" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
