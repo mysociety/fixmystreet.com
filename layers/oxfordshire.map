@@ -40,7 +40,7 @@ MAP
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
     END
-    TYPE LINE
+    TYPE POINT
     STATUS ON
     CONNECTIONTYPE OGR
     CONNECTION 'oxfordshire/oxfordshirebridges.gpkg'
