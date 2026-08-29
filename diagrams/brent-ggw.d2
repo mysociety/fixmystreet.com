@@ -1,0 +1,27 @@
+shape: sequence_diagram
+
+user: { shape: person }
+WW: WasteWorks
+SCP: SCP (card\npayment gateway)
+
+user -> WW: Enter postcode
+
+WW -> user: Address list
+
+user -> WW: Select address\nand submit\nsubscription form
+
+WW -> SCP: "Redirect user to\npayment gateway\n(card payment)"
+
+SCP -> user: Payment form
+
+user -> SCP: Submits payment\ndetails
+
+SCP -> WW: Redirect back after\nsuccessful payment
+
+WW."Verify payment\nparameters"
+
+WW -> user: Payment confirmation\nscreen
+
+WW -> user: Confirmation email\nwith subscription details
+
+WW -> Echo: Garden waste\nsubscription event
