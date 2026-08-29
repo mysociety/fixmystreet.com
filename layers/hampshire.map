@@ -17,15 +17,17 @@ MAP
     METADATA
       "wfs_title"         "Road_Sections" ##REQUIRED
       "wfs_srs"           "EPSG:3857 EPSG:27700" ## REQUIRED
-      "gml_include_items" "FEATURE_ID,SITE_CODE,CENTRAL_ASSET_ID" ## Optional (serves all attributes for layer)
-      "gml_featureid"     "FEATURE_ID" ## REQUIRED
+      "gml_include_items" "c_asset_id,site_code,asset_id" ## Optional (serves all attributes for layer)
+      "gml_c_asset_id_alias" "CENTRAL_ASSET_ID"
+      "gml_site_code_alias" "SITE_CODE"
+      "gml_asset_id_alias" "FEATURE_ID"
+      "gml_featureid"     "asset_id" ## REQUIRED
       "wfs_enable_request" "*"
       "wfs_getfeature_formatlist" "geojson"
   END
     TYPE LINE
     STATUS ON
-    CONNECTIONTYPE OGR
-    CONNECTION "hampshire/Road_Sections.TAB"
+    DATA 'hampshire/Road_Section_Export'
     PROJECTION
       "init=epsg:27700"
     END
