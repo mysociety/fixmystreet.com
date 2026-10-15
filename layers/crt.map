@@ -61,4 +61,118 @@ MAP
     END
   END #layer
 
+  LAYER
+    NAME "Aqueducts"
+    METADATA
+      "wfs_title"         "Aqueducts" ##REQUIRED
+      "gml_include_items" "objectid,sap_func_loc,sap_description,is_trust_owned"
+      "gml_featureid"     "objectid" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'crt/aqueducts.gpkg'
+    DATA 'aqueducts'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Bridges"
+    METADATA
+      "wfs_title"         "Bridges" ##REQUIRED
+      "gml_include_items" "OBJECTID,sap_func_loc,sap_description,is_trust_owned"
+      "gml_featureid"     "OBJECTID" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'crt/bridges.gpkg'
+    DATA 'bridges'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Facilities"
+    METADATA
+      "wfs_title"         "Facilities" ##REQUIRED
+      "gml_include_items" "OBJECTID,sap_func_loc,sap_description,facility_type,is_trust_owned"
+      "gml_featureid"     "OBJECTID" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'crt/facilities.gpkg'
+    DATA 'facilities'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Locks"
+    METADATA
+      "wfs_title"         "Locks" ##REQUIRED
+      "gml_include_items" "OBJECTID,sap_func_loc,sap_description,is_trust_owned"
+      "gml_featureid"     "OBJECTID" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'crt/locks.gpkg'
+    DATA 'locks'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Tunnels"
+    METADATA
+      "wfs_title"         "Tunnels" ##REQUIRED
+      "gml_include_items" "OBJECTID,sap_func_loc,sap_description,is_trust_owned"
+      "gml_featureid"     "OBJECTID" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE LINE
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'crt/tunnels.gpkg'
+    DATA 'tunnels'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
+  LAYER
+    NAME "Tunnel_Portals"
+    METADATA
+      "wfs_title"         "Tunnel_Portals" ##REQUIRED
+      "gml_include_items" "OBJECTID,sap_func_loc,sap_description,is_trust_owned"
+      "gml_featureid"     "OBJECTID" ## REQUIRED
+      "wfs_enable_request" "*"
+      "wfs_getfeature_formatlist" "geojson"
+    END
+    TYPE POINT
+    STATUS ON
+    CONNECTIONTYPE OGR
+    CONNECTION 'crt/tunnel_portals.gpkg'
+    DATA 'tunnel_portals'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END #layer
+
 END #mapfile
