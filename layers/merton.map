@@ -90,4 +90,38 @@ MAP
     END
   END
 
+  LAYER
+    NAME "tree_points"
+    METADATA
+      "wfs_title"          "Merton Tree Points"
+      "wfs_srs"            "EPSG:3857 EPSG:27700"
+      "gml_include_items"  "TREECODE"
+      "gml_featureid"      "TREECODE"
+      "wfs_enable_request" "*"
+    END
+    TYPE POINT
+    STATUS ON
+    DATA 'merton/All_Trees'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END
+
+  LAYER
+    NAME "tree_groups"
+    METADATA
+      "wfs_title"          "Merton Tree Groups"
+      "wfs_srs"            "EPSG:3857 EPSG:27700"
+      "gml_include_items"  "TREECODE"
+      "gml_featureid"      "TREECODE"
+      "wfs_enable_request" "*"
+    END
+    TYPE POLYGON
+    STATUS ON
+    DATA 'merton/Ezytreev_Groups'
+    PROJECTION
+      "init=epsg:27700"
+    END
+  END
+
 END
